@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<Description>The Rhythm Drop main entry package which installs web and non-web dependencies.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Rhythm.Drop.Infrastructure\Rhythm.Drop.Infrastructure.csproj" />
+		<ProjectReference Include="..\Rhythm.Drop.Web\Rhythm.Drop.Web.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	
+</Project>
