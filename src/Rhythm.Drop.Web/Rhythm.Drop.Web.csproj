@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<Description>The Rhythm Drop package for web components (e.g. tag helpers).</Description>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>

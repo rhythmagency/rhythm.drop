@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<Description>The Rhythm Drop main entry package which installs web and non-web dependencies.</Description>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
