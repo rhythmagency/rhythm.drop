@@ -11,9 +11,9 @@
 		<Description>The Rhythm Drop package for web components (e.g. tag helpers).</Description>
 	</PropertyGroup>
 
-	<!--<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>-->
+	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<ProjectReference Include="..\Rhythm.Drop.Infrastructure\Rhythm.Drop.Infrastructure.csproj" />
@@ -22,14 +22,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
-	</ItemGroup>
-	
-	<ItemGroup>
-		<None Include="readme.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="TagHelperRenderers\Modals\" />
 	</ItemGroup>
 	
 </Project>

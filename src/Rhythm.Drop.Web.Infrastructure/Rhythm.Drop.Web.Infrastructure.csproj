@@ -12,16 +12,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Rhythm.Drop.Infrastructure\Rhythm.Drop.Infrastructure.csproj" />
 	  <ProjectReference Include="..\Rhythm.Drop.Models\Rhythm.Drop.Models.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>

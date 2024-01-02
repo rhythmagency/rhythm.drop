@@ -12,12 +12,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Rhythm.Drop.Infrastructure\Rhythm.Drop.Infrastructure.csproj" />
-		<ProjectReference Include="..\Rhythm.Drop.Web\Rhythm.Drop.Web.csproj" />
+		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="readme.md" Pack="true" PackagePath="\" />
+		<ProjectReference Include="..\Rhythm.Drop.Infrastructure\Rhythm.Drop.Infrastructure.csproj" />
+		<ProjectReference Include="..\Rhythm.Drop.Web\Rhythm.Drop.Web.csproj" />
 	</ItemGroup>
 	
 </Project>
