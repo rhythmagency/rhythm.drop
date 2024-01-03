@@ -8,7 +8,6 @@ public static class DropTagHelperOrdering
     /// <summary>
     /// Renders the tag helper before <see cref="Default"/>.
     /// </summary>
-    /// <
     public const int PreDefault = -1;
 
     /// <summary>

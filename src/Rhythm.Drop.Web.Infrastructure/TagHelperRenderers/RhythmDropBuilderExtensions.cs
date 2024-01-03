@@ -5,7 +5,6 @@ using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
-using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Modals;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to tag helper renderers.
