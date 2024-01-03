@@ -23,14 +23,14 @@ public interface IModalAndLabelLinkBuilder
     /// </summary>
     /// <param name="name">The name of the attribute.</param>
     /// <param name="value">The value of the attribute.</param>
-    /// <returns>A <see cref="IModalWithLabelLinkBuilder"/>.</returns>
+    /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
     IModalAndLabelLinkBuilder IncludeAttribute(string name, object? value);
 
     /// <summary>
     /// Removes an attribute from the current builder.
     /// </summary>
     /// <param name="name">The name of the attribute.</param>
-    /// <returns>A <see cref="IModalWithLabelLinkBuilder"/>.</returns>
+    /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
     IModalAndLabelLinkBuilder ExcludeAttribute(string name);
 
     /// <summary>

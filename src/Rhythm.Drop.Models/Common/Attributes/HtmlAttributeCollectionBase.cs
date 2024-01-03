@@ -8,6 +8,9 @@ using System.Diagnostics.CodeAnalysis;
 /// </summary>
 public abstract class HtmlAttributeCollectionBase : IHtmlAttributeCollectionBase
 {
+    /// <summary>
+    /// The internal dictionary.
+    /// </summary>
     protected readonly IDictionary<string, object?> _dictionary = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>

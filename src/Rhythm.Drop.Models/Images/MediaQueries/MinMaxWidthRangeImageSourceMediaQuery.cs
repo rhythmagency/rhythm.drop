@@ -8,6 +8,11 @@
 /// <param name="Unit">The unit (e.g. px, vh, vw).</param>
 public sealed record MinMaxWidthRangeImageSourceMediaQuery(int? MinWidth, int? MaxWidth, string Unit) : IImageSourceMediaQuery
 {
+    /// <summary>
+    /// Constructs a <see cref="MinMaxWidthRangeImageSourceMediaQuery"/> with optional min width and min height using pixels as the unit.
+    /// </summary>
+    /// <param name="MinWidth">The min width.</param>
+    /// <param name="MaxWidth">The max width.</param>
     public MinMaxWidthRangeImageSourceMediaQuery(int? MinWidth, int? MaxWidth) : this(MinWidth, MaxWidth, "px")
     {
     }

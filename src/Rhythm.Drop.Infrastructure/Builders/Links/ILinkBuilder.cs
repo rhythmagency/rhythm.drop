@@ -16,7 +16,7 @@ public interface ILinkBuilder
     /// </summary>
     /// <param name="label">The label.</param>
     /// <returns>A <see cref="IUrlLinkBuilder"/>.</returns>
-    ILabelLinkBuilder WithLabel(string? url);
+    ILabelLinkBuilder WithLabel(string? label);
 
     /// <summary>
     /// Adds a URL to the builder.

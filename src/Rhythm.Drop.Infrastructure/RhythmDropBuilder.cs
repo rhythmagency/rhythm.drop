@@ -10,5 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 /// </param>
 public sealed class RhythmDropBuilder(IServiceCollection services) : IRhythmDropBuilder
 {
+    /// <inheritdoc/>
     public IServiceCollection Services => services;
 }

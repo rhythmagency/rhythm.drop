@@ -2,6 +2,9 @@
 
 using Rhythm.Drop.Infrastructure.Factories;
 
+/// <summary>
+/// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to infrastructure.
+/// </summary>
 public static class RhythmDropBuilderExtensions
 {
     /// <summary>

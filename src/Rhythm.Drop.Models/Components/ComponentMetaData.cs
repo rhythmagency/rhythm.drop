@@ -8,6 +8,8 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// <param name="Level">The level of the component.</param>
 /// <param name="Index">The index of the component within the current collection of components.</param>
 /// <param name="Total">The total number of components within the current collection of components.</param>
+/// <param name="Theme">The theme of the component.</param>
+/// <param name="Attributes">The additional HTML attributes.</param>
 /// <remarks>
 /// <para>
 /// This type exists to make it easier to construct and return a generic Component Meta Data.

@@ -20,9 +20,9 @@ public abstract class TagHelperRendererBase<TModel> : ITagHelperRenderer<TModel>
     /// <remarks>This method will render the model depending on whether it is null or not.</remarks>
     public async Task RenderAsync(TModel? model, TagHelperContext context, TagHelperOutput output)
     {
-        if (IsNull(model))
+        if (IsNullOrInvalid(model))
         {
-            await RenderNullAsync(context, output);
+            await RenderNullOrInvalidAsync(context, output);
         }
         else
         {
@@ -41,14 +41,19 @@ public abstract class TagHelperRendererBase<TModel> : ITagHelperRenderer<TModel>
     protected abstract Task RenderModelAsync(TModel model, TagHelperContext context, TagHelperOutput output);
 
     /// <summary>
-    /// How the <typeparamref name="TModel"/> should be rendered if it is <see langword="null"/>.
+    /// How the <typeparamref name="TModel"/> should be rendered if it is <see langword="null"/> or invalid.
     /// </summary>
     /// <param name="context">The context of the current <see cref="TagHelper"/>.</param>
     /// <param name="output">The output of the current <see cref="TagHelper"/>.</param>
     /// <returns>A <see cref="Task"/>.</returns>
-    protected abstract Task RenderNullAsync(TagHelperContext context, TagHelperOutput output);
+    protected abstract Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output);
 
-    protected virtual bool IsNull([NotNullWhen(false)] TModel? model)
+    /// <summary>
+    /// Checks if the incoming model is <see langword="null"/> or invalid.
+    /// </summary>
+    /// <param name="model">The model.</param>
+    /// <returns>A <see cref="bool"/>.</returns>
+    protected virtual bool IsNullOrInvalid([NotNullWhen(false)] TModel? model)
     {
         return model is null;
     }

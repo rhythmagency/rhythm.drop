@@ -1,4 +1,5 @@
 ﻿namespace Rhythm.Drop.Web.Infrastructure;
+
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
 
@@ -7,6 +8,11 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// </summary>
 public static class TagHelperAttributeListExtensions
 {
+    /// <summary>
+    /// Converts a <see cref="TagHelperAttributeList"/> to a <see cref="IReadOnlyHtmlAttributeCollection"/>.
+    /// </summary>
+    /// <param name="attributes">The tag helper attributes.</param>
+    /// <returns>A <see cref="IReadOnlyHtmlAttributeCollection"/>.</returns>
     public static IReadOnlyHtmlAttributeCollection ToHtmlAttributeCollection(this TagHelperAttributeList attributes)
     {
         var attributesCollection = new HtmlAttributeCollection();

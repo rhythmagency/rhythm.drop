@@ -25,6 +25,6 @@ public interface ILabelLinkBuilder
     /// Adds content to the builder.
     /// </summary>
     /// <param name="modal">The modal.</param>
-    /// <returns>A <see cref="IModalWithLabelLinkBuilder"/>.</returns>
+    /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
     IModalAndLabelLinkBuilder AndModal(IModal modal);
 }

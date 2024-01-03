@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILink>, IDropLinkTagHelperRenderer
 {
     /// <inheritdoc/>
-    protected override async Task RenderNullAsync(TagHelperContext context, TagHelperOutput output)
+    protected override async Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output)
     {
         await output.SupressOutputOrTag();
     }

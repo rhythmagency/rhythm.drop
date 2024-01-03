@@ -9,11 +9,18 @@ using Rhythm.Drop.Models.Images;
 /// </summary>
 public abstract class ImageSourceSetBase : IImageSourceSet
 {
-    protected readonly List<IImageSourceSetItem> _items = new();
+    /// <summary>
+    /// The internal list.
+    /// </summary>
+    protected readonly List<IImageSourceSetItem> _items = [];
 
     /// <inheritdoc/>
     public int Count => _items.Count;
 
+    /// <summary>
+    /// Constructs a <see cref="ImageSourceSetBase"/> with existing source set items.
+    /// </summary>
+    /// <param name="items">The items.</param>
     public ImageSourceSetBase(IReadOnlyCollection<IImageSourceSetItem> items)
     {
         _items.AddRange(items);

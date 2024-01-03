@@ -10,6 +10,7 @@ public static class ModalPersistenceHelperExtensions
     /// <summary>
     /// Persist the modal content of a link for later use.
     /// </summary>
+    /// <param name="helper">The helper.</param>
     /// <param name="link">The link to persist.</param>
     public static void Persist(this IModalPersistenceHelper helper, IModalLink link)
     {

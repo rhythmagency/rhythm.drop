@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<DropImageTagHelperRendererContext>, IDropImageTagHelperRenderer
 {
     /// <inheritdoc/>
-    protected override async Task RenderNullAsync(TagHelperContext context, TagHelperOutput output)
+    protected override async Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output)
     {
         await Task.Run(output.SuppressOutput);
     }

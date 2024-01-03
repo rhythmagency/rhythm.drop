@@ -42,7 +42,7 @@ public interface IUrlAndAltTextWithDimensionsImageBuilder
     /// <summary>
     /// Adds multiple sources to the builder.
     /// </summary>
-    /// <param name="source">The source.</param>
+    /// <param name="sources">The sources.</param>
     /// <returns>A <see cref="IUrlAndAltTextWithDimensionsImageBuilder"/>.</returns>
     IUrlAndAltTextWithDimensionsImageBuilder AddSources(IReadOnlyCollection<IImageSource> sources);
 
