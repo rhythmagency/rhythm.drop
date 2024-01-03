@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Images;
+using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using System.Threading.Tasks;
 
@@ -23,8 +24,11 @@ public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRend
     [HtmlAttributeName("model")]
     public IImage? Model { get; set; }
 
+    /// <summary>
+    /// Gets or sets the render mode for this tag helper.
+    /// </summary>
     [HtmlAttributeName("render-mode")]
-    public ImageRenderMode RenderMode { get; set; } = ImageRenderMode.Default;
+    public RenderMode RenderMode { get; set; } = RenderMode.Default;
 
     /// <inheritdoc/>
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
