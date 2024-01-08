@@ -6,12 +6,6 @@
 public interface IHtmlAttributeCollection : IHtmlAttributeCollectionBase
 {
     /// <summary>
-    /// Adds a class name.
-    /// </summary>
-    /// <param name="className">The class name to add.</param>
-    void AddClass(string className);
-
-    /// <summary>
     /// Removes all attributes from this collection.
     /// </summary>
     void RemoveAll();
@@ -22,12 +16,6 @@ public interface IHtmlAttributeCollection : IHtmlAttributeCollectionBase
     /// <param name="name">The name of the attribute to be removed.</param>
     /// <returns>A <see cref="bool"/> which represents if the removal was successful.</returns>
     bool RemoveAttribute(string name);
-
-    /// <summary>
-    /// Removes a class name.
-    /// </summary>
-    /// <param name="className">The class name to remove.</param>
-    void RemoveClass(string className);
 
     /// <summary>
     /// Sets an attribute.
