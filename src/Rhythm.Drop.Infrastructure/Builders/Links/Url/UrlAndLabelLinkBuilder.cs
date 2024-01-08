@@ -50,4 +50,19 @@ internal sealed class UrlAndLabelLinkBuilder(string? url, string? label) : IUrlA
         _attributes.SetAttribute(name, value);
         return this;
     }
+
+
+    /// <inheritdoc/>
+    public IUrlAndLabelLinkBuilder AddClass(string className)
+    {
+        _attributes.AddClass(className);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IUrlAndLabelLinkBuilder RemoveClass(string className)
+    {
+        _attributes.RemoveClass(className);
+        return this;
+    }
 }

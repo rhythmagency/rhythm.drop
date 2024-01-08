@@ -1,5 +1,6 @@
 ﻿namespace Rhythm.Drop.Infrastructure.Builders.Links.Modals;
 
+using Rhythm.Drop.Infrastructure.Builders.Links.Url;
 using Rhythm.Drop.Models.Links;
 using Rhythm.Drop.Models.Modals;
 
@@ -32,6 +33,21 @@ public interface IModalAndLabelLinkBuilder
     /// <param name="name">The name of the attribute.</param>
     /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
     IModalAndLabelLinkBuilder ExcludeAttribute(string name);
+
+
+    /// <summary>
+    /// Adds a class to the current builder.
+    /// </summary>
+    /// <param name="className">The class name to add.</param>
+    /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
+    IModalAndLabelLinkBuilder AddClass(string className);
+
+    /// <summary>
+    /// Adds a class to the current builder.
+    /// </summary>
+    /// <param name="className">The class name to remove.</param>
+    /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
+    IModalAndLabelLinkBuilder RemoveClass(string className);
 
     /// <summary>
     /// Attempts to build a <see cref="IModalLink"/> based on the current input.

@@ -44,4 +44,18 @@ public interface IUrlAndLabelLinkBuilder
     /// <param name="name">The name of the attribute.</param>
     /// <returns>A <see cref="IUrlAndLabelLinkBuilder"/>.</returns>
     IUrlAndLabelLinkBuilder ExcludeAttribute(string name);
+
+    /// <summary>
+    /// Adds a class to the current builder.
+    /// </summary>
+    /// <param name="className">The class name to add.</param>
+    /// <returns>A <see cref="IUrlAndLabelLinkBuilder"/>.</returns>
+    IUrlAndLabelLinkBuilder AddClass(string className);
+
+    /// <summary>
+    /// Adds a class to the current builder.
+    /// </summary>
+    /// <param name="className">The class name to remove.</param>
+    /// <returns>A <see cref="IUrlAndLabelLinkBuilder"/>.</returns>
+    IUrlAndLabelLinkBuilder RemoveClass(string className);
 }

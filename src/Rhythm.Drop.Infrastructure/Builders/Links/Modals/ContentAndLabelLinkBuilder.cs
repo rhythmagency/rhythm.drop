@@ -54,4 +54,18 @@ internal sealed class ModalAndLabelLinkBuilder(IModal modal, string? label) : IM
         _attributes.SetAttribute(name, value);
         return this;
     }
+
+    /// <inheritdoc/>
+    public IModalAndLabelLinkBuilder AddClass(string className)
+    {
+        _attributes.AddClass(className);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IModalAndLabelLinkBuilder RemoveClass(string className)
+    {
+        _attributes.RemoveClass(className);
+        return this;
+    }
 }
