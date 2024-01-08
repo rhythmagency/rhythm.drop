@@ -9,7 +9,7 @@
 /// <param name="attributes">The existing collection.</param>
 public sealed class ReadOnlyHtmlAttributeCollection(IHtmlAttributeCollectionBase attributes) : HtmlAttributeCollectionBase(attributes), IReadOnlyHtmlAttributeCollection
 {
-    private static readonly Lazy<IReadOnlyHtmlAttributeCollection> _empty = new Lazy<IReadOnlyHtmlAttributeCollection>(() => new HtmlAttributeCollection().ToReadOnly());
+    private static readonly Lazy<IReadOnlyHtmlAttributeCollection> _empty = new(() => new HtmlAttributeCollection().ToReadOnly());
 
     /// <summary>
     /// Gets an empty readonly collection.
