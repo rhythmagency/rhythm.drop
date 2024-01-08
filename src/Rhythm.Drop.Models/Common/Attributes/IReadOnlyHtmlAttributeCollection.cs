@@ -5,4 +5,9 @@
 /// </summary>
 public interface IReadOnlyHtmlAttributeCollection : IHtmlAttributeCollectionBase
 {
+    /// <summary>
+    /// Converts the current collection to an editable collection.
+    /// </summary>
+    /// <returns>A <see cref="IReadOnlyHtmlAttributeCollection"/>.</returns>
+    IHtmlAttributeCollection ToEditable();
 }

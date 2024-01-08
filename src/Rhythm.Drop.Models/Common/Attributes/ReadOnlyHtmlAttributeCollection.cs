@@ -16,4 +16,10 @@ public sealed class ReadOnlyHtmlAttributeCollection(IHtmlAttributeCollectionBase
     /// </summary>
     /// <returns>A <see cref="IReadOnlyHtmlAttributeCollection"/> which is empty.</returns>
     public static IReadOnlyHtmlAttributeCollection Empty() => _empty.Value;
+
+    /// <inheritdoc/>
+    public IHtmlAttributeCollection ToEditable()
+    {
+        return new HtmlAttributeCollection(this);
+    }
 }
