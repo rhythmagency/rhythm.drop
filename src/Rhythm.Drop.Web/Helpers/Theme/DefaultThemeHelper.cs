@@ -22,7 +22,7 @@ internal sealed class DefaultThemeHelper : IThemeHelper
         if (string.IsNullOrWhiteSpace(theme))
         {
             var options = _optionsMonitor.CurrentValue;
-            return options.Defaults.Theme;
+            return options.DefaultTheme;
         }
 
         return theme;

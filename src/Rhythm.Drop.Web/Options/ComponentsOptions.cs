@@ -11,9 +11,10 @@ public sealed class ComponentsOptions
     public const string SectionName = "Rhythm:Drop:Components";
 
     /// <summary>
-    /// Gets or sets the defaults for Components.
+    /// Gets or sets the default theme.
     /// </summary>
-    public ComponentsDefaultsOptions Defaults { get; set; } = new ComponentsDefaultsOptions();
+    /// <remarks>This theme is used if no other theme is set at runtime.</remarks>
+    public string DefaultTheme { get; set; } = "Default";
 
     /// <summary>
     /// Gets or sets the pattern to find a view.
