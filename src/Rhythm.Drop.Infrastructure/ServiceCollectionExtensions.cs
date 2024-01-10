@@ -18,13 +18,6 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddRhythmDrop(this IServiceCollection services, Action<IRhythmDropBuilder> configure)
     {
         var builder = new RhythmDropBuilder(services);
-
-        //if (services.HasRhythmDropAddedMarker() is false)
-        //{
-        //    builder.AddInfrastructure();
-        //    services.AddRhythmDropAddedMarker();
-        //}
-
         configure(builder);
         return services;
     }
@@ -35,26 +28,5 @@ public static class ServiceCollectionExtensions
         var implementationType = typeof(TImplementation);
 
         return services.Replace(ServiceDescriptor.Describe(serviceType, implementationType, lifetime));
-    }
-
-    /// <summary>
-    /// Checks if the <see cref="RhythmDropAddedMarker"/> exists in the current <see cref="IServiceCollection"/>.
-    /// </summary>
-    /// <param name="services">The current services.</param>
-    /// <returns>A <see cref="bool"/> which represents whether it was found or not.</returns>
-    private static bool HasRhythmDropAddedMarker(this IServiceCollection services)
-    {
-        return services.Any(x => x.ServiceType == typeof(RhythmDropAddedMarker));
-    }
-
-    /// <summary>
-    /// Adds the <see cref="RhythmDropAddedMarker"/> to the current <see cref="IServiceCollection"/>.
-    /// </summary>
-    /// <param name="services">The current services.</param>
-    /// <returns>A <see cref="IServiceCollection"/>.</returns>
-    private static IServiceCollection AddRhythmDropAddedMarker(this IServiceCollection services)
-    {
-        services.AddSingleton<RhythmDropAddedMarker>();
-        return services;
     }
 }

@@ -14,7 +14,7 @@ public static class ServiceCollectionExtensions
     /// </summary>
     /// <param name="services">The current services.</param>
     /// <returns>A <see cref="IServiceCollection"/>.</returns>
-    /// <remarks>For a more controlled installation use <see cref="Infrastructure.ServiceCollectionExtensions.AddRhythmDrop(IServiceCollection, Action{IRhythmDropBuilder})"/></remarks>
+    /// <remarks>For a more controlled installation use <see cref="Infrastructure.ServiceCollectionExtensions.AddRhythmDrop(IServiceCollection, Action{IRhythmDropBuilder})"/>.</remarks>
     public static IServiceCollection AddRhythmDrop(this IServiceCollection services)
     {
         return services.AddRhythmDrop((builder) =>
