@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Web.Infrastructure;
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 

@@ -53,7 +53,6 @@ public sealed class DropComponentTagHelper(IDropComponentsTagHelperRenderer tagH
     [HtmlAttributeName("total")]
     public int Total { get; set; } = 1;
 
-
     /// <summary>
     /// Gets or sets the theme.
     /// </summary>
