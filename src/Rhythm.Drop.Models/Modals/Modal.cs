@@ -3,6 +3,7 @@
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Components;
 using System.Collections.Generic;
+
 /// <summary>
 /// An implementation of <see cref="IModal"/>.
 /// </summary>
@@ -32,4 +33,10 @@ public sealed record Modal(string UniqueKey, IReadOnlyCollection<IComponent> Con
 
     /// <inheritdoc/>
     public string ViewName => "Modal";
+
+    /// <inheritdoc/>
+    public IReadOnlyCollection<IComponent> GetComponents()
+    {
+        return Content;
+    }
 }
