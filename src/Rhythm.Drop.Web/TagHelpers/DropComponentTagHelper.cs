@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 /// </summary>
 /// <param name="tagHelperRenderer">The tag helper renderer.</param>
 /// <param name="themeHelper">The theme helper.</param>
-[HtmlTargetElement("drop-component")]
+[HtmlTargetElement("drop-component", TagStructure = TagStructure.WithoutEndTag)]
 public sealed class DropComponentTagHelper(IDropComponentsTagHelperRenderer tagHelperRenderer, IThemeHelper themeHelper) : TagHelper
 {
     /// <summary>

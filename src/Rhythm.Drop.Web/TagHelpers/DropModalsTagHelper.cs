@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 /// <param name="dropComponentsTagHelperRenderer">The drop modals tag helper renderer.</param>
 /// <param name="modalPersistenceHelper">The modal persistence helper.</param>
 /// <param name="themeHelper">The theme helper.</param>
-[HtmlTargetElement("drop-modals")]
+[HtmlTargetElement("drop-modals", TagStructure = TagStructure.WithoutEndTag)]
 public sealed class DropModalsTagHelper(IDropComponentsTagHelperRenderer dropComponentsTagHelperRenderer, IModalPersistenceHelper modalPersistenceHelper, IThemeHelper themeHelper) : TagHelper
 {
     /// <summary>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 /// A tag helper that renders a <see cref="IImage"/>.
 /// </summary>
 /// <param name="tagHelperRenderer">The tag helper renderer.</param>
-[HtmlTargetElement("drop-image", TagStructure = TagStructure.NormalOrSelfClosing)]
+[HtmlTargetElement("drop-image", TagStructure = TagStructure.WithoutEndTag)]
 public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRenderer) : TagHelper
 {
     /// <summary>
