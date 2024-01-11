@@ -13,16 +13,16 @@ using System.Threading.Tasks;
 /// <summary>
 /// A tag helper for rendering modals.
 /// </summary>
-/// <param name="dropComponentsTagHelperRenderer">The drop modals tag helper renderer.</param>
+/// <param name="tagHelperRenderer">The tag helper renderer.</param>
 /// <param name="modalPersistenceHelper">The modal persistence helper.</param>
 /// <param name="themeHelper">The theme helper.</param>
 [HtmlTargetElement("drop-modals", TagStructure = TagStructure.WithoutEndTag)]
-public sealed class DropModalsTagHelper(IDropComponentsTagHelperRenderer dropComponentsTagHelperRenderer, IModalPersistenceHelper modalPersistenceHelper, IThemeHelper themeHelper) : TagHelper
+public sealed class DropModalsTagHelper(IDropComponentsTagHelperRenderer tagHelperRenderer, IModalPersistenceHelper modalPersistenceHelper, IThemeHelper themeHelper) : TagHelper
 {
     /// <summary>
-    /// The drop modals tag helper renderer.
+    /// The tag helper renderer.
     /// </summary>
-    private readonly IDropComponentsTagHelperRenderer _dropComponentsTagHelperRenderer = dropComponentsTagHelperRenderer;
+    private readonly IDropComponentsTagHelperRenderer _tagHelperRenderer = tagHelperRenderer;
 
     /// <summary>
     /// The modal persistence helper.
@@ -73,7 +73,7 @@ public sealed class DropModalsTagHelper(IDropComponentsTagHelperRenderer dropCom
         var theme = _themeHelper.GetValidTheme(Theme);
         var renderContext = new DropComponentsTagHelperRendererContext(modals, Level, theme, TagName, ViewContext);
 
-        await _dropComponentsTagHelperRenderer.RenderAsync(renderContext, context, output);
+        await _tagHelperRenderer.RenderAsync(renderContext, context, output);
     }
 
     private IReadOnlyCollection<IModal> GetModals()
