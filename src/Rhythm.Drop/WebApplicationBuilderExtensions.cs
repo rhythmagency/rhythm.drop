@@ -13,7 +13,7 @@ public static class WebApplicationBuilderExtensions
     /// </summary>
     /// <param name="builder">The current web application builder.</param>
     /// <returns>A <see cref="WebApplicationBuilder"/>.</returns>
-    /// <remarks>For a more custom installation use <see cref="AddRhythmDrop(WebApplicationBuilder, Action{IRhythmDropBuilder})"/>.</remarks>
+    /// <remarks>For custom functionality use <see cref="AddRhythmDrop(WebApplicationBuilder, Action{IRhythmDropBuilder})"/>.</remarks>
     public static WebApplicationBuilder AddRhythmDrop(this WebApplicationBuilder builder)
     {
         builder.Services.AddRhythmDrop();
