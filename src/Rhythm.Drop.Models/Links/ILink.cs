@@ -8,11 +8,6 @@ namespace Rhythm.Drop.Models.Links;
 public interface ILink
 {
     /// <summary>
-    /// Gets the tag name to be used during rendering.
-    /// </summary>
-    string TagName { get; }
-
-    /// <summary>
     /// Gets the label to be used during rendering.
     /// </summary>
     string Label { get; }

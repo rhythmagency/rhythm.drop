@@ -38,7 +38,7 @@ internal sealed class ModalAndLabelLinkBuilder(IModal modal, string? label) : IM
             return default;
         }
 
-        return new ButtonModalLink(Modal, Label, _attributes.ToReadOnly());
+        return new ModalLink(Modal, Label, _attributes.ToReadOnly());
     }
 
     /// <inheritdoc/>

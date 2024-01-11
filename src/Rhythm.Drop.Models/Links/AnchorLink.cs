@@ -9,6 +9,4 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// <param name="Attributes">The attributes.</param>
 public sealed record AnchorLink(string Label, IReadOnlyHtmlAttributeCollection Attributes) : ILink
 {
-    /// <inheritdoc/>
-    public string TagName => "a";
 }

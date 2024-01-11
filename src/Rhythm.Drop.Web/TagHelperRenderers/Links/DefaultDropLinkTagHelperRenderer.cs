@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Links;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Modals;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
+using System;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -30,7 +31,7 @@ internal sealed class DefaultDropLinkTagHelperRenderer : DropLinkTagHelperRender
                 output.Attributes.SetAttribute("data-modal-target", modalLink.Modal.UniqueKey);
             }
 
-            output.TagName = link.TagName;
+            output.TagName = GetTagName(link);
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Content.SetHtmlContent(link.Label);
 
@@ -39,5 +40,14 @@ internal sealed class DefaultDropLinkTagHelperRenderer : DropLinkTagHelperRender
                 output.Attributes.SetAttribute(attribute.Name, attribute.Value);
             }
         });
+    }
+
+    private static string GetTagName(ILink link)
+    {
+        return link switch
+        {
+            IModalLink => "button",
+            ILink => "a"
+        };
     }
 }

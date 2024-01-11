@@ -43,6 +43,6 @@ public sealed class ContentAndLabelWithUniqueKeyLinkBuilder(string? label, IRead
 
         var modal = new Modal(UniqueKey, Content);
 
-        return new ButtonModalLink(modal, Label, _attributes.ToReadOnly());
+        return new ModalLink(modal, Label, _attributes.ToReadOnly());
     }
 }
