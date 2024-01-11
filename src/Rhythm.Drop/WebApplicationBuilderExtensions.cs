@@ -13,7 +13,7 @@ public static class WebApplicationBuilderExtensions
     /// </summary>
     /// <param name="builder">The current web application builder.</param>
     /// <returns>A <see cref="WebApplicationBuilder"/>.</returns>
-    /// <remarks>For a more controlled installation use <see cref="AddRhythmDrop(WebApplicationBuilder, Action{IRhythmDropBuilder})"/>.</remarks>
+    /// <remarks>For a more custom installation use <see cref="AddRhythmDrop(WebApplicationBuilder, Action{IRhythmDropBuilder})"/>.</remarks>
     public static WebApplicationBuilder AddRhythmDrop(this WebApplicationBuilder builder)
     {
         builder.Services.AddRhythmDrop();
@@ -22,12 +22,12 @@ public static class WebApplicationBuilderExtensions
     }
 
     /// <summary>
-    /// Adds Rhythm Drop with configured dependencies to the current <see cref="WebApplicationBuilder"/>.
+    /// Adds Rhythm Drop with default settings the current <see cref="WebApplicationBuilder"/> plus additional overrides.
     /// </summary>
     /// <param name="builder">The current web application builder.</param>
     /// <param name="configure">The configuration action.</param>
     /// <returns>A <see cref="WebApplicationBuilder"/>.</returns>
-    /// <remarks>Developer must add any dependencies (e.g. Infrastructure and Web) here.</remarks>
+    /// <remarks>Default settings (e.g. Infrastructure and Web) are add the first time this method is called.</remarks>
     public static WebApplicationBuilder AddRhythmDrop(this WebApplicationBuilder builder, Action<IRhythmDropBuilder> configure)
     {
         builder.Services.AddRhythmDrop(configure);
