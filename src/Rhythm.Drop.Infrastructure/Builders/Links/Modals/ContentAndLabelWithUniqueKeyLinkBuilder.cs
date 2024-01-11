@@ -14,6 +14,11 @@ using System.Collections.Generic;
 /// <param name="uniqueKey">The unique key.</param>
 public sealed class ContentAndLabelWithUniqueKeyLinkBuilder(string? label, IReadOnlyCollection<IComponent> content, string uniqueKey) : IContentAndLabelWithUniqueKeyLinkBuilder
 {
+    /// <summary>
+    /// The internal attribute collection.
+    /// </summary>
+    private readonly HtmlAttributeCollection _attributes = new();
+
     /// <inheritdoc/>
     public string? Label => label;
 
@@ -22,11 +27,6 @@ public sealed class ContentAndLabelWithUniqueKeyLinkBuilder(string? label, IRead
 
     /// <inheritdoc/>
     public string UniqueKey => uniqueKey;
-
-    /// <summary>
-    /// The attribute collection.
-    /// </summary>
-    private readonly IHtmlAttributeCollection _attributes = new HtmlAttributeCollection();
 
     /// <inheritdoc/>
     public IModalLink? Build()

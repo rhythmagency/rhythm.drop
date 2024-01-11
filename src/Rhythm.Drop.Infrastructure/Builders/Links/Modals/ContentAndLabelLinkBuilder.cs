@@ -12,9 +12,9 @@ using Rhythm.Drop.Models.Modals;
 internal sealed class ModalAndLabelLinkBuilder(IModal modal, string? label) : IModalAndLabelLinkBuilder
 {
     /// <summary>
-    /// The HTML attributes.
+    /// The internal attribute collection.
     /// </summary>
-    private readonly IHtmlAttributeCollection _attributes = new HtmlAttributeCollection();
+    private readonly HtmlAttributeCollection _attributes = new();
 
     /// <inheritdoc/>
     public string? Label => label;

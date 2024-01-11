@@ -10,6 +10,11 @@ using Rhythm.Drop.Models.Links;
 /// <param name="label">The label.</param>
 internal sealed class UrlAndLabelLinkBuilder(string? url, string? label) : IUrlAndLabelLinkBuilder
 {
+    /// <summary>
+    /// The internal attributes.
+    /// </summary>
+    private readonly HtmlAttributeCollection _attributes = new();
+
     /// <inheritdoc/>
     public string? Url => url;
 
@@ -18,11 +23,6 @@ internal sealed class UrlAndLabelLinkBuilder(string? url, string? label) : IUrlA
 
     /// <inheritdoc/>
     public IReadOnlyHtmlAttributeCollection Attributes => _attributes.ToReadOnly();
-
-    /// <summary>
-    /// The attributes.
-    /// </summary>
-    private readonly IHtmlAttributeCollection _attributes = new HtmlAttributeCollection();
 
     /// <inheritdoc/>
     public ILink? Build()
