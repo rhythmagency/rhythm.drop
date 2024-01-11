@@ -7,14 +7,13 @@ using Rhythm.Drop.Web.Options;
 /// <summary>
 /// The default implementation of <see cref="IViewPathHelper"/>.
 /// </summary>
-internal sealed class DefaultViewPathHelper : IViewPathHelper
+/// <param name="optionsMonitor">The options monitor.</param>
+internal sealed class DefaultViewPathHelper(IOptionsMonitor<ComponentsOptions> optionsMonitor) : IViewPathHelper
 {
-    private readonly IOptionsMonitor<ComponentsOptions> _optionsMonitor;
-
-    public DefaultViewPathHelper(IOptionsMonitor<ComponentsOptions> optionsMonitor)
-    {
-        _optionsMonitor = optionsMonitor;
-    }
+    /// <summary>
+    /// The options monitor.
+    /// </summary>
+    private readonly IOptionsMonitor<ComponentsOptions> _optionsMonitor = optionsMonitor;
 
     /// <inheritdoc/>
     public string GetComponentViewPath(string theme, string viewName)

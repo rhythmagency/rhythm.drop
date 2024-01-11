@@ -7,14 +7,13 @@ using Rhythm.Drop.Web.Options;
 /// <summary>
 /// The default implementation of <see cref="IThemeHelper"/>.
 /// </summary>
-internal sealed class DefaultThemeHelper : IThemeHelper
+/// <param name="optionsMonitor">The options monitor.</param>
+internal sealed class DefaultThemeHelper(IOptionsMonitor<ComponentsOptions> optionsMonitor) : IThemeHelper
 {
-    private readonly IOptionsMonitor<ComponentsOptions> _optionsMonitor;
-
-    public DefaultThemeHelper(IOptionsMonitor<ComponentsOptions> optionsMonitor)
-    {
-        _optionsMonitor = optionsMonitor;
-    }
+    /// <summary>
+    /// The options monitor.
+    /// </summary>
+    private readonly IOptionsMonitor<ComponentsOptions> _optionsMonitor = optionsMonitor;
 
     /// <inheritdoc/>
     public string GetValidTheme(string? theme)
