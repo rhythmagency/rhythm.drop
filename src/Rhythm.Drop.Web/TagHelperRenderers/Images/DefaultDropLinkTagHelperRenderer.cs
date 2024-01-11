@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using System.Threading.Tasks;
+using RenderMode = Rhythm.Drop.Web.Infrastructure.RenderMode;
 
 /// <summary>
 /// The default implementation of <see cref="IDropImageTagHelperRenderer"/>.
@@ -28,16 +29,16 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
 
             if (image.Sources.Count > 0)
             {
-                RenderModelAsPicture(image, output);
+                RenderModelAsPicture(image, model.RenderMode, output);
             }
             else
             {
-                RenderModelAsSingleImage(image, output);
+                RenderModelAsSingleImage(image, model.RenderMode, output);
             }
         });
     }
 
-    private static void RenderModelAsPicture(IImage image, TagHelperOutput output)
+    private static void RenderModelAsPicture(IImage image, RenderMode renderMode, TagHelperOutput output)
     {
         output.TagName = "picture";
         output.TagMode = TagMode.StartTagAndEndTag;
@@ -51,15 +52,20 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
         }
 
 
-        var imgTag = BuildImgTag(image);
+        var imgTag = BuildImgTag(image, renderMode);
         output.Content.AppendHtml(imgTag);
     }
 
-    private static IHtmlContent BuildImgTag(IImage image)
+    private static IHtmlContent BuildImgTag(IImage image, RenderMode renderMode)
     {
         var tagBuilder = new TagBuilder("img");
         tagBuilder.Attributes.Add("src", image.Url);
         tagBuilder.Attributes.Add("alt", image.AltText);
+
+        if (renderMode is RenderMode.Lazy)
+        {
+            tagBuilder.Attributes.Add("loading", "lazy");
+        }
 
         if (image.Width > 0)
         {
@@ -103,11 +109,16 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
         return tagBuilder.RenderSelfClosingTag();
     }
 
-    private static void RenderModelAsSingleImage(IImage image, TagHelperOutput output)
+    private static void RenderModelAsSingleImage(IImage image, RenderMode renderMode, TagHelperOutput output)
     {
         output.TagName = "img";
         output.Attributes.SetAttribute("src", image.Url);
         output.Attributes.SetAttribute("alt", image.AltText);
+
+        if (renderMode is RenderMode.Lazy)
+        {
+            output.Attributes.SetAttribute("loading", "lazy");
+        }
 
         if (image.Width > 0)
         {
