@@ -2,6 +2,7 @@
 
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers;
+using Rhythm.Drop.Web.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.TagHelperRenderers.Components;
 using Rhythm.Drop.Web.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.TagHelperRenderers.Links;
@@ -19,9 +20,20 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder AddTagHelperRenderers(this IRhythmDropBuilder builder)
     {
         return builder
+            .SetDefaultDropAttributesTagHelperRenderer()
             .SetDefaultDropComponentsTagHelperRenderer()
             .SetDefaultDropImageTagHelperRenderer()
             .SetDefaultDropLinkTagHelperRenderer();
+    }
+
+    /// <summary>
+    /// Sets the default drop attributes tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDefaultDropAttributesTagHelperRenderer(this IRhythmDropBuilder builder)
+    {
+        return builder.SetDropAttributesTagHelperRenderer<DefaultDropAttributesTagHelperRenderer>();
     }
 
     /// <summary>

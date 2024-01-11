@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Rhythm.Drop.Infrastructure;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
@@ -11,6 +12,19 @@ using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
 /// </summary>
 public static class RhythmDropBuilderExtensions
 {
+    /// <summary>
+    /// Sets the drop attributes tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <typeparam name="TDropAttributesTagHelperRenderer">The type of the new drop attributes tag helper renderer.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDropAttributesTagHelperRenderer<TDropAttributesTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropAttributesTagHelperRenderer : class, IDropAttributesTagHelperRenderer
+    {
+        builder.Services.Replace<IDropAttributesTagHelperRenderer, TDropAttributesTagHelperRenderer>(ServiceLifetime.Scoped);
+
+        return builder;
+    }
+
     /// <summary>
     /// Sets the drop components tag helper renderer.
     /// </summary>

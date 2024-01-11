@@ -2,17 +2,21 @@
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
-using Rhythm.Drop.Web.Infrastructure;
-using System;
-using System.Diagnostics.CodeAnalysis;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Attributes;
 using System.Threading.Tasks;
 
 /// <summary>
 /// Renders a collection of <see cref="IHtmlAttribute"/> on the current tag.
 /// </summary>
+/// <param name="tagHelperRenderer">The tag helper renderer.</param>
 [HtmlTargetElement(Attributes = "drop-attributes", TagStructure = TagStructure.Unspecified)]
-public sealed class DropAttributesTagHelper : TagHelper
+public sealed class DropAttributesTagHelper(IDropAttributesTagHelperRenderer tagHelperRenderer) : TagHelper
 {
+    /// <summary>
+    /// The tag helper renderer.
+    /// </summary>
+    private readonly IDropAttributesTagHelperRenderer _tagHelperRenderer = tagHelperRenderer;
+
     /// <summary>
     /// Gets or sets the attributes.
     /// </summary>
@@ -22,49 +26,9 @@ public sealed class DropAttributesTagHelper : TagHelper
     /// <inheritdoc/>
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        if (Attributes.Count == 0)
-        {
-            return;
-        }
-
-        await Task.Run(() => RenderAttributes(output, Attributes));
+        await _tagHelperRenderer.RenderAsync(Attributes, context, output);
     }
 
     /// <inheritdoc/>
     public override int Order => DropTagHelperOrdering.PreDefault;
-
-    private static void RenderAttributes(TagHelperOutput output, IHtmlAttributeCollectionBase attributes)
-    {
-        foreach (var attribute in attributes)
-        {
-            if (TryGetClasses(attribute, out var classes))
-            {
-                output.AddClasses(classes);
-            }
-            else
-            {
-                output.Attributes.SetAttribute(attribute.Name, attribute.Value);
-            }
-        };
-    }
-
-    private static bool TryGetClasses(IHtmlAttribute attribute, [NotNullWhen(true)] out string[]? classes)
-    {
-        if (attribute.Value is null || attribute.Name.Equals("class", StringComparison.OrdinalIgnoreCase) is false)
-        {
-            classes = default;
-            return false;
-        }
-
-        var valueAsString = attribute.Value.ToString();
-
-        if (string.IsNullOrEmpty(valueAsString))
-        {
-            classes = default;
-            return false;
-        }
-
-        classes = valueAsString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-        return classes.Length > 0;
-    }
 }
