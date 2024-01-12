@@ -1,4 +1,4 @@
-# rhythm.drop
+# rhythm.drop [![Publish to NuGet](https://github.com/rhythmagency/rhythm.drop/actions/workflows/Publish-to-NuGet.yml/badge.svg)](https://github.com/rhythmagency/rhythm.drop/actions/workflows/Publish-to-NuGet.yml) [![NuGet](https://img.shields.io/nuget/v/Rhythm.Drop?logo=nuget)](https://www.nuget.org/packages/Rhythm.Drop)
 A .net library for common data building and rendering tasks.
 
 ## Startup
