@@ -6,14 +6,14 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      [ "[0-9]+.[0-9]+.[0-9]+", "[0-9]+.[0-9]+.[0-9]+-[0-9a-z]+" ]
+      [ "v[0-9]+.[0-9]+.[0-9]+", "v[0-9]+.[0-9]+.[0-9]+-[0-9a-z]+" ]
 
 jobs:
   build:
 
     env:
       SOLUTION: 'src\Rhythm.Drop.sln'
-      VERSION: '${{ github.ref_name }}'
+      VERSION: '${{github.ref_name/v/}}'
 
     runs-on: ubuntu-latest
 
