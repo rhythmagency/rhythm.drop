@@ -13,6 +13,7 @@ jobs:
 
     env:
       SOLUTION: 'src\Rhythm.Drop.sln'
+      BUILD_CONFIG: 'Release'
 
     runs-on: ubuntu-latest
 
@@ -34,3 +35,24 @@ jobs:
     - name: Display Package Version
       run: |
        echo "Version: $PACKAGE_VERSION"
+        
+    - name: Restore dependencies
+      run: dotnet restore $SOLUTION
+
+    - name: Pack Rhythm.Drop.Models
+      run: dotnet pack ./src/Rhythm.Drop.Models/Rhythm.Drop.Models.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
+    - name: Pack Rhythm.Drop.Infrastructure
+      run: dotnet pack ./src/Rhythm.Drop.Infrastructure/Rhythm.Drop.Infrastructure.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
+    - name: Pack Rhythm.Drop.Web.Infrastructure
+      run: dotnet pack ./src/Rhythm.Drop.Web.Infrastructure/Rhythm.Drop.Web.Infrastructure.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
+    - name: Pack Rhythm.Drop.Web
+      run: dotnet pack ./src/Rhythm.Drop.Web/Rhythm.Drop.Web.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
+    - name: Pack Rhythm.Drop
+      run: dotnet pack ./src/Rhythm.Drop/Rhythm.Drop.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
+
+
