@@ -1,0 +1,27 @@
+<Project>
+	
+	<!-- General -->
+	<PropertyGroup>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IsPackable>true</IsPackable>
+		<DebugType>embedded</DebugType>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<!-- Package meta -->
+	<PropertyGroup>
+		<Authors>rhythmagency</Authors>
+		<Company>Rhythm</Company>
+		<Copyright>Copyright © Rhythm 2024</Copyright>
+		<PackageTags>aspnetcore taghelpers razor cshtml images links components</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/rhythmagency/rhythm.drop</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/rhythmagency/rhythm.drop</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+	
+</Project>

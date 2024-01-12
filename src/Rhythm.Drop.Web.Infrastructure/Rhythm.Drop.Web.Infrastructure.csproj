@@ -5,20 +5,12 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<!-- Package meta -->
 	<PropertyGroup>
 		<Description>The Rhythm Drop package for web related infrastructure without the web components (e.g. tag helpers).</Description>
-		<PackageTags>aspnetcore taghelpers razor cshtml images links components</PackageTags>
-		<Company>Rhythm</Company>
-		<Authors>rhythmagency</Authors>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/rhythmagency/rhythm.drop</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageProjectUrl>https://github.com/rhythmagency/rhythm.drop</PackageProjectUrl>
 	</PropertyGroup>
 
 	<!-- Readme includes -->
