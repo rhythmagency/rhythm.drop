@@ -54,5 +54,6 @@ jobs:
     - name: Pack Rhythm.Drop
       run: dotnet pack ./src/Rhythm.Drop/Rhythm.Drop.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
 
-
+    - name: Publish Packages to NuGet
+      run: dotnet nuget push **\*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
 
