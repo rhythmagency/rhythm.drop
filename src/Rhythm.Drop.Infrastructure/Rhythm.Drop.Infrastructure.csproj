@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<!-- General -->
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -7,23 +8,35 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
+	<!-- Package meta -->
 	<PropertyGroup>
 		<Description>The Rhythm Drop package for infrastructure such as builders and factories without web specific dependencies.</Description>
+		<PackageTags>aspnetcore taghelpers razor cshtml images links components</PackageTags>
+		<Company>Rhythm</Company>
+		<Authors>rhythmagency</Authors>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/rhythmagency/rhythm.drop</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/rhythmagency/rhythm.drop</PackageProjectUrl>
 	</PropertyGroup>
 
+	<!-- Readme includes -->
 	<ItemGroup>
 		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
+	<!-- Project includes -->
+	<ItemGroup>
+		<ProjectReference Include="..\Rhythm.Drop.Models\Rhythm.Drop.Models.csproj" />
+	</ItemGroup>
+
+	<!-- Package includes -->
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Rhythm.Drop.Models\Rhythm.Drop.Models.csproj" />
-	</ItemGroup>
-
+	<!-- Internals -->
 	<ItemGroup>
 		<InternalsVisibleTo Include="Rhythm.Drop.Web.Infrastructure" />
 	</ItemGroup>
