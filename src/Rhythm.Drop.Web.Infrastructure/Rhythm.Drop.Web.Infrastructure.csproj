@@ -29,4 +29,9 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
+	<!-- SourceLink includes -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+	</ItemGroup>
+
 </Project>
