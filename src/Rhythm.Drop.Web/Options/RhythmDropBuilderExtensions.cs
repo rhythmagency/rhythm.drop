@@ -13,7 +13,7 @@ internal static class RhythmDropBuilderExtensions
     /// </summary>
     /// <param name="builder">The current builder.</param>
     /// <returns>The <see cref="IRhythmDropBuilder"/>.</returns>
-    public static IRhythmDropBuilder AddOptions(this IRhythmDropBuilder builder)
+    public static IRhythmDropBuilder AddWebOptions(this IRhythmDropBuilder builder)
     {
         return builder.AddComponentsOptions();
     }

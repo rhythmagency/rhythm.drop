@@ -16,7 +16,7 @@ public static class RhythmDropBuilderExtensions
     /// </summary>
     /// <param name="builder">The current <see cref="IRhythmDropBuilder"/>.</param>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    public static IRhythmDropBuilder AddHelpers(this IRhythmDropBuilder builder)
+    public static IRhythmDropBuilder AddWebHelpers(this IRhythmDropBuilder builder)
     {
         return builder
             .SetDefaultModalPersistenceHelper()

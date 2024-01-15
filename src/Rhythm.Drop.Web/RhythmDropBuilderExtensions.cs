@@ -19,9 +19,9 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder AddWeb(this IRhythmDropBuilder builder)
     {
         return builder
-            .AddFactories()
-            .AddHelpers()
-            .AddOptions()
+            .AddWebFactories()
+            .AddWebHelpers()
+            .AddWebOptions()
             .AddTagHelperRenderers();
     }
 }

@@ -14,7 +14,7 @@ public static class RhythmDropBuilderExtensions
     /// </summary>
     /// <param name="builder">The current <see cref="IRhythmDropBuilder"/>.</param>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    public static IRhythmDropBuilder AddFactories(this IRhythmDropBuilder builder)
+    public static IRhythmDropBuilder AddWebFactories(this IRhythmDropBuilder builder)
     {
         return builder
             .SetDefaultComponentMetaDataFactory();
