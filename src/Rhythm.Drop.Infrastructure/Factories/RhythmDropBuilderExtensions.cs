@@ -20,19 +20,7 @@ public static class RhythmDropBuilderExtensions
     {
         return builder
             .SetDefaultImageBuilderFactory()
-            .SetDefaultLinkBuilderFactory()
-            .SetDefaultComponentMetaDataFactory();
-    }
-
-    /// <summary>
-    /// Sets the default component meta data factory.
-    /// </summary>
-    /// <param name="builder"></param>
-    /// <returns></returns>
-    public static IRhythmDropBuilder SetDefaultComponentMetaDataFactory(this IRhythmDropBuilder builder)
-    {
-        builder.SetComponentMetaDataFactory<DefaultComponentMetaDataFactory>();
-        return builder;
+            .SetDefaultLinkBuilderFactory();
     }
 
     /// <summary>

@@ -1,8 +1,9 @@
 ﻿namespace Rhythm.Drop.Web;
 
 using Rhythm.Drop.Infrastructure;
-using Rhythm.Drop.Web.Options;
+using Rhythm.Drop.Web.Factories;
 using Rhythm.Drop.Web.Helpers;
+using Rhythm.Drop.Web.Options;
 using Rhythm.Drop.Web.TagHelperRenderers;
 
 /// <summary>
@@ -18,6 +19,7 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder AddWeb(this IRhythmDropBuilder builder)
     {
         return builder
+            .AddFactories()
             .AddHelpers()
             .AddOptions()
             .AddTagHelperRenderers();
