@@ -33,7 +33,6 @@ public interface IModalAndLabelLinkBuilder
     /// <returns>A <see cref="IModalAndLabelLinkBuilder"/>.</returns>
     IModalAndLabelLinkBuilder ExcludeAttribute(string name);
 
-
     /// <summary>
     /// Adds a class to the current builder.
     /// </summary>
