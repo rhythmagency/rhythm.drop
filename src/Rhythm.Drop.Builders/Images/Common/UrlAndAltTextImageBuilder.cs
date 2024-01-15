@@ -1,6 +1,4 @@
-﻿using Rhythm.Drop.Infrastructure.Builders.Images.Common;
-
-namespace Rhythm.Drop.Builders.Images.Common;
+﻿namespace Rhythm.Drop.Builders.Images.Common;
 
 using Rhythm.Drop.Models.Images;
 
