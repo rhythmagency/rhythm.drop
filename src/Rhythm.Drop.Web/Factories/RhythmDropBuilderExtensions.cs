@@ -1,8 +1,8 @@
 ﻿namespace Rhythm.Drop.Web.Factories;
 
 using Rhythm.Drop.Infrastructure;
-using Rhythm.Drop.Infrastructure.Factories;
 using Rhythm.Drop.Web.Factories.Components;
+using Rhythm.Drop.Web.Infrastructure.Factories;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to factories.

@@ -1,8 +1,8 @@
 ﻿namespace Rhythm.Drop.Web.Factories.Components;
 
-using Rhythm.Drop.Infrastructure.Factories.Components;
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Components;
+using Rhythm.Drop.Web.Infrastructure.Factories.Components;
 using System;
 
 /// <summary>

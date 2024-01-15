@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Infrastructure.Factories.Components;
+﻿namespace Rhythm.Drop.Web.Infrastructure.Factories.Components;
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Components;

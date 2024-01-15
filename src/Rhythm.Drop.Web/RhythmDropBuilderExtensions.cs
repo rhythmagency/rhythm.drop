@@ -7,7 +7,7 @@ using Rhythm.Drop.Web.Options;
 using Rhythm.Drop.Web.TagHelperRenderers;
 
 /// <summary>
-/// A collection of methods that augment <see cref="IRhythmDropBuilder"/> with regards to web functionality..
+/// A collection of methods that augment <see cref="IRhythmDropBuilder"/> with regards to web functionality.
 /// </summary>
 public static class RhythmDropBuilderExtensions
 {
