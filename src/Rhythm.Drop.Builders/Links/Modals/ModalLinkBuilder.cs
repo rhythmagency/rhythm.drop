@@ -19,9 +19,6 @@ internal sealed class ModalLinkBuilder(IModal modal) : IModalLinkBuilder, IModal
     public IModal Modal => modal;
 
     /// <inheritdoc/>
-    public IReadOnlyHtmlAttributeCollection Attributes => _attributes.ToReadOnly();
-
-    /// <inheritdoc/>
     public string? Label { get; private set; }
 
     public IModalAndLabelLinkBuilder AddClass(string className)

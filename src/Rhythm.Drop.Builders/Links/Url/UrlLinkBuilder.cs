@@ -2,6 +2,7 @@
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Links;
+
 /// <summary>
 /// An implementation of <see cref="IUrlLinkBuilder"/>.
 /// </summary>
@@ -20,9 +21,6 @@ internal sealed class UrlLinkBuilder(string? url) : IUrlLinkBuilder, IUrlAndLabe
     public string? Label { get; private set; }
 
     /// <inheritdoc/>
-    public IReadOnlyHtmlAttributeCollection Attributes => _attributes.ToReadOnly();
-
-    /// <inheritdoc/>
     public IUrlAndLabelLinkBuilder AndLabel(string? label)
     {
         Label = label;
@@ -39,7 +37,7 @@ internal sealed class UrlLinkBuilder(string? url) : IUrlLinkBuilder, IUrlAndLabe
 
         _attributes.SetAttribute("href", Url);
 
-        return new AnchorLink(Label, Attributes);
+        return new AnchorLink(Label, _attributes.ToReadOnly());
     }
 
     /// <inheritdoc/>
