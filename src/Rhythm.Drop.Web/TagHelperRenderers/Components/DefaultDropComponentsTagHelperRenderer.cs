@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
+using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Factories.Components;
 using Rhythm.Drop.Web.Infrastructure.Helpers.ViewPath;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
+using System;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -49,7 +51,8 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         var attributes = ReadOnlyHtmlAttributeCollection.Empty();
         foreach (var component in components)
         {
-            var viewModel = _componentMetaDataFactory.Create(component, model.Level, index, total, model.Theme, attributes);
+            var input = new ComponentMetaDataFactoryInput(component, model.Level, index, total, model.Theme, attributes);
+            var viewModel = _componentMetaDataFactory.Create(input);
             var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
 
             output.Content.AppendHtml(await _htmlHelper.PartialAsync(viewPath, viewModel));
@@ -66,9 +69,10 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
             await RenderNullAsync(output);
             return;
         }
-
         output.SurpressTag();
-        var viewModel = _componentMetaDataFactory.Create(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes);
+
+        var input = new ComponentMetaDataFactoryInput(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes);
+        var viewModel = _componentMetaDataFactory.Create(input);
         var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
 
         ((IViewContextAware)_htmlHelper).Contextualize(model.ViewContext);

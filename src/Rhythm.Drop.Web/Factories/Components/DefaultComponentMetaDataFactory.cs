@@ -1,6 +1,5 @@
 ﻿namespace Rhythm.Drop.Web.Factories.Components;
 
-using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Web.Infrastructure.Factories.Components;
 using System;
@@ -11,11 +10,11 @@ using System;
 internal sealed class DefaultComponentMetaDataFactory : IComponentMetaDataFactory
 {
     /// <inheritdoc/>
-    public ComponentMetaData Create(IComponent component, int level, int index, int total, string theme, IReadOnlyHtmlAttributeCollection attributes)
+    public ComponentMetaData Create(ComponentMetaDataFactoryInput input)
     {
-        Type componentType = component.GetType();
+        Type componentType = input.Component.GetType();
         Type genericType = typeof(ComponentMetaData<>).MakeGenericType(componentType);
-        var instance = Activator.CreateInstance(genericType, new object[] { component, level, index, total, theme, attributes });
+        var instance = Activator.CreateInstance(genericType, new object[] { input.Component, input.Level, input.Index, input.Total, input.Theme, input.Attributes });
 
         if (instance is not ComponentMetaData metaData)
         {
