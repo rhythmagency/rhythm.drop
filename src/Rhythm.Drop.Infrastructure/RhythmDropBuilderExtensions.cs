@@ -1,6 +1,6 @@
 ﻿namespace Rhythm.Drop.Infrastructure;
 
-using Rhythm.Drop.Infrastructure.Factories;
+using Rhythm.Drop.Infrastructure.Builders;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to infrastructure.
@@ -15,6 +15,6 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder AddInfrastructure(this IRhythmDropBuilder builder)
     {
         return builder
-            .AddFactories();
+            .AddBuilders();
     }
-} 
+}
