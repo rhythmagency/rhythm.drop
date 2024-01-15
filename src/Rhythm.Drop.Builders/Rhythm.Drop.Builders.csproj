@@ -15,7 +15,7 @@
 
 	<!-- Readme includes -->
 	<ItemGroup>
-		<None Include="readme.md" />
+		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<!-- Project includes -->
