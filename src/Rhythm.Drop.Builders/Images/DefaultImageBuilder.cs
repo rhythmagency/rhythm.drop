@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Infrastructure.Builders.Images;
+﻿namespace Rhythm.Drop.Builders.Images;
 
 /// <summary>
 /// The default implementation of <see cref="IImageBuilder"/>.

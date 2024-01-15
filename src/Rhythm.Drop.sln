@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhythm.Drop.Builders", "Rhythm.Drop.Builders\Rhythm.Drop.Builders.csproj", "{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{13362A8B-4588-4BCD-B8FE-D003246A7DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13362A8B-4588-4BCD-B8FE-D003246A7DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13362A8B-4588-4BCD-B8FE-D003246A7DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

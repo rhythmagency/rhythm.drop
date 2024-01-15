@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Infrastructure.Builders.Links.Url;
+﻿namespace Rhythm.Drop.Builders.Links.Url;
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Links;

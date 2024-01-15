@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Infrastructure.Builders.Links.Url;
+﻿namespace Rhythm.Drop.Builders.Links.Url;
 
 /// <summary>
 /// An implementation of <see cref="IUrlLinkBuilder"/>.

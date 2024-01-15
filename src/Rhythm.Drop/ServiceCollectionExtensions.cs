@@ -1,6 +1,7 @@
 ﻿namespace Rhythm.Drop;
 
 using Microsoft.Extensions.DependencyInjection;
+using Rhythm.Drop.Builders;
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web;
 
@@ -34,7 +35,7 @@ public static class ServiceCollectionExtensions
         if (services.HasRhythmDropDefaultsAddedMarker() is false)
         {
             builder
-            .AddInfrastructure()
+            .AddBuilders()
             .AddWeb();
 
             services.AddRhythmDropDefaultsAddedMarker();

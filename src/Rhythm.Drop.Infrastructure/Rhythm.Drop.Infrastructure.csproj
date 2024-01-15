@@ -30,6 +30,7 @@
 
 	<!-- Internals -->
 	<ItemGroup>
+		<InternalsVisibleTo Include="Rhythm.Drop.Builders" />
 		<InternalsVisibleTo Include="Rhythm.Drop.Web.Infrastructure" />
 	</ItemGroup>
 

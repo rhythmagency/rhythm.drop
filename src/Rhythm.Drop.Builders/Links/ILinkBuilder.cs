@@ -1,5 +1,7 @@
-﻿namespace Rhythm.Drop.Infrastructure.Builders.Links;
+﻿namespace Rhythm.Drop.Builders.Links;
 
+using Rhythm.Drop.Builders.Links.Modals;
+using Rhythm.Drop.Builders.Links.Url;
 using Rhythm.Drop.Infrastructure.Builders.Links.Modals;
 using Rhythm.Drop.Infrastructure.Builders.Links.Url;
 using Rhythm.Drop.Models.Links;

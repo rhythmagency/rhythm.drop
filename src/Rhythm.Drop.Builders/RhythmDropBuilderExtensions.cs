@@ -1,9 +1,9 @@
-﻿namespace Rhythm.Drop.Infrastructure.Builders;
+﻿namespace Rhythm.Drop.Builders;
 
 using Microsoft.Extensions.DependencyInjection;
+using Rhythm.Drop.Builders.Images;
+using Rhythm.Drop.Builders.Links;
 using Rhythm.Drop.Infrastructure;
-using Rhythm.Drop.Infrastructure.Builders.Images;
-using Rhythm.Drop.Infrastructure.Builders.Links;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to builders.
@@ -11,7 +11,7 @@ using Rhythm.Drop.Infrastructure.Builders.Links;
 public static class RhythmDropBuilderExtensions
 {
     /// <summary>
-    /// Registers infrastructure builder dependencies for the Rhythm Drop.
+    /// Registers builder dependencies for the Rhythm Drop.
     /// </summary>
     /// <param name="builder">The current <see cref="IRhythmDropBuilder"/>.</param>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
