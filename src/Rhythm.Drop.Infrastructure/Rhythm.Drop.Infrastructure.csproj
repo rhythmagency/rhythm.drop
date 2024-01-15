@@ -9,7 +9,7 @@
 
 	<!-- Package meta -->
 	<PropertyGroup>
-		<Description>The Rhythm Drop package for infrastructure such as builders and factories without web specific dependencies.</Description>
+		<Description>The Rhythm Drop package for infrastructure such as builders without web specific dependencies.</Description>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 	</PropertyGroup>
 
