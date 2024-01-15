@@ -49,6 +49,10 @@ jobs:
     - name: Pack Rhythm.Drop.Infrastructure
       run: dotnet pack ./src/Rhythm.Drop.Infrastructure/Rhythm.Drop.Infrastructure.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
 
+    - name: Pack Rhythm.Drop.Builders
+      if: ${{ ! startsWith($PACKAGE_VERSION, '1.') }}
+      run: dotnet pack ./src/Rhythm.Drop.Builders/Rhythm.Drop.Builders.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
+
     - name: Pack Rhythm.Drop.Web.Infrastructure
       run: dotnet pack ./src/Rhythm.Drop.Web.Infrastructure/Rhythm.Drop.Web.Infrastructure.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
 
