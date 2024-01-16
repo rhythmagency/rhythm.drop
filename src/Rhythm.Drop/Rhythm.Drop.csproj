@@ -18,6 +18,11 @@
 		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
+	<!-- buildTransitive includes -->
+	<ItemGroup>
+		<Content Include="buildTransitive\**" PackagePath="buildTransitive" />
+	</ItemGroup>
+
 	<!-- Project includes -->
 	<ItemGroup>
 		<ProjectReference Include="..\Rhythm.Drop.Builders\Rhythm.Drop.Builders.csproj" />
