@@ -33,20 +33,6 @@ public interface IUrlAndAltTextWithDimensionsImageBuilder
     IReadOnlyCollection<IImageSource> Sources { get; }
 
     /// <summary>
-    /// Adds a source to the builder.
-    /// </summary>
-    /// <param name="source">The source.</param>
-    /// <returns>A <see cref="IUrlAndAltTextWithDimensionsImageBuilder"/>.</returns>
-    IUrlAndAltTextWithDimensionsImageBuilder AddSource(IImageSource source);
-
-    /// <summary>
-    /// Adds multiple sources to the builder.
-    /// </summary>
-    /// <param name="sources">The sources.</param>
-    /// <returns>A <see cref="IUrlAndAltTextWithDimensionsImageBuilder"/>.</returns>
-    IUrlAndAltTextWithDimensionsImageBuilder AddSources(IReadOnlyCollection<IImageSource> sources);
-
-    /// <summary>
     /// Attempts to build an <see cref="IImage"/> if the current input is valid.
     /// </summary>
     /// <returns>A <see cref="IImage"/> if the input is valid.</returns>

@@ -5,7 +5,7 @@ using Rhythm.Drop.Models.Images;
 /// <summary>
 /// An image builder with a URL and Alt Text.
 /// </summary>
-public interface IUrlAndAltTextImageBuilder
+public interface IUrlAndAltTextImageBuilder : IAddImageSourcesImageBuilder<IUrlAndAltTextImageBuilder>, IAddDimensionsImageBuilder<IUrlAndAltTextWithDimensionsImageBuilder>
 {
     /// <summary>
     /// Gets the URL of the builder.
@@ -21,28 +21,6 @@ public interface IUrlAndAltTextImageBuilder
     /// Gets the sources of the builder.
     /// </summary>
     public IReadOnlyCollection<IImageSource> Sources { get; }
-
-    /// <summary>
-    /// Adds a source to the builder.
-    /// </summary>
-    /// <param name="source">The source.</param>
-    /// <returns></returns>
-    IUrlAndAltTextImageBuilder AddSource(IImageSource source);
-
-    /// <summary>
-    /// Adds multiple sources to the builder.
-    /// </summary>
-    /// <param name="sources">The sources.</param>
-    /// <returns></returns>
-    IUrlAndAltTextImageBuilder AddSources(IReadOnlyCollection<IImageSource> sources);
-
-    /// <summary>
-    /// Adds dimensions to the builder.
-    /// </summary>
-    /// <param name="width">The width.</param>
-    /// <param name="height">The height.</param>
-    /// <returns>A <see cref="IUrlAndAltTextWithDimensionsImageBuilder"/>.</returns>
-    IUrlAndAltTextWithDimensionsImageBuilder AddDimensions(int width, int height);
 
     /// <summary>
     /// Attempts to build a <see cref="IImage"/> if the input is valid.
