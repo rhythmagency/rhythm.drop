@@ -41,14 +41,14 @@ internal sealed class UrlLinkBuilder(string? url) : IUrlLinkBuilder, IUrlAndLabe
     }
 
     /// <inheritdoc/>
-    public IUrlAndLabelLinkBuilder ExcludeAttribute(string name)
+    public IUrlAndLabelLinkBuilder RemoveAttribute(string name)
     {
         _attributes.RemoveAttribute(name);
         return this;
     }
 
     /// <inheritdoc/>
-    public IUrlAndLabelLinkBuilder IncludeAttribute(string name, object? value)
+    public IUrlAndLabelLinkBuilder SetAttribute(string name, object? value)
     {
         _attributes.SetAttribute(name, value);
         return this;

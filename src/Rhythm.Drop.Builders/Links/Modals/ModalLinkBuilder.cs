@@ -51,14 +51,14 @@ internal sealed class ModalLinkBuilder(IModal modal) : IModalLinkBuilder, IModal
     }
 
     /// <inheritdoc/>
-    public IModalAndLabelLinkBuilder ExcludeAttribute(string name)
+    public IModalAndLabelLinkBuilder RemoveAttribute(string name)
     {
         _attributes.RemoveAttribute(name);
         return this;
     }
 
     /// <inheritdoc/>
-    public IModalAndLabelLinkBuilder IncludeAttribute(string name, object? value)
+    public IModalAndLabelLinkBuilder SetAttribute(string name, object? value)
     {
         _attributes.SetAttribute(name, value);
         return this;
