@@ -78,7 +78,7 @@ public sealed class DropModalsTagHelper(IDropComponentsTagHelperRenderer tagHelp
     {
         var modals = GetModals();
         var theme = _themeHelper.GetValidTheme(Theme);
-        var renderContext = new DropComponentsTagHelperRendererContext(modals, Level, theme, TagName, ViewContext);
+        var renderContext = new DropComponentsTagHelperRendererContext(modals, Level, theme, TagName, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(renderContext, context, output);
     }

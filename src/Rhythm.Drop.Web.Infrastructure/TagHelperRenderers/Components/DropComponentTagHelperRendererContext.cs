@@ -14,6 +14,7 @@ using Rhythm.Drop.Models.Components;
 /// <param name="Total">The total number of the components.</param>
 /// <param name="Attributes">The attributes.</param>
 /// <param name="ViewContext">The view context</param>
-public sealed record DropComponentTagHelperRendererContext(IComponent? Component, int Level, string Theme, int Index, int Total, IReadOnlyHtmlAttributeCollection Attributes, ViewContext ViewContext)
+/// <param name="Section">The optional section of where this component is rendered.</param>
+public sealed record DropComponentTagHelperRendererContext(IComponent? Component, int Level, string Theme, int Index, int Total, IReadOnlyHtmlAttributeCollection Attributes, ViewContext ViewContext, string? Section)
 {
 }

@@ -68,7 +68,7 @@ public sealed class DropComponentsTagHelper(IDropComponentsTagHelperRenderer tag
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
         var theme = _themeHelper.GetValidTheme(Theme);
-        var rendererContext = new DropComponentsTagHelperRendererContext(Model, Level, theme, TagName, ViewContext);
+        var rendererContext = new DropComponentsTagHelperRendererContext(Model, Level, theme, TagName, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }

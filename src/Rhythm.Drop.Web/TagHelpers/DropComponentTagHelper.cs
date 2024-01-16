@@ -78,7 +78,7 @@ public sealed class DropComponentTagHelper(IDropComponentsTagHelperRenderer tagH
     {
         var theme = _themeHelper.GetValidTheme(Theme);
         var attributes = output.Attributes.ToHtmlAttributeCollection();
-        var rendererContext = new DropComponentTagHelperRendererContext(Model, Level, theme, Index, Total, attributes, ViewContext);
+        var rendererContext = new DropComponentTagHelperRendererContext(Model, Level, theme, Index, Total, attributes, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }

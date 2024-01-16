@@ -11,6 +11,7 @@ using Rhythm.Drop.Models.Components;
 /// <param name="Theme">The theme.</param>
 /// <param name="TagName">The optional tag name.</param>
 /// <param name="ViewContext">The view context</param>
-public sealed record DropComponentsTagHelperRendererContext(IReadOnlyCollection<IComponent> Components, int Level, string Theme, string? TagName, ViewContext ViewContext)
+/// <param name="Section">The optional section of where this component is rendered.</param>
+public sealed record DropComponentsTagHelperRendererContext(IReadOnlyCollection<IComponent> Components, int Level, string Theme, string? TagName, ViewContext ViewContext, string? Section)
 {
 }
