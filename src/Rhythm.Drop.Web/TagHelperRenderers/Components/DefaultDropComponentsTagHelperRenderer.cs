@@ -51,7 +51,7 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         var attributes = ReadOnlyHtmlAttributeCollection.Empty();
         foreach (var component in components)
         {
-            var input = new ComponentMetaDataFactoryInput(component, model.Level, index, total, model.Theme, attributes);
+            var input = new ComponentMetaDataFactoryInput(component, model.Level, index, total, model.Theme, attributes, model.Section);
             var viewModel = _componentMetaDataFactory.Create(input);
             var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
 
@@ -71,7 +71,7 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         }
         output.SurpressTag();
 
-        var input = new ComponentMetaDataFactoryInput(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes);
+        var input = new ComponentMetaDataFactoryInput(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes, model.Section);
         var viewModel = _componentMetaDataFactory.Create(input);
         var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
 
