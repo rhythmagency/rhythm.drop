@@ -10,6 +10,7 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// <param name="Total">The total number of components within the current collection of components.</param>
 /// <param name="Theme">The theme of the component.</param>
 /// <param name="Attributes">The additional HTML attributes.</param>
+/// <param name="Section">The optional section of where this component is rendered.</param>
 /// <remarks>
 /// <para>
 /// This type exists to make it easier to construct and return a generic Component Meta Data.
@@ -18,8 +19,16 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// It should not be used to create other types.
 /// </para>
 /// </remarks>
-public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes)
+public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section)
 {
+    /// <summary>
+    /// An abstract non-generic type for Component Meta Data.
+    /// </summary>
+    /// <remarks>This creates a component meta data without a section for backward compatability.</remarks>
+    public ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Level, Index, Total, Theme, Attributes, default)
+    {        
+    }
+
     /// <summary>
     /// The absolute lowest level a component can be.
     /// </summary>

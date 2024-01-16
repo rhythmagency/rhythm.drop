@@ -12,6 +12,14 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// <param name="Total">The total number of components within the current collection of components.</param>
 /// <param name="Theme">The theme of the component.</param>
 /// <param name="Attributes">The attributes to be passed to the component.</param>
-public sealed record ComponentMetaData<TComponent>(TComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : ComponentMetaData(Level, Index, Total, Theme, Attributes) where TComponent : IComponent
+/// <param name="Section">The optional section of where this component is rendered.</param>
+public sealed record ComponentMetaData<TComponent>(TComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : ComponentMetaData(Level, Index, Total, Theme, Attributes, Section) where TComponent : IComponent
 {
+    /// <summary>
+    /// A generic type for Component Meta Data
+    /// </summary>
+    /// <remarks>This creates a component meta data without a section for backward compatability.</remarks>
+    public ComponentMetaData(TComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Component, Level, Index, Total, Theme, Attributes, default)
+    {        
+    }
 }
