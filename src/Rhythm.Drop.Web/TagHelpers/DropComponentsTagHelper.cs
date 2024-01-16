@@ -39,6 +39,13 @@ public sealed class DropComponentsTagHelper(IDropComponentsTagHelperRenderer tag
     public int Level { get; set; } = ComponentMetaData.RootLevel;
 
     /// <summary>
+    /// Gets or sets an optional section of where this component is rendered.
+    /// </summary>
+    /// <remarks>This could be used for distinquishing between components in the main content versus a modal.</remarks>
+    [HtmlAttributeName("section")]
+    public string? Section { get; set; }
+
+    /// <summary>
     /// Gets or sets the tag name for the container.
     /// </summary>
     [HtmlAttributeName("tag-name")]
