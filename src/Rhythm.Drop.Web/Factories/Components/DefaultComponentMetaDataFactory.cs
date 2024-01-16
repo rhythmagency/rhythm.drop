@@ -14,7 +14,7 @@ internal sealed class DefaultComponentMetaDataFactory : IComponentMetaDataFactor
     {
         Type componentType = input.Component.GetType();
         Type genericType = typeof(ComponentMetaData<>).MakeGenericType(componentType);
-        var instance = Activator.CreateInstance(genericType, new object[] { input.Component, input.Level, input.Index, input.Total, input.Theme, input.Attributes });
+        var instance = Activator.CreateInstance(genericType, [input.Component, input.Level, input.Index, input.Total, input.Theme, input.Attributes, input.Section]);
 
         if (instance is not ComponentMetaData metaData)
         {
