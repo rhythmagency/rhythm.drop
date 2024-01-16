@@ -13,6 +13,6 @@ using Rhythm.Drop.Models.Components;
 /// <param name="Theme">The theme of the component.</param>
 /// <param name="Attributes">The attributes to be passed to the component.</param>
 /// <param name="Section">The optional section of where this component is rendered.</param>
-public sealed record ComponentMetaDataFactoryInput(IComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, String? Section)
+public sealed record ComponentMetaDataFactoryInput(IComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section)
 {
 }
