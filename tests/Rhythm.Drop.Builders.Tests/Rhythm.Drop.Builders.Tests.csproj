@@ -20,4 +20,8 @@
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Rhythm.Drop.Builders\Rhythm.Drop.Builders.csproj" />
+  </ItemGroup>
+
 </Project>
