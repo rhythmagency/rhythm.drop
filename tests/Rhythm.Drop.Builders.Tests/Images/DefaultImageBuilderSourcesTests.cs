@@ -191,11 +191,12 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
             .AddSources(sources)
             .Build();
 
-
         // assert
-        Assert.That(imageWithMultipleAddSource, Is.Not.Default);
-        Assert.That(imageWithAddSources, Is.Not.Default);
-
+        Assert.Multiple(() =>
+        {
+            Assert.That(imageWithMultipleAddSource, Is.Not.Default);
+            Assert.That(imageWithAddSources, Is.Not.Default);
+        });
         Assert.Multiple(() =>
         {
             Assert.That(imageWithMultipleAddSource.Url, Is.EqualTo(imageWithAddSources.Url));
@@ -205,6 +206,4 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
             Assert.That(imageWithMultipleAddSource.Sources, Is.EqualTo(imageWithAddSources.Sources));
         });
     }
-
-
 }
