@@ -18,7 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhythm.Drop.Builders", "Rhythm.Drop.Builders\Rhythm.Drop.Builders.csproj", "{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhythm.Drop.Builders", "Rhythm.Drop.Builders\Rhythm.Drop.Builders.csproj", "{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhythm.Drop.Builders.Tests", "..\tests\Rhythm.Drop.Builders.Tests\Rhythm.Drop.Builders.Tests.csproj", "{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{42C88CCD-262C-49DC-82D5-C6470F85090F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,9 +54,16 @@ Global
 		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFDEB563-8CD6-42A3-82A3-C6D5705889DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA} = {42C88CCD-262C-49DC-82D5-C6470F85090F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3309BB1E-4784-49EA-AF65-16DF8D16652A}
