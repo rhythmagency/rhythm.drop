@@ -6,16 +6,8 @@ using Rhythm.Drop.Builders.Images;
 /// Tests covering <see cref="DefaultImageBuilder"/> creating simple images with only AltText and Url properties.
 /// </summary>
 [TestFixture]
-public class DefaultImageBuilderSimpleImageTests
+public class DefaultImageBuilderSimpleImageTests : DefaultImageBuilderTestsBase
 {
-    private const string? NoImageUrl = default;
-
-    private const string? ImageUrl = "/image.jpg";
-
-    private const string? AltText = "An image";
-
-    private const string? NoAltText = default;
-
     [Test]
     public void Build_With_ImageUrl_And_AltText_Should_Return_Image()
     {
