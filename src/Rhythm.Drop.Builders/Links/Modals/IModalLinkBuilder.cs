@@ -10,5 +10,5 @@ public interface IModalLinkBuilder : IAndLabelLinkBuilder<IModalAndLabelLinkBuil
     /// <summary>
     /// Gets the modal.
     /// </summary>
-    IModal Modal { get; }
+    IModal? Modal { get; }
 }

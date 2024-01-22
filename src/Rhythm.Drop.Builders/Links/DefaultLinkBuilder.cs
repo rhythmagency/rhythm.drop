@@ -10,7 +10,7 @@ using Rhythm.Drop.Models.Modals;
 public sealed class DefaultLinkBuilder : ILinkBuilder
 {
     /// <inheritdoc/>
-    public IModalLinkBuilder WithModal(IModal modal)
+    public IModalLinkBuilder WithModal(IModal? modal)
     {
         return new ModalLinkBuilder(modal);
     }

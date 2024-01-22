@@ -22,5 +22,5 @@ public interface ILinkBuilder
     /// </summary>
     /// <param name="modal">The modal.</param>
     /// <returns>A <see cref="IModalLinkBuilder"/>.</returns>
-    IModalLinkBuilder WithModal(IModal modal);
+    IModalLinkBuilder WithModal(IModal? modal);
 }

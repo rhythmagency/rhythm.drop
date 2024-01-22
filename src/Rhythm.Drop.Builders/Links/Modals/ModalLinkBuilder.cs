@@ -8,7 +8,7 @@ using Rhythm.Drop.Models.Modals;
 /// An implementation of <see cref="IModalLinkBuilder"/>.
 /// </summary>
 /// <param name="modal">The modal.</param>
-internal sealed class ModalLinkBuilder(IModal modal) : IModalLinkBuilder, IModalAndLabelLinkBuilder
+internal sealed class ModalLinkBuilder(IModal? modal) : IModalLinkBuilder, IModalAndLabelLinkBuilder
 {
     /// <summary>
     /// The internal attribute collection.
@@ -16,7 +16,7 @@ internal sealed class ModalLinkBuilder(IModal modal) : IModalLinkBuilder, IModal
     private readonly HtmlAttributeCollection _attributes = new();
 
     /// <inheritdoc/>
-    public IModal Modal => modal;
+    public IModal? Modal => modal;
 
     /// <inheritdoc/>
     public string? Label { get; private set; }
@@ -42,7 +42,7 @@ internal sealed class ModalLinkBuilder(IModal modal) : IModalLinkBuilder, IModal
             return default;
         }
 
-        if (Modal.Content.Count == 0)
+        if (Modal is null || Modal.Content.Count == 0)
         {
             return default;
         }

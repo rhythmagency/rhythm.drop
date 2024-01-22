@@ -16,7 +16,7 @@ public interface IModalAndLabelLinkBuilder : IHtmlAttributesLinkBuilder<IModalAn
     /// <summary>
     /// Gets the modal of the link builder.
     /// </summary>
-    IModal Modal { get; }
+    IModal? Modal { get; }
 
     /// <summary>
     /// Attempts to build a <see cref="IModalLink"/> based on the current input.
