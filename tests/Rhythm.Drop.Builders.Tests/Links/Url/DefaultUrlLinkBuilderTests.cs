@@ -4,7 +4,7 @@ using Rhythm.Drop.Builders.Links;
 using Rhythm.Drop.Models.Common.Attributes;
 
 [TestFixture]
-public class DefaultLinkBuilderTests
+public class DefaultUrlLinkBuilderTests
 {
     private const string? NoUrl = default;
 
