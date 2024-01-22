@@ -9,7 +9,9 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
 {
     private const string ImageSourceUrl = "/image2.jpg";
 
-    private readonly IImageSourceMediaQuery DefaultImageSourceMediaQuery = new MinMaxWidthRangeImageSourceMediaQuery(default, 600);
+    private const string SecondImageSourceUrl = "/image3.jpg";
+
+    private readonly IImageSourceMediaQuery _defaultImageSourceMediaQuery = new MinMaxWidthRangeImageSourceMediaQuery(default, 600);
 
     [Test]
     public void Build_With_ImageUrl_And_One_Source_Should_Return_Image()
@@ -18,7 +20,7 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
         var builder = new DefaultImageBuilder();
 
         // act
-        var source = new ImageSource(ImageSourceUrl, DefaultImageSourceMediaQuery);
+        var source = new ImageSource(ImageSourceUrl, _defaultImageSourceMediaQuery);
         var image = builder
             .WithAltText(AltText)
             .AndUrl(ImageUrl)
@@ -44,7 +46,7 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
         var builder = new DefaultImageBuilder();
 
         // act
-        var source = new ImageSource(ImageSourceUrl, DefaultImageSourceMediaQuery);
+        var source = new ImageSource(ImageSourceUrl, _defaultImageSourceMediaQuery);
         var image = builder
             .WithAltText(AltText)
             .AndUrl(NoImageUrl)
@@ -62,8 +64,8 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
         var builder = new DefaultImageBuilder();
 
         // act
-        var source = new ImageSource(ImageSourceUrl, DefaultImageSourceMediaQuery);
-        var source2 = new ImageSource("/image3.jpg");
+        var source = new ImageSource(ImageSourceUrl, _defaultImageSourceMediaQuery);
+        var source2 = new ImageSource(SecondImageSourceUrl);
 
         var image = builder
             .WithAltText(AltText)
@@ -92,8 +94,8 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
         var builder = new DefaultImageBuilder();
 
         // act
-        var source = new ImageSource(ImageSourceUrl, DefaultImageSourceMediaQuery);
-        var source2 = new ImageSource("/image3.jpg");
+        var source = new ImageSource(ImageSourceUrl, _defaultImageSourceMediaQuery);
+        var source2 = new ImageSource(SecondImageSourceUrl);
 
         var image = builder
             .WithAltText(AltText)
@@ -114,7 +116,7 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
 
         // act
         var sources = new List<ImageSource>() {
-            new(ImageSourceUrl, DefaultImageSourceMediaQuery),
+            new(ImageSourceUrl, _defaultImageSourceMediaQuery),
             new("/image3.jpg")
         };
 
@@ -144,8 +146,8 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
 
         // act
         var sources = new List<ImageSource>() {
-            new(ImageSourceUrl, DefaultImageSourceMediaQuery),
-            new("/image3.jpg")
+            new(ImageSourceUrl, _defaultImageSourceMediaQuery),
+            new(SecondImageSourceUrl)
         };
 
         var image = builder
@@ -168,8 +170,8 @@ public class DefaultImageBuilderSourcesTests : DefaultImageBuilderTestsBase
 
 
         // act
-        ImageSource source1 = new(ImageSourceUrl, DefaultImageSourceMediaQuery);
-        ImageSource source2 = new("/image3.jpg");
+        ImageSource source1 = new(ImageSourceUrl, _defaultImageSourceMediaQuery);
+        ImageSource source2 = new(SecondImageSourceUrl);
 
         var sources = new List<ImageSource>() {
             source1,
