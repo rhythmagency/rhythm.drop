@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
+﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Components;
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Components;
@@ -19,7 +19,7 @@ public class DefaultDropComponentTagHelperRendererTests : DefaultDropComponentTa
 
         Assert.Multiple(() =>
         {
-            Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));        
+            Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));
             Assert.That(output.Content.IsEmptyOrWhiteSpace, Is.False);
         });
 

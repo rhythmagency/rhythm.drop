@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
+﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Attributes;
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;

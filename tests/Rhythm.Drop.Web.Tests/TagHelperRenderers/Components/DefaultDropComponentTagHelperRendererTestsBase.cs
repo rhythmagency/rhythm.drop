@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
+﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Components;
 
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -23,7 +23,7 @@ public abstract class DefaultDropComponentTagHelperRendererTestsBase : TagHelper
     }
 
     protected static IRenderingHelper CreateRenderingHelper(IHtmlContent htmlContent)
-    {   
+    {
         var mock = new Mock<IRenderingHelper>();
         mock.Setup(x => x.RenderAsync(It.IsAny<ComponentMetaData>())).Returns(Task.FromResult(htmlContent));
 
