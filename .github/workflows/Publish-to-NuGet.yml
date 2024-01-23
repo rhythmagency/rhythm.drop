@@ -39,10 +39,15 @@ jobs:
       run: |
        echo "Package Version: $PACKAGE_VERSION"
 
-    # Start packaging process
+    # Restore
     - name: Restore dependencies
       run: dotnet restore $SOLUTION
 
+    # Test
+    - name: Test Rhythm.Drop.Builders
+      run: dotnet test ./tests/Rhythm.Drop.Builders.Tests/Rhythm.Drop.Builders.Tests.csproj
+
+    # Start packaging process
     - name: Pack Rhythm.Drop.Models
       run: dotnet pack ./src/Rhythm.Drop.Models/Rhythm.Drop.Models.csproj --no-restore -c $BUILD_CONFIG /p:version=$PACKAGE_VERSION
 
