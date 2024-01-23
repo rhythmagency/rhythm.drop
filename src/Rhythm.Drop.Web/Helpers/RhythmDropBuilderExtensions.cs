@@ -3,8 +3,8 @@
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Helpers.Modals;
 using Rhythm.Drop.Web.Infrastructure.Helpers;
-using Rhythm.Drop.Web.Helpers.ViewPath;
 using Rhythm.Drop.Web.Helpers.Theme;
+using Rhythm.Drop.Web.Helpers.Rendering;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to factories.
@@ -20,6 +20,7 @@ public static class RhythmDropBuilderExtensions
     {
         return builder
             .SetDefaultModalPersistenceHelper()
+            .SetDefaultRenderingHelper()
             .SetDefaultThemeHelper()
             .SetDefaultViewPathHelper();
     }
@@ -32,6 +33,16 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetDefaultModalPersistenceHelper(this IRhythmDropBuilder builder)
     {
         return builder.SetModalPersistenceHelper<DefaultModalPersistenceHelper>();
+    }
+
+    /// <summary>
+    /// Sets the default rendering helper.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDefaultRenderingHelper(this IRhythmDropBuilder builder)
+    {
+        return builder.SetRenderingHelper<DefaultRenderingHelper>();
     }
 
     /// <summary>

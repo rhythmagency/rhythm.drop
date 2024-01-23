@@ -1,25 +1,19 @@
 ﻿namespace Rhythm.Drop.Web.TagHelperRenderers.Components;
-
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
-using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Factories.Components;
-using Rhythm.Drop.Web.Infrastructure.Helpers.ViewPath;
+using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
-using System;
 using System.Threading.Tasks;
 
 /// <summary>
 /// The default implementation of <see cref="IDropComponentsTagHelperRenderer"/>.
 /// </summary>
 /// <param name="componentMetaDataFactory">The component meta data factory.</param>
-/// <param name="htmlHelper">The HTML helper.</param>
-/// <param name="viewPathHelper">The view path helper.</param>
+/// <param name="renderingHelper">The rendering helper.</param>
 /// <remarks>This implementation should cover most scenarios but can be replaced if needed on a project-by-project basis.</remarks>
-internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataFactory componentMetaDataFactory, IHtmlHelper htmlHelper, IViewPathHelper viewPathHelper) : DropComponentsTagHelperRendererBase
+internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataFactory componentMetaDataFactory, IRenderingHelper renderingHelper) : DropComponentsTagHelperRendererBase
 {
     /// <summary>
     /// The component meta data factory.
@@ -29,12 +23,7 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
     /// <summary>
     /// The HTML helper.
     /// </summary>
-    private readonly IHtmlHelper _htmlHelper = htmlHelper;
-
-    /// <summary>
-    /// The view path helper.
-    /// </summary>
-    private readonly IViewPathHelper _viewPathHelper = viewPathHelper;
+    private readonly IRenderingHelper _renderingHelper = renderingHelper;
 
     /// <inheritdoc/>
     protected override async Task RenderMultipleAsync(DropComponentsTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output)
@@ -46,16 +35,15 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         var total = components.Count;
         var index = 0;
 
-        ((IViewContextAware)_htmlHelper).Contextualize(model.ViewContext);
+        _renderingHelper.Contextualize(model.ViewContext);
 
         var attributes = ReadOnlyHtmlAttributeCollection.Empty();
         foreach (var component in components)
         {
             var input = new ComponentMetaDataFactoryInput(component, model.Level, index, total, model.Theme, attributes, model.Section);
             var viewModel = _componentMetaDataFactory.Create(input);
-            var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
-
-            output.Content.AppendHtml(await _htmlHelper.PartialAsync(viewPath, viewModel));
+            
+            output.Content.AppendHtml(await _renderingHelper.RenderAsync(viewModel));
             index++;
         }
     }
@@ -73,9 +61,8 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
 
         var input = new ComponentMetaDataFactoryInput(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes, model.Section);
         var viewModel = _componentMetaDataFactory.Create(input);
-        var viewPath = _viewPathHelper.GetComponentViewPath(model.Theme, component.ViewName);
-
-        ((IViewContextAware)_htmlHelper).Contextualize(model.ViewContext);
-        output.Content.AppendHtml(await _htmlHelper.PartialAsync(viewPath, viewModel));
+        
+        _renderingHelper.Contextualize(model.ViewContext);
+        output.Content.AppendHtml(await _renderingHelper.RenderAsync(viewModel));
     }
 }

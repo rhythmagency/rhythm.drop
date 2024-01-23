@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.Helpers.ViewPath;
+﻿namespace Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 
 /// <summary>
 /// A contract for implementing a helper for getting view paths.

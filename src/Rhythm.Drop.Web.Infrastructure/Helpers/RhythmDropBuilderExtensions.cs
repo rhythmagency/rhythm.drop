@@ -3,8 +3,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Modals;
+using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
-using Rhythm.Drop.Web.Infrastructure.Helpers.ViewPath;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to helpers.
@@ -19,6 +19,18 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetModalPersistenceHelper<TModalPersistenceHelper>(this IRhythmDropBuilder builder) where TModalPersistenceHelper : class, IModalPersistenceHelper
     {
         builder.Services.Replace<IModalPersistenceHelper, TModalPersistenceHelper>(ServiceLifetime.Scoped);
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Sets the rendering helper.
+    /// </summary>
+    /// <typeparam name="TRenderingHelper">The type of the rendering helper.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetRenderingHelper<TRenderingHelper>(this IRhythmDropBuilder builder) where TRenderingHelper : class, IRenderingHelper
+    {
+        builder.Services.Replace<IRenderingHelper, TRenderingHelper>(ServiceLifetime.Scoped);
 
         return builder;
     }

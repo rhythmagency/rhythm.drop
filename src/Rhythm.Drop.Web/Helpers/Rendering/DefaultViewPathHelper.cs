@@ -1,7 +1,7 @@
-﻿namespace Rhythm.Drop.Web.Helpers.ViewPath;
+﻿namespace Rhythm.Drop.Web.Helpers.Rendering;
 
 using Microsoft.Extensions.Options;
-using Rhythm.Drop.Web.Infrastructure.Helpers.ViewPath;
+using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Options;
 
 /// <summary>

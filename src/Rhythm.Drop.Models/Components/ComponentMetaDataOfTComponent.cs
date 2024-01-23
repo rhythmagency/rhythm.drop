@@ -22,4 +22,10 @@ public sealed record ComponentMetaData<TComponent>(TComponent Component, int Lev
     public ComponentMetaData(TComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Component, Level, Index, Total, Theme, Attributes, default)
     {        
     }
+
+    /// <inheritdoc/>
+    public override string ViewName()
+    {
+        return Component.ViewName;
+    }
 }
