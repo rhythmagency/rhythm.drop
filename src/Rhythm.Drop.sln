@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rhythm.Drop.Builders", "Rhy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhythm.Drop.Builders.Tests", "..\tests\Rhythm.Drop.Builders.Tests\Rhythm.Drop.Builders.Tests.csproj", "{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhythm.Drop.Web.Tests", "..\tests\Rhythm.Drop.Web.Tests\Rhythm.Drop.Web.Tests.csproj", "{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{42C88CCD-262C-49DC-82D5-C6470F85090F}"
 EndProject
 Global
@@ -58,12 +60,17 @@ Global
 		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{10D4AD67-BD20-4327-B1A0-F448D6E6EEAA} = {42C88CCD-262C-49DC-82D5-C6470F85090F}
+		{2BA7A1C9-BABD-4AF6-A381-F723F2021BA3} = {42C88CCD-262C-49DC-82D5-C6470F85090F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3309BB1E-4784-49EA-AF65-16DF8D16652A}
