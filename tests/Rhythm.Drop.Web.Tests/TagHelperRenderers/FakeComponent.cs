@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Components;
+﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
 using Rhythm.Drop.Models.Components;
 
 internal class FakeComponent : IComponent
