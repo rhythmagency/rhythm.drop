@@ -42,8 +42,9 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         {
             var input = new ComponentMetaDataFactoryInput(component, model.Level, index, total, model.Theme, attributes, model.Section);
             var viewModel = _componentMetaDataFactory.Create(input);
-            
-            output.Content.AppendHtml(await _renderingHelper.RenderAsync(viewModel));
+            var content = await _renderingHelper.RenderAsync(viewModel);
+
+            output.Content.AppendHtml(content);
             index++;
         }
     }
@@ -63,6 +64,8 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
         var viewModel = _componentMetaDataFactory.Create(input);
         
         _renderingHelper.Contextualize(model.ViewContext);
-        output.Content.AppendHtml(await _renderingHelper.RenderAsync(viewModel));
+        
+        var content = await _renderingHelper.RenderAsync(viewModel);
+        output.Content.AppendHtml(content);
     }
 }
