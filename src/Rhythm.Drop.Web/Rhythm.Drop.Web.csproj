@@ -29,6 +29,11 @@
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
 	</ItemGroup>
 
+	<!-- Internals -->
+	<ItemGroup>
+		<InternalsVisibleTo Include="Rhythm.Drop.Web.Tests" />
+	</ItemGroup>
+
 	<!-- SourceLink includes -->
 	<ItemGroup>
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
