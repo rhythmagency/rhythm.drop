@@ -1,6 +1,5 @@
 ﻿namespace Rhythm.Drop.Web.Infrastructure;
 
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Encodings.Web;
@@ -62,6 +61,6 @@ public static class TagHelperOutputExtensions
     public static void SurpressTag(this TagHelperOutput output)
     {
         output.TagMode = TagMode.StartTagAndEndTag;
-        output.TagName = string.Empty;
+        output.TagName = default;
     }
 }
