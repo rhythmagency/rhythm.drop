@@ -14,22 +14,25 @@ internal sealed class DefaultDropLinkTagHelperRenderer() : DropLinkTagHelperRend
     /// <inheritdoc/>
     protected override async Task RenderModelAsync(ILink link, TagHelperContext context, TagHelperOutput output)
     {
-        await Task.Run(() =>
+
+        if (link is IModalLink modalLink)
         {
-            if (link is IModalLink modalLink)
-            {
-                output.Attributes.SetAttribute("data-modal-target", modalLink.Modal.UniqueKey);
-            }
+            output.Attributes.SetAttribute("data-modal-target", modalLink.Modal.UniqueKey);
+        }
 
-            output.TagName = GetTagName(link);
-            output.TagMode = TagMode.StartTagAndEndTag;
+        output.TagName = GetTagName(link);
+        output.TagMode = TagMode.StartTagAndEndTag;
+
+        var childContent = await output.GetChildContentAsync();
+        if (childContent.IsEmptyOrWhiteSpace)
+        {
             output.Content.SetHtmlContent(link.Label);
+        }
 
-            foreach (var attribute in link.Attributes)
-            {
-                output.Attributes.SetAttribute(attribute.Name, attribute.Value);
-            }
-        });
+        foreach (var attribute in link.Attributes)
+        {
+            output.Attributes.SetAttribute(attribute.Name, attribute.Value);
+        }
     }
 
     private static string GetTagName(ILink link)
