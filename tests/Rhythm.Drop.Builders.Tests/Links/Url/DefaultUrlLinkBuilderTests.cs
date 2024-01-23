@@ -32,6 +32,7 @@ public class DefaultUrlLinkBuilderTests
             .AndLabel(label)
             .Build();
 
+        // assert
         Assert.That(link, Is.Default);
     }
 
@@ -47,6 +48,7 @@ public class DefaultUrlLinkBuilderTests
             .AndLabel(Label)
             .Build();
 
+        // assert
         Assert.That(link, Is.Not.Default);
     }
 
@@ -79,6 +81,7 @@ public class DefaultUrlLinkBuilderTests
             .SetAttribute(TestAttributeName, true)
             .Build();
 
+        // assert
         Assert.That(link, Is.Not.Default);
         Assert.Multiple(() =>
         {
@@ -101,6 +104,7 @@ public class DefaultUrlLinkBuilderTests
             .RemoveAttribute(TestAttributeName)
             .Build();
 
+        // assert
         Assert.That(link, Is.Not.Default);
         Assert.Multiple(() =>
         {

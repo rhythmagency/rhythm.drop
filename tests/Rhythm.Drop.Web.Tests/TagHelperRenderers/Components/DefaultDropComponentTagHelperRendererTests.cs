@@ -10,13 +10,16 @@ public class DefaultDropComponentTagHelperRendererTests : DefaultDropComponentTa
     [Test]
     public async Task RenderAsync_With_Returns_No_Output_Tag()
     {
+        // arrange
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
         var model = CreateRendererContext(new FakeComponent());
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(model, context, output);
 
+        // assert
         Assert.Multiple(() =>
         {
             Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));
@@ -28,13 +31,16 @@ public class DefaultDropComponentTagHelperRendererTests : DefaultDropComponentTa
     [Test]
     public async Task RenderAsync_With_No_Component_Returns_No_Output()
     {
+        // arrange
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
         var model = CreateRendererContext(default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(model, context, output);
 
+        // assert
         Assert.Multiple(() =>
         {
             Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));

@@ -25,6 +25,7 @@ public class DefaultDropAttributesTagHelperRendererTests : TagHelperRendererTest
         // act
         await tagHelpererRenderer.RenderAsync(attributes, context, output);
 
+        // assert
         Assert.That(output.Attributes, Has.Count.EqualTo(attributes.Count));
     }
 
@@ -46,6 +47,7 @@ public class DefaultDropAttributesTagHelperRendererTests : TagHelperRendererTest
         // act
         await tagHelpererRenderer.RenderAsync(attributes, context, output);
 
+        // assert
         Assert.That(output.Attributes, Has.Count.EqualTo(attributes.Count + existingAttributes.Count));
     }
 
@@ -69,6 +71,7 @@ public class DefaultDropAttributesTagHelperRendererTests : TagHelperRendererTest
         // act
         await tagHelpererRenderer.RenderAsync(attributes, context, output);
 
+        // assert
         Assert.That(output.Attributes, Has.Count.EqualTo(attributes.Count));
         Assert.That(output.Attributes, Has.Exactly(1).Matches<TagHelperAttribute>(x => x.Name == TestAttributeName && x.Value.ToString() == NewValue.ToString()));
     }
@@ -89,6 +92,7 @@ public class DefaultDropAttributesTagHelperRendererTests : TagHelperRendererTest
         // act
         await tagHelpererRenderer.RenderAsync(attributes, context, output);
 
+        // assert
         Assert.That(output.Attributes, Has.Count.EqualTo(existingAttributes.Count));
     }
 }

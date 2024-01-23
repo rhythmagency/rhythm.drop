@@ -20,12 +20,15 @@ public class DefaultLinkTagHelperRendererTests : TagHelperRendererTestsBase
     [Test]
     public async Task RenderAsync_With_No_Link_Should_Return_Nothing()
     {
+        // arrange
         var tagHelperRenderer = new DefaultDropLinkTagHelperRenderer();
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(default, context, output);
 
+        // assert
         Assert.Multiple(() =>
         {
             Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));
@@ -36,13 +39,16 @@ public class DefaultLinkTagHelperRendererTests : TagHelperRendererTestsBase
     [Test]
     public async Task RenderAsync_With_Anchor_Link_Should_Return_Modified_Content()
     {
+        // arrange
         var tagHelperRenderer = new DefaultDropLinkTagHelperRenderer();
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);        
         var link = CreateAnchorLink(DefaultUrl);
 
+        // act
         await tagHelperRenderer.RenderAsync(link, context, output);
 
+        // assert
         Assert.Multiple(() =>
         {
             Assert.That(output.TagName, Is.EqualTo("a"));
@@ -54,13 +60,16 @@ public class DefaultLinkTagHelperRendererTests : TagHelperRendererTestsBase
     [Test]
     public async Task RenderAsync_With_Modal_Link_Should_Return_Modified_Content()
     {
+        // arrange
         var tagHelperRenderer = new DefaultDropLinkTagHelperRenderer();
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         var modal = new Modal("test", [new FakeComponent()]);
         var link = new ModalLink(modal, "Click Me", ReadOnlyHtmlAttributeCollection.Empty());
 
+        // assert
         await tagHelperRenderer.RenderAsync(link, context, output);
 
         Assert.Multiple(() =>
@@ -74,13 +83,16 @@ public class DefaultLinkTagHelperRendererTests : TagHelperRendererTestsBase
     [Test]
     public async Task RenderAsync_With_Link_And_Existing_Content_Should_Return_Only_Outter_Modified_Content()
     {
+        // arrange
         var tagHelperRenderer = new DefaultDropLinkTagHelperRenderer();
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName, new HtmlString("Existing Content"));
 
+        // act
         var link = CreateAnchorLink(DefaultUrl);
         await tagHelperRenderer.RenderAsync(link, context, output);
 
+        // assert
         Assert.Multiple(() =>
         {
             Assert.That(output.TagName, Is.EqualTo("a"));

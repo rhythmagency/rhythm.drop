@@ -8,13 +8,16 @@ public class DefaultDropComponentsTagHelperRendererTests : DefaultDropComponentT
     [Test]
     public async Task RenderAsync_With_Components_And_No_TagName_Returns_Output_With_No_TagName()
     {
+        // arrange
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
         var model = CreateRendererContext([new FakeComponent()]);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(model, context, output);
 
+        // assert
         Assert.That(output.TagName, Is.Default);
         Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));
     }
@@ -22,13 +25,16 @@ public class DefaultDropComponentsTagHelperRendererTests : DefaultDropComponentT
     [Test]
     public async Task RenderAsync_With_TagName_And_No_Components_Returns_Output_With_No_TagName()
     {
+        // arrange
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
         var model = CreateRendererContext([]);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(model, context, output);
 
+        // assert
         Assert.That(output.TagName, Is.Default);
         Assert.That(output.TagName, Is.Not.EqualTo(DefaultTagName));
     }
@@ -36,14 +42,17 @@ public class DefaultDropComponentsTagHelperRendererTests : DefaultDropComponentT
     [Test]
     public async Task RenderAsync_With_TagName_And_Components_Returns_Output_With_Expected_TagName()
     {
+        // arrange
         const string NewTagName = "section";
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
         var model = CreateRendererContext([new FakeComponent()], NewTagName);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
+        // act
         await tagHelperRenderer.RenderAsync(model, context, output);
 
+        // assert
         Assert.That(output.TagName, Is.EqualTo(NewTagName));
     }
 
