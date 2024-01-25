@@ -16,8 +16,9 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// </summary>
     /// <param name="image">The image.</param>
     /// <param name="renderMode">The render mode.</param>
+    /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
-    protected virtual void RenderModelAsSingleImage(IImage image, RenderMode renderMode, TagHelperOutput output)
+    protected virtual void RenderModelAsSingleImage(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "img";
         output.Attributes.SetAttribute("src", image.Url);

@@ -33,7 +33,7 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
             }
             else
             {
-                RenderModelAsSingleImage(image, model.RenderMode, output);
+                RenderModelAsSingleImage(image, model.RenderMode, context, output);
             }
         });
     }
