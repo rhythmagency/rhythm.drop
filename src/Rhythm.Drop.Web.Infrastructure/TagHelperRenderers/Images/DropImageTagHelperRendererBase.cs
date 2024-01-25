@@ -13,6 +13,40 @@ using RenderMode = Rhythm.Drop.Web.Infrastructure.RenderMode;
 /// </summary>
 public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<DropImageTagHelperRendererContext>, IDropImageTagHelperRenderer
 {
+    /// <inheritdoc/>
+    protected override async Task RenderModelAsync(DropImageTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output)
+    {
+        if (model.Image is null)
+        {
+            output.SuppressOutput();
+            return;
+        }
+
+        await Task.Run(() =>
+        {
+            var image = model.Image;
+
+            if (ShouldRenderOutputAsPicture(image, context, output))
+            {
+                RenderOutputAsPicture(image, model.RenderMode, context, output);
+            }
+            else
+            {
+                RenderOutputAsImg(image, model.RenderMode, context, output);
+            }
+        });
+    }
+
+    /// <summary>
+    /// Determines whether the output should be rendered as a picture HTML tag or a single img HTML tag.
+    /// </summary>
+    /// <param name="image">The image.</param>
+    /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
+    /// <returns><para>A <see cref="bool"/>. If <see langword="true" /> the output should be rendered a picture HTML tag. Otherwise it should be rendered a single img HTML tag.</para>
+    /// </returns>
+    protected abstract bool ShouldRenderOutputAsPicture(IImage image, TagHelperContext context, TagHelperOutput output);
+
     /// <summary>
     /// Renders a <see cref="IImage"/> and <see cref="TagHelperOutput"/> as a picture HTML tag.
     /// </summary>
