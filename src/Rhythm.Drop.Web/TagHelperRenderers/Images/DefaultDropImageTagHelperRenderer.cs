@@ -29,11 +29,11 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
 
             if (image.Sources.Count > 0)
             {
-                RenderModelAsPicture(image, model.RenderMode, context, output);
+                RenderOutputAsPicture(image, model.RenderMode, context, output);
             }
             else
             {
-                RenderModelAsSingleImage(image, model.RenderMode, context, output);
+                RenderOutputAsImg(image, model.RenderMode, context, output);
             }
         });
     }

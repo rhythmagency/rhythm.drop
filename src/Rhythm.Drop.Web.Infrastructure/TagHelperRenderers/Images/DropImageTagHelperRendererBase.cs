@@ -20,7 +20,7 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
-    protected static void RenderModelAsPicture(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected static void RenderOutputAsPicture(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "picture";
         output.TagMode = TagMode.StartTagAndEndTag;
@@ -43,7 +43,7 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
-    protected virtual void RenderModelAsSingleImage(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected virtual void RenderOutputAsImg(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "img";
         output.Attributes.SetAttribute("src", image.Url);
