@@ -65,12 +65,12 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
 
         foreach (var source in image.Sources)
         {
-            var sourceHtml = BuildImageSourceHtmlContent(source, renderMode, context); 
+            var sourceHtml = BuildImageSourceHtmlContent(source, renderMode, context, output); 
 
             output.Content.AppendHtml(sourceHtml);
         }
 
-        var imgHtml = BuildImgHtmlContent(image, renderMode, context);
+        var imgHtml = BuildImgHtmlContent(image, renderMode, context, output);
         output.Content.AppendHtml(imgHtml);
     }
 
@@ -110,17 +110,18 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     }
 
     /// <summary>
-    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImgHtmlContent(IImage, RenderMode, TagHelperContext)"/>.
+    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImgHtmlContent(IImage, RenderMode, TagHelperContext, TagHelperOutput)"/>.
     /// </summary>
     /// <param name="image">The image.</param>
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
     /// <returns>A <see cref="TagBuilder"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the img tag used by a picture tag.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual TagBuilder CreateImgTagBuilder(IImage image, RenderMode renderMode, TagHelperContext context)
+    protected virtual TagBuilder CreateImgTagBuilder(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = new TagBuilder("img");
         tagBuilder.Attributes.Add("src", image.Url);
@@ -145,17 +146,18 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     }
 
     /// <summary>
-    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImageSourceHtmlContent(IImageSource, RenderMode, TagHelperContext)"/>.
+    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImageSourceHtmlContent(IImageSource, RenderMode, TagHelperContext, TagHelperOutput)"/>.
     /// </summary>
     /// <param name="source">The image source.</param>
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
     /// <returns>A <see cref="TagBuilder"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual TagBuilder CreateImageSourceTagBuilder(IImageSource source, RenderMode renderMode, TagHelperContext context)
+    protected virtual TagBuilder CreateImageSourceTagBuilder(IImageSource source, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = new TagBuilder("source");
 
@@ -190,14 +192,15 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <param name="image">The image.</param>
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
     /// <returns>A <see cref="IHtmlContent"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
-    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImgTagBuilder(IImage, RenderMode, TagHelperContext)"/>.</para>
+    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImgTagBuilder(IImage, RenderMode, TagHelperContext, TagHelperOutput)"/>.</para>
     /// </remarks>
-    protected IHtmlContent BuildImgHtmlContent(IImage image, RenderMode renderMode, TagHelperContext context)
+    protected IHtmlContent BuildImgHtmlContent(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
-        var tagBuilder = CreateImgTagBuilder(image, renderMode, context);
+        var tagBuilder = CreateImgTagBuilder(image, renderMode, context, output);
 
         return tagBuilder.RenderSelfClosingTag();
     }
@@ -208,14 +211,15 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <param name="source">The image source.</param>
     /// <param name="renderMode">The render mode.</param>
     /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
     /// <returns>A <see cref="IHtmlContent"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
-    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImageSourceTagBuilder(IImageSource, RenderMode, TagHelperContext)"/>.</para>
+    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImageSourceTagBuilder(IImageSource, RenderMode, TagHelperContext, TagHelperOutput)"/>.</para>
     /// </remarks>
-    protected IHtmlContent BuildImageSourceHtmlContent(IImageSource source, RenderMode renderMode, TagHelperContext context)
+    protected IHtmlContent BuildImageSourceHtmlContent(IImageSource source, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
-        var tagBuilder = CreateImageSourceTagBuilder(source, renderMode, context);
+        var tagBuilder = CreateImageSourceTagBuilder(source, renderMode, context, output);
 
         return tagBuilder.RenderSelfClosingTag();
     }
