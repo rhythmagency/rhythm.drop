@@ -27,13 +27,13 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
 
         foreach (var source in image.Sources)
         {
-            var sourceTag = BuildSourceTag(source); 
+            var sourceHtml = BuildImageSourceHtmlContent(source); 
 
-            output.Content.AppendHtml(sourceTag);
+            output.Content.AppendHtml(sourceHtml);
         }
 
-        var imgTag = BuildImgTag(image, renderMode);
-        output.Content.AppendHtml(imgTag);
+        var imgHtml = BuildImgHtmlContent(image, renderMode);
+        output.Content.AppendHtml(imgHtml);
     }
 
     /// <summary>
@@ -73,7 +73,7 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
         await Task.Run(output.SuppressOutput);
     }
 
-    private static IHtmlContent BuildImgTag(IImage image, RenderMode renderMode)
+    private static IHtmlContent BuildImgHtmlContent(IImage image, RenderMode renderMode)
     {
         var tagBuilder = new TagBuilder("img");
         tagBuilder.Attributes.Add("src", image.Url);
@@ -97,7 +97,7 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
         return tagBuilder.RenderSelfClosingTag();
     }
 
-    private static IHtmlContent BuildSourceTag(IImageSource source)
+    private static IHtmlContent BuildImageSourceHtmlContent(IImageSource source)
     {
         var tagBuilder = new TagBuilder("source");
 
