@@ -43,14 +43,12 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
         output.TagName = "picture";
         output.TagMode = TagMode.StartTagAndEndTag;
 
-
         foreach (var source in image.Sources)
         {
             var sourceTag = BuildSourceTag(source); 
 
             output.Content.AppendHtml(sourceTag);
         }
-
 
         var imgTag = BuildImgTag(image, renderMode);
         output.Content.AppendHtml(imgTag);
@@ -107,29 +105,5 @@ internal sealed class DefaultDropImageTagHelperRenderer : DropImageTagHelperRend
         }
 
         return tagBuilder.RenderSelfClosingTag();
-    }
-
-    private static void RenderModelAsSingleImage(IImage image, RenderMode renderMode, TagHelperOutput output)
-    {
-        output.TagName = "img";
-        output.Attributes.SetAttribute("src", image.Url);
-        output.Attributes.SetAttribute("alt", image.AltText);
-
-        if (renderMode is RenderMode.Lazy)
-        {
-            output.Attributes.SetAttribute("loading", "lazy");
-        }
-
-        if (image.Width > 0)
-        {
-            output.Attributes.SetAttribute("width", image.Width);
-        }
-
-        if (image.Height > 0)
-        {
-            output.Attributes.SetAttribute("height", image.Height);
-        }
-
-        output.TagMode = TagMode.SelfClosing;
     }
 }
