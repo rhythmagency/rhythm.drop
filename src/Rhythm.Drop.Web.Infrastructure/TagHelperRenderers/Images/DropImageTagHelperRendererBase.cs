@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers;
 using System.Threading.Tasks;
-using RenderMode = Rhythm.Drop.Web.Infrastructure.RenderMode;
 
 /// <summary>
 /// A base class for rendering <see cref="IImage"/> when used in a <see cref="TagHelper"/>.
@@ -28,11 +27,11 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
 
             if (ShouldRenderOutputAsPicture(image, context, output))
             {
-                RenderOutputAsPicture(image, model.RenderMode, context, output);
+                RenderOutputAsPicture(image, model.LoadingMode, context, output);
             }
             else
             {
-                RenderOutputAsImg(image, model.RenderMode, context, output);
+                RenderOutputAsImg(image, model.LoadingMode, context, output);
             }
         });
     }
@@ -54,14 +53,14 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// Renders a <see cref="IImage"/> and <see cref="TagHelperOutput"/> as a picture HTML tag.
     /// </summary>
     /// <param name="image">The image.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the a picture tag.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual void RenderOutputAsPicture(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected virtual void RenderOutputAsPicture(IImage image, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "picture";
         output.TagMode = TagMode.StartTagAndEndTag;
@@ -81,20 +80,20 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// Renders a <see cref="IImage"/> and <see cref="TagHelperOutput"/> as a single img HTML tag.
     /// </summary>
     /// <param name="image">The image.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the img tag when no picture tag is present.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual void RenderOutputAsImg(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected virtual void RenderOutputAsImg(IImage image, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         output.TagName = "img";
         output.Attributes.SetAttribute("src", image.Url);
         output.Attributes.SetAttribute("alt", image.AltText);
 
-        if (renderMode is RenderMode.Lazy)
+        if (renderMode is LoadingMode.Lazy)
         {
             output.Attributes.SetAttribute("loading", "lazy");
         }
@@ -113,10 +112,10 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     }
 
     /// <summary>
-    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImgHtmlContent(IImage, RenderMode, TagHelperContext, TagHelperOutput)"/>.
+    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImgHtmlContent(IImage, LoadingMode, TagHelperContext, TagHelperOutput)"/>.
     /// </summary>
     /// <param name="image">The image.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="TagBuilder"/>.</returns>
@@ -124,13 +123,13 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <para>This is intended to be a developer friendly extension point to modify the img tag used by a picture tag.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual TagBuilder CreateImgTagBuilder(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected virtual TagBuilder CreateImgTagBuilder(IImage image, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = new TagBuilder("img");
         tagBuilder.Attributes.Add("src", image.Url);
         tagBuilder.Attributes.Add("alt", image.AltText);
 
-        if (renderMode is RenderMode.Lazy)
+        if (renderMode is LoadingMode.Lazy)
         {
             tagBuilder.Attributes.Add("loading", "lazy");
         }
@@ -149,10 +148,10 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     }
 
     /// <summary>
-    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImageSourceHtmlContent(IImageSource, RenderMode, TagHelperContext, TagHelperOutput)"/>.
+    /// Creates a <see cref="TagBuilder"/> used by <see cref="BuildImageSourceHtmlContent(IImageSource, LoadingMode, TagHelperContext, TagHelperOutput)"/>.
     /// </summary>
     /// <param name="source">The image source.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="TagBuilder"/>.</returns>
@@ -160,7 +159,7 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
     /// <para>This can be replaced entirely or the base method can be used as a starting point for modifications.</para>
     /// </remarks>
-    protected virtual TagBuilder CreateImageSourceTagBuilder(IImageSource source, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected virtual TagBuilder CreateImageSourceTagBuilder(IImageSource source, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = new TagBuilder("source");
 
@@ -193,15 +192,15 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// Builds the <see cref="IHtmlContent"/> required by a img HTML tag when rendered within an picture HTML tag.
     /// </summary>
     /// <param name="image">The image.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="IHtmlContent"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
-    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImgTagBuilder(IImage, RenderMode, TagHelperContext, TagHelperOutput)"/>.</para>
+    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImgTagBuilder(IImage, LoadingMode, TagHelperContext, TagHelperOutput)"/>.</para>
     /// </remarks>
-    protected IHtmlContent BuildImgHtmlContent(IImage image, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected IHtmlContent BuildImgHtmlContent(IImage image, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = CreateImgTagBuilder(image, renderMode, context, output);
 
@@ -212,15 +211,15 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// Builds the <see cref="IHtmlContent"/> required by a source HTML tag when rendered within an picture HTML tag.
     /// </summary>
     /// <param name="source">The image source.</param>
-    /// <param name="renderMode">The render mode.</param>
+    /// <param name="renderMode">The loading mode.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="IHtmlContent"/>.</returns>
     /// <remarks>
     /// <para>This is intended to be a developer friendly extension point to modify the source tag used by a picture tag.</para>
-    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImageSourceTagBuilder(IImageSource, RenderMode, TagHelperContext, TagHelperOutput)"/>.</para>
+    /// <para>This should only bn replaced entirely if you do not intend to use the output from <see cref="CreateImageSourceTagBuilder(IImageSource, LoadingMode, TagHelperContext, TagHelperOutput)"/>.</para>
     /// </remarks>
-    protected IHtmlContent BuildImageSourceHtmlContent(IImageSource source, RenderMode renderMode, TagHelperContext context, TagHelperOutput output)
+    protected IHtmlContent BuildImageSourceHtmlContent(IImageSource source, LoadingMode renderMode, TagHelperContext context, TagHelperOutput output)
     {
         var tagBuilder = CreateImageSourceTagBuilder(source, renderMode, context, output);
 

@@ -15,7 +15,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
     {
         // arrange
         var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
-        var rendererContext = new DropImageTagHelperRendererContext(default, RenderMode.Default);
+        var rendererContext = new DropImageTagHelperRendererContext(default, LoadingMode.Default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
@@ -36,7 +36,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
         // arrange
         var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
         var image = new Image("/image.gif", "Test");
-        var rendererContext = new DropImageTagHelperRendererContext(image, RenderMode.Default);
+        var rendererContext = new DropImageTagHelperRendererContext(image, LoadingMode.Default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
@@ -59,7 +59,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
         // arrange
         var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
         var image = new Image("/image.gif", "Test", 200, 200);
-        var rendererContext = new DropImageTagHelperRendererContext(image, RenderMode.Default);
+        var rendererContext = new DropImageTagHelperRendererContext(image, LoadingMode.Default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
@@ -87,7 +87,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
         // arrange
         var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
         var image = new Image("/image.gif", "Test", default, default, [new ImageSource("/image2.gif")]);
-        var rendererContext = new DropImageTagHelperRendererContext(image, RenderMode.Default);
+        var rendererContext = new DropImageTagHelperRendererContext(image, LoadingMode.Default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 

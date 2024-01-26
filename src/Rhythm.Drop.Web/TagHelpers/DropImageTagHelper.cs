@@ -25,15 +25,15 @@ public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRend
     public IImage? Model { get; set; }
 
     /// <summary>
-    /// Gets or sets the render mode for this tag helper.
+    /// Gets or sets the loading mode for this tag helper.
     /// </summary>
-    [HtmlAttributeName("render-mode")]
-    public RenderMode RenderMode { get; set; } = RenderMode.Default;
+    [HtmlAttributeName("loading-mode")]
+    public LoadingMode LoadingMode { get; set; } = LoadingMode.Default;
 
     /// <inheritdoc/>
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
-        var rendererContext = new DropImageTagHelperRendererContext(Model, RenderMode);
+        var rendererContext = new DropImageTagHelperRendererContext(Model, LoadingMode);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }

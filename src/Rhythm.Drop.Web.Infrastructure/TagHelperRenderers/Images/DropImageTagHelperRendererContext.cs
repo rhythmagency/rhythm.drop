@@ -7,7 +7,7 @@ using Rhythm.Drop.Web.Infrastructure;
 /// Context model for implementations of <see cref="IDropImageTagHelperRenderer"/>.
 /// </summary>
 /// <param name="Image">The image.</param>
-/// <param name="RenderMode">The render mode.</param>
-public sealed record DropImageTagHelperRendererContext(IImage? Image, RenderMode RenderMode)
+/// <param name="LoadingMode">The loading mode.</param>
+public sealed record DropImageTagHelperRendererContext(IImage? Image, LoadingMode LoadingMode)
 {
 }
