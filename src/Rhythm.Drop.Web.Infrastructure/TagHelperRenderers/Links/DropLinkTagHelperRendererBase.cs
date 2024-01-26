@@ -2,8 +2,8 @@
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
-using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Models.Links;
+using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers;
 using System.Threading.Tasks;
@@ -21,29 +21,30 @@ public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILin
     /// <inheritdoc/>
     protected override async Task RenderModelAsync(ILink model, TagHelperContext context, TagHelperOutput output)
     {
-        output.TagName = GetTagName(model);
+        output.TagName = GetTagName(model, context);
         output.TagMode = TagMode.StartTagAndEndTag;
 
-        SetTagAttributes(output, model);
+        if (model is IModalLink modalLink)
+        {
+            SetModalLinkOutputModifications(modalLink, context, output);
+        }
 
-        await SetInnerContent(output, model);
+        SetTagAttributes(model, context, output);
+
+        await SetInnerContentAsync(model, context, output);
     }
 
     /// <summary>
     /// Sets the attributes of the tag helper output.
     /// </summary>
-    /// <param name="output">The output.</param>
     /// <param name="model">The model.</param>
-    protected virtual void SetTagAttributes(TagHelperOutput output, ILink model)
+    /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
+    protected virtual void SetTagAttributes(ILink model, TagHelperContext context, TagHelperOutput output)
     {
-        if (model is IModalLink modalLink)
-        {
-            output.Attributes.SetAttribute(ModalLinkUniqueKeyAttributeName, modalLink.Modal.UniqueKey);
-        }
-
         foreach (var attribute in model.Attributes)
         {
-            if (ShouldSetAttribute(attribute, model, output) is false)
+            if (ShouldSetAttribute(attribute, model, context, output) is false)
             {
                 continue;
             }
@@ -53,14 +54,26 @@ public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILin
     }
 
     /// <summary>
+    /// Sets the output modifications needs for a <see cref="IModalLink"/>.
+    /// </summary>
+    /// <param name="modalLink">The modal link.</param>
+    /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
+    protected virtual void SetModalLinkOutputModifications(IModalLink modalLink, TagHelperContext context, TagHelperOutput output)
+    {
+        output.Attributes.SetAttribute(ModalLinkUniqueKeyAttributeName, modalLink.Modal.UniqueKey);
+    }
+
+    /// <summary>
     /// Determines where to set an attribute or not.
     /// </summary>
     /// <param name="attribute">The current attribute.</param>
     /// <param name="model">The model.</param>
+    /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="bool"/>.</returns>
     /// <remarks>This exists so developers have an extension point to control the output of attributes.</remarks>
-    protected virtual bool ShouldSetAttribute(IHtmlAttribute attribute, ILink model, TagHelperOutput output)
+    protected virtual bool ShouldSetAttribute(IHtmlAttribute attribute, ILink model, TagHelperContext context, TagHelperOutput output)
     {
         return true;
     }
@@ -68,10 +81,11 @@ public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILin
     /// <summary>
     /// Sets the inner content of the tag helper output.
     /// </summary>
-    /// <param name="output">The output.</param>
     /// <param name="model">The model.</param>
+    /// <param name="context">The context.</param>
+    /// <param name="output">The output.</param>
     /// <returns></returns>
-    protected virtual async Task SetInnerContent(TagHelperOutput output, ILink model)
+    protected virtual async Task SetInnerContentAsync(ILink model, TagHelperContext context, TagHelperOutput output)
     {
         var childContent = await output.GetChildContentAsync();
         if (childContent.IsEmptyOrWhiteSpace)
@@ -91,8 +105,9 @@ public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILin
     /// Gets the tag name for the current link.
     /// </summary>
     /// <param name="model">The model.</param>
+    /// <param name="context">The context.</param>
     /// <returns>A <see cref="string"/> which represents the HTML tag.</returns>
-    protected virtual string GetTagName(ILink model)
+    protected virtual string GetTagName(ILink model, TagHelperContext context)
     {
         return model switch
         {
