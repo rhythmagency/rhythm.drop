@@ -81,9 +81,10 @@ public abstract class DropLinkTagHelperRendererBase : TagHelperRendererBase<ILin
     }
 
     /// <inheritdoc/>
-    protected override async Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output)
+    protected override Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output)
     {
-        await output.SupressOutputOrTag();
+        // use SupressOutputOrTag instead of SuppressOutput as tag may have child content.
+        return Task.Run(output.SupressOutputOrTag);
     }
 
     /// <summary>
