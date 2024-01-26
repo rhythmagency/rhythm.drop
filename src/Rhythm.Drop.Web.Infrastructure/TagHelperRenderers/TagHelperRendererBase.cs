@@ -46,7 +46,10 @@ public abstract class TagHelperRendererBase<TModel> : ITagHelperRenderer<TModel>
     /// <param name="context">The context of the current <see cref="TagHelper"/>.</param>
     /// <param name="output">The output of the current <see cref="TagHelper"/>.</param>
     /// <returns>A <see cref="Task"/>.</returns>
-    protected abstract Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output);
+    protected virtual Task RenderNullOrInvalidAsync(TagHelperContext context, TagHelperOutput output)
+    {
+        return Task.Run(output.SuppressOutput);
+    }
 
     /// <summary>
     /// Checks if the incoming model is <see langword="null"/> or invalid.
