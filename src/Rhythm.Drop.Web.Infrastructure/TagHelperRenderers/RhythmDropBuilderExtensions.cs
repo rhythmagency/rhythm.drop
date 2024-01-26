@@ -62,4 +62,30 @@ public static class RhythmDropBuilderExtensions
 
         return builder;
     }
+
+    /// <summary>
+    /// Sets the drop picture tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <typeparam name="TDropPictureTagHelperRenderer">The type of the new drop picture tag helper renderer.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDropPictureTagHelperRenderer<TDropPictureTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropPictureTagHelperRenderer : class, IDropPictureTagHelperRenderer
+    {
+        builder.Services.Replace<IDropPictureTagHelperRenderer, TDropPictureTagHelperRenderer>(ServiceLifetime.Scoped);
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Sets the drop picture image tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <typeparam name="TDropPictureImageTagHelperRenderer">The type of the new drop picture image tag helper renderer.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDropPictureImageTagHelperRenderer<TDropPictureImageTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropPictureImageTagHelperRenderer : class, IDropPictureImageTagHelperRenderer
+    {
+        builder.Services.Replace<IDropPictureImageTagHelperRenderer, TDropPictureImageTagHelperRenderer>(ServiceLifetime.Scoped);
+
+        return builder;
+    }
 }

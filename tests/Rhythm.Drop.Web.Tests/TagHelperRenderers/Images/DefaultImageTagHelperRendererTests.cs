@@ -79,26 +79,4 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
             Assert.That(output.Attributes, Has.One.Matches<TagHelperAttribute>(x => x.Name == "height" && x.Value.ToString() == image.Height.ToString()));
         });
     }
-
-
-    [Test]
-    public async Task RenderAsync_With_Image_That_Has_Sources_Returns_Output_With_Picture_TagName()
-    {
-        // arrange
-        var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
-        var image = new Image("/image.gif", "Test", default, default, [new ImageSource("/image2.gif")]);
-        var rendererContext = new DropImageTagHelperRendererContext(image, LoadingMode.Default);
-        var context = CreateTagHelperContext(DefaultTagName);
-        var output = CreateTagHelperOutput(DefaultTagName);
-
-        // act
-        await tagHelperRenderer.RenderAsync(rendererContext, context, output);
-
-        // assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(output.TagName, Is.EqualTo("picture"));
-            Assert.That(output.Content.IsModified, Is.True);
-        });
-    }
 }

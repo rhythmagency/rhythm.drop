@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 /// A tag helper that renders a <see cref="IImage"/>.
 /// </summary>
 /// <param name="tagHelperRenderer">The tag helper renderer.</param>
-[HtmlTargetElement("drop-image", TagStructure = TagStructure.WithoutEndTag)]
-public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRenderer) : TagHelper
+[HtmlTargetElement(ImgTagName, Attributes = DropModelAttributeName, TagStructure = TagStructure.WithoutEndTag)]
+public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRenderer) : DropImageTagHelperBase
 {
     /// <summary>
     /// The tag helper renderer.
@@ -21,13 +21,13 @@ public sealed class DropImageTagHelper(IDropImageTagHelperRenderer tagHelperRend
     /// <summary>
     /// Gets or sets the <see cref="IImage"/> model.
     /// </summary>
-    [HtmlAttributeName("model")]
+    [HtmlAttributeName(DropModelAttributeName)]
     public IImage? Model { get; set; }
 
     /// <summary>
     /// Gets or sets the loading mode for this tag helper.
     /// </summary>
-    [HtmlAttributeName("loading-mode")]
+    [HtmlAttributeName(LoadingModeAttributeName)]
     public LoadingMode LoadingMode { get; set; } = LoadingMode.Default;
 
     /// <inheritdoc/>
