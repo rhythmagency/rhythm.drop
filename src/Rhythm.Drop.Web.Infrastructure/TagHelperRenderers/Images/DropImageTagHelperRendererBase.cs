@@ -45,7 +45,10 @@ public abstract class DropImageTagHelperRendererBase : TagHelperRendererBase<Dro
     /// <param name="output">The output.</param>
     /// <returns><para>A <see cref="bool"/>. If <see langword="true" /> the output should be rendered a picture HTML tag. Otherwise it should be rendered a single img HTML tag.</para>
     /// </returns>
-    protected abstract bool ShouldRenderOutputAsPicture(IImage image, TagHelperContext context, TagHelperOutput output);
+    protected virtual bool ShouldRenderOutputAsPicture(IImage image, TagHelperContext context, TagHelperOutput output)
+    {
+        return image.Sources.Count > 0;
+    }
 
     /// <summary>
     /// Renders a <see cref="IImage"/> and <see cref="TagHelperOutput"/> as a picture HTML tag.
