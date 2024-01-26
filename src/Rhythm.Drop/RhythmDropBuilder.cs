@@ -1,7 +1,7 @@
 ﻿namespace Rhythm.Drop;
 
-using Rhythm.Drop.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Rhythm.Drop.Infrastructure;
 
 /// <summary>
 /// An implementation of <see cref="IRhythmDropBuilder"/>.

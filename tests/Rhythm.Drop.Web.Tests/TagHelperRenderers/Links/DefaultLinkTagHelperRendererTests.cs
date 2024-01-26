@@ -42,7 +42,7 @@ public class DefaultLinkTagHelperRendererTests : TagHelperRendererTestsBase
         // arrange
         var tagHelperRenderer = new DefaultDropLinkTagHelperRenderer();
         var context = CreateTagHelperContext(DefaultTagName);
-        var output = CreateTagHelperOutput(DefaultTagName);        
+        var output = CreateTagHelperOutput(DefaultTagName);
         var link = CreateAnchorLink(DefaultUrl);
 
         // act

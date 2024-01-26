@@ -1,8 +1,8 @@
 ﻿namespace Rhythm.Drop.Builders.Tests.Links.Modal;
 
-using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Builders.Links;
 using Rhythm.Drop.Models.Components;
+using Rhythm.Drop.Models.Modals;
 
 [TestFixture]
 public class DefaultModalLinkBuilderTests
@@ -54,7 +54,7 @@ public class DefaultModalLinkBuilderTests
     {
         // arrange
         var builder = new DefaultLinkBuilder();
-        
+
         // act
         var link = builder
             .WithModal(_noModal)

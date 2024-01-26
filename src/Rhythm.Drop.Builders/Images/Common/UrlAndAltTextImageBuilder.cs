@@ -9,7 +9,7 @@ using Rhythm.Drop.Models.Images;
 /// <param name="url">The URL.</param>
 internal sealed class UrlAndAltTextImageBuilder(string? altText, string? url) : IUrlAndAltTextImageBuilder
 {
-    private readonly List<IImageSource> _sources = new();
+    private readonly List<IImageSource> _sources = [];
 
     /// <inheritdoc/>
     public string? Url => url;

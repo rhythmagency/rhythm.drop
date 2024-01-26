@@ -55,7 +55,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
     }
 
     public async Task RenderAsync_With_Simple_Image_And_Dimensions_Returns_Output_With_Img_TagName_And_Attributes()
-    {        
+    {
         // arrange
         var tagHelperRenderer = new DefaultDropImageTagHelperRenderer();
         var image = new Image("/image.gif", "Test", 200, 200);

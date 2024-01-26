@@ -5,20 +5,16 @@ using System.Collections.Generic;
 /// <summary>
 /// An image source set suitable of making modifications.
 /// </summary>
-public sealed class ImageSourceSet : ImageSourceSetBase
+/// <remarks>
+/// Constructs an <see cref="ImageSourceSet"/> from an existing collection of items.
+/// </remarks>
+/// <param name="items">The items.</param>
+public sealed class ImageSourceSet(IReadOnlyCollection<IImageSourceSetItem> items) : ImageSourceSetBase(items)
 {
     /// <summary>
     /// Constructs an empty <see cref="ImageSourceSet"/>.
     /// </summary>
     public ImageSourceSet() : this(Array.Empty<IImageSourceSetItem>())
-    {
-    }
-
-    /// <summary>
-    /// Constructs an <see cref="ImageSourceSet"/> from an existing collection of items.
-    /// </summary>
-    /// <param name="items"></param>
-    public ImageSourceSet(IReadOnlyCollection<IImageSourceSetItem> items) : base(items)
     {
     }
 

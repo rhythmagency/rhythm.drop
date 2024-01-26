@@ -1,7 +1,7 @@
 ﻿namespace Rhythm.Drop.Web.TagHelpers;
 
-using Rhythm.Drop.Models.Images;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Rhythm.Drop.Models.Images;
 using Rhythm.Drop.Web.Infrastructure;
 
 /// <summary>

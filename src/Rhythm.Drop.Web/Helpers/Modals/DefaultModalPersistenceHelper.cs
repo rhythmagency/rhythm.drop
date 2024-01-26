@@ -1,9 +1,9 @@
 ﻿namespace Rhythm.Drop.Web.Helpers.Modals;
 
 using Microsoft.AspNetCore.Http;
+using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Modals;
 using System.Collections.Generic;
-using Rhythm.Drop.Models.Modals;
 
 /// <summary>
 /// The default implementation of <see cref="IModalPersistenceHelper"/>.
@@ -29,7 +29,7 @@ internal sealed class DefaultModalPersistenceHelper(IHttpContextAccessor httpCon
         {
             return Array.Empty<IModal>();
         }
-     
+
         var modals = new List<IModal>();
 
         foreach (var item in _httpContextAccessor.HttpContext.Items)

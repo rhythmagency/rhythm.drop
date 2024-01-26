@@ -18,7 +18,7 @@ public static class ServiceCollectionExtensions
     /// <remarks>For custom functionality use <see cref="AddRhythmDrop(IServiceCollection, Action{IRhythmDropBuilder})"/>.</remarks>
     public static IServiceCollection AddRhythmDrop(this IServiceCollection services)
     {
-        return services.AddRhythmDrop((builder) => {});
+        return services.AddRhythmDrop((builder) => { });
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddRhythmDrop(this IServiceCollection services, Action<IRhythmDropBuilder> configure)
     {
         var builder = new RhythmDropBuilder(services);
-     
+
         if (services.HasRhythmDropDefaultsAddedMarker() is false)
         {
             builder
@@ -39,8 +39,8 @@ public static class ServiceCollectionExtensions
             .AddWeb();
 
             services.AddRhythmDropDefaultsAddedMarker();
-        }       
-        
+        }
+
         configure(builder);
         return services;
     }

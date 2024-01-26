@@ -9,7 +9,7 @@ using Rhythm.Drop.Builders.Images;
 public class DefaultImageBuilderWithDimensionsTests : DefaultImageBuilderTestsBase
 {
     private const int DefaultImageWidth = 200;
-    
+
     private const int DefaultImageHeight = 200;
 
     [Test]

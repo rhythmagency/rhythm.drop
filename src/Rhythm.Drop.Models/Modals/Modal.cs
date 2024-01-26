@@ -18,7 +18,7 @@ public sealed record Modal(string UniqueKey, IReadOnlyCollection<IComponent> Con
     /// <param name="UniqueKey">The unique key.</param>
     /// <param name="Content">The content.</param>
     public Modal(string UniqueKey, IReadOnlyCollection<IComponent> Content) : this(UniqueKey, Content, ReadOnlyHtmlAttributeCollection.Empty())
-    {        
+    {
     }
 
     /// <summary>

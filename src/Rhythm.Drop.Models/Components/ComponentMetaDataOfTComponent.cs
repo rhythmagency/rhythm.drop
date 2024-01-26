@@ -20,7 +20,7 @@ public sealed record ComponentMetaData<TComponent>(TComponent Component, int Lev
     /// </summary>
     /// <remarks>This creates a component meta data without a section for backward compatability.</remarks>
     public ComponentMetaData(TComponent Component, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Component, Level, Index, Total, Theme, Attributes, default)
-    {        
+    {
     }
 
     /// <inheritdoc/>

@@ -26,7 +26,7 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     /// </summary>
     /// <remarks>This creates a component meta data without a section for backward compatability.</remarks>
     public ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Level, Index, Total, Theme, Attributes, default)
-    {        
+    {
     }
 
     /// <summary>

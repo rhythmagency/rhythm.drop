@@ -62,9 +62,9 @@ internal sealed class DefaultDropComponentsTagHelperRenderer(IComponentMetaDataF
 
         var input = new ComponentMetaDataFactoryInput(component, model.Level, model.Index, model.Total, model.Theme, model.Attributes, model.Section);
         var viewModel = _componentMetaDataFactory.Create(input);
-        
+
         _renderingHelper.Contextualize(model.ViewContext);
-        
+
         var content = await _renderingHelper.RenderAsync(viewModel);
         output.Content.AppendHtml(content);
     }

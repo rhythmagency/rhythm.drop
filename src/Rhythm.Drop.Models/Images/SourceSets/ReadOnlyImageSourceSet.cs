@@ -1,20 +1,17 @@
 ﻿namespace Rhythm.Drop.Models.Images.SourceSets;
 
-using System.Collections.Generic;
 using Rhythm.Drop.Models.Images;
+using System.Collections.Generic;
 
 /// <summary>
 /// A read only implementation of <see cref="IReadOnlyImageSourceSet"/>.
 /// </summary>
-public sealed class ReadOnlyImageSourceSet : ImageSourceSetBase, IReadOnlyImageSourceSet
+/// <remarks>
+/// Constructs a <see cref="ReadOnlyImageSourceSet"/> from an existing collection of items.
+/// </remarks>
+/// <param name="items">The items.</param>
+public sealed class ReadOnlyImageSourceSet(IReadOnlyCollection<IImageSourceSetItem> items) : ImageSourceSetBase(items), IReadOnlyImageSourceSet
 {
-    /// <summary>
-    /// Constructs a <see cref="ReadOnlyImageSourceSet"/> from an existing collection of items.
-    /// </summary>
-    /// <param name="items">The items.</param>
-    public ReadOnlyImageSourceSet(IReadOnlyCollection<IImageSourceSetItem> items) : base(items)
-    {
-    }
 
     /// <summary>
     /// Returns an empty <see cref="IReadOnlyImageSourceSet"/>.

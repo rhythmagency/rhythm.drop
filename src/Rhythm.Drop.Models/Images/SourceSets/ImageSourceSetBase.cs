@@ -1,8 +1,8 @@
 ﻿namespace Rhythm.Drop.Models.Images.SourceSets;
 
+using Rhythm.Drop.Models.Images;
 using System.Collections;
 using System.Collections.Generic;
-using Rhythm.Drop.Models.Images;
 
 /// <summary>
 /// A base implementation of <see cref="IImageSourceSet"/>
