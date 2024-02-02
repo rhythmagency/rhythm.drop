@@ -1,5 +1,6 @@
-﻿namespace Rhythm.Drop.Models.Components;
+﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 
+using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Models.Common.Attributes;
 
 /// <summary>

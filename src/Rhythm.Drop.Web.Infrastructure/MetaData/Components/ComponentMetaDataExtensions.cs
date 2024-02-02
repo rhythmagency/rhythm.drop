@@ -1,7 +1,8 @@
-﻿namespace Rhythm.Drop.Models.Components;
+﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 
 using Rhythm.Drop.Models.Common;
 using Rhythm.Drop.Models.Common.Attributes;
+using Rhythm.Drop.Models.Components;
 
 /// <summary>
 /// A collection of extension methods that augment the Component Meta Data.

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
+using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using System.Threading.Tasks;
 

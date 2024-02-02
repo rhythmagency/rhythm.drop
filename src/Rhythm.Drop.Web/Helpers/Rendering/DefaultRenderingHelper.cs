@@ -3,8 +3,8 @@
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
+using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 using System.Threading.Tasks;
 
 /// <summary>
