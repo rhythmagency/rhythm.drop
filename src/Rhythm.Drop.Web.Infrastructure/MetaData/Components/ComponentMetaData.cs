@@ -38,12 +38,7 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     /// The first item index.
     /// </summary>
     public const int FirstItemIndex = 0;
-
-    /// <summary>
-    /// The modulus for an even indexed item.
-    /// </summary>
-    internal const int EvenIndexedItemModulus = 0;
-
+        
     /// <summary>
     /// Gets the view name for the component meta data.
     /// </summary>

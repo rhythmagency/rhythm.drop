@@ -1,8 +1,6 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+﻿namespace Rhythm.Drop.Web.MetaData.Components;
 
-using Rhythm.Drop.Models.Common;
-using Rhythm.Drop.Models.Common.Attributes;
-using Rhythm.Drop.Models.Components;
+using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 
 /// <summary>
 /// A collection of extension methods that augment the Component Meta Data.
@@ -10,18 +8,9 @@ using Rhythm.Drop.Models.Components;
 public static class ComponentMetaDataExtensions
 {
     /// <summary>
-    /// Gets all the attributes from the meta data and the component.
+    /// The modulus for an even indexed item.
     /// </summary>
-    /// <typeparam name="TComponent">The type of the component.</typeparam>
-    /// <param name="metaData">The current component meta data.</param>
-    /// <returns>A <see cref="IReadOnlyHtmlAttributeCollection"/>.</returns>
-    public static IReadOnlyHtmlAttributeCollection AllAttributes<TComponent>(this ComponentMetaData<TComponent> metaData) where TComponent : class, IComponent, IHaveAttributes
-    {
-        var collection = new HtmlAttributeCollection(metaData.Attributes);
-        collection.SetAttributes(metaData.Attributes);
-
-        return collection.ToReadOnly();
-    }
+    private const int EvenIndexedItemModulus = 0;
 
     /// <summary>
     /// Gets a non-zero version of the current <see cref="ComponentMetaData.Index"/>.
@@ -61,7 +50,7 @@ public static class ComponentMetaDataExtensions
     /// <remarks>This is based on the <see cref="HumanReadableIndex(ComponentMetaData)"/> value not <see cref="Index"/>.</remarks>
     public static bool IsEven(this ComponentMetaData metaData)
     {
-        return metaData.CalculateOddOrEvenModulus() is ComponentMetaData.EvenIndexedItemModulus;
+        return metaData.CalculateOddOrEvenModulus() is EvenIndexedItemModulus;
     }
 
     /// <summary>
@@ -72,7 +61,7 @@ public static class ComponentMetaDataExtensions
     /// <remarks>This is based on the <see cref="HumanReadableIndex(ComponentMetaData)"/> value not <see cref="Index"/>.</remarks>
     public static bool IsOdd(this ComponentMetaData metaData)
     {
-        return metaData.CalculateOddOrEvenModulus() is not ComponentMetaData.EvenIndexedItemModulus;
+        return metaData.CalculateOddOrEvenModulus() is not EvenIndexedItemModulus;
     }
 
     /// <summary>

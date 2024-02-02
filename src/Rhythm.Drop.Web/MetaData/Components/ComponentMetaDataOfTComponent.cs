@@ -1,7 +1,9 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+﻿
+namespace Rhythm.Drop.Web.MetaData.Components;
 
 using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Models.Common.Attributes;
+using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 
 /// <summary>
 /// A generic type for Component Meta Data.
