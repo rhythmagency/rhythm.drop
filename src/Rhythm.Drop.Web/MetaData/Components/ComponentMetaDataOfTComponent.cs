@@ -27,8 +27,5 @@ public sealed record ComponentMetaData<TComponent>(TComponent Component, int Lev
     }
 
     /// <inheritdoc/>
-    public override string ViewName()
-    {
-        return Component.ViewName;
-    }
+    public override string ViewName => Component.ViewName;    
 }

@@ -38,10 +38,10 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     /// The first item index.
     /// </summary>
     public const int FirstItemIndex = 0;
-        
+
     /// <summary>
     /// Gets the view name for the component meta data.
     /// </summary>
     /// <returns>A <see cref="string"/>.</returns>
-    public abstract string ViewName();
+    public abstract string ViewName { get; }
 }

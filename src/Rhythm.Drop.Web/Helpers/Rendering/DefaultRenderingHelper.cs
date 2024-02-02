@@ -33,7 +33,7 @@ internal sealed class DefaultRenderingHelper(IHtmlHelper htmlHelper, IViewPathHe
     /// <inheritdoc/>
     public async Task<IHtmlContent> RenderAsync(ComponentMetaData metaData)
     {
-        var viewPath = _viewPathHelper.GetComponentViewPath(metaData.Theme, metaData.ViewName());
+        var viewPath = _viewPathHelper.GetComponentViewPath(metaData.Theme, metaData.ViewName);
 
         return await _htmlHelper.PartialAsync(viewPath, metaData);
     }
