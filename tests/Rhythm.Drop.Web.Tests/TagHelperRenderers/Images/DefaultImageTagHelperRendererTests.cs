@@ -54,6 +54,7 @@ public class DefaultImageTagHelperRendererTests : TagHelperRendererTestsBase
         });
     }
 
+    [Test]
     public async Task RenderAsync_With_Simple_Image_And_Dimensions_Returns_Output_With_Img_TagName_And_Attributes()
     {
         // arrange
