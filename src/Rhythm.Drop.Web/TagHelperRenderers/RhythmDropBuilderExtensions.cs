@@ -24,10 +24,10 @@ public static class RhythmDropBuilderExtensions
             .SetDefaultDropAttributesTagHelperRenderer()
             .SetDefaultDropComponentsTagHelperRenderer()
             .SetDefaultDropImageTagHelperRenderer()
+            .SetDefaultDropLinkTagHelperRenderer()
             .SetDefaultDropModalsTagHelperRenderer()
             .SetDefaultDropPictureTagHelperRenderer()
-            .SetDefaultDropPictureImageTagHelperRenderer()
-            .SetDefaultDropLinkTagHelperRenderer();
+            .SetDefaultDropPictureImageTagHelperRenderer();
     }
 
     /// <summary>
