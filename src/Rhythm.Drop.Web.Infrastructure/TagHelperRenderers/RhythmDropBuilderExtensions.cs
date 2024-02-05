@@ -6,6 +6,7 @@ using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Modals;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to tag helper renderers.
@@ -60,6 +61,18 @@ public static class RhythmDropBuilderExtensions
     {
         builder.Services.Replace<IDropImageTagHelperRenderer, TDropImageTagHelperRenderer>(ServiceLifetime.Scoped);
 
+        return builder;
+    }
+
+    /// <summary>
+    /// Sets the drop modals tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <typeparam name="TDropModalsTagHelperRenderer">The type of the new drop modals tag helper renderer.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDropModalsTagHelperRenderer<TDropModalsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropModalsTagHelperRenderer : class, IDropModalsTagHelperRenderer
+    {
+        builder.Services.Replace<IDropModalsTagHelperRenderer, TDropModalsTagHelperRenderer>(ServiceLifetime.Scoped);
         return builder;
     }
 
