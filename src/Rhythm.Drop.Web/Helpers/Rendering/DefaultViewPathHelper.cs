@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Infrastructure.MetaData;
 using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+using Rhythm.Drop.Web.Infrastructure.MetaData.Modals;
 using Rhythm.Drop.Web.Options;
 using System;
 
@@ -34,6 +35,7 @@ internal sealed class DefaultViewPathHelper(IOptionsMonitor<ComponentsOptions> o
         return metaData switch
         {
             ComponentMetaData componentMetaData => componentMetaData.GetComponent().ViewName,
+            ModalMetaData modalMetaData => modalMetaData.GetModal().ViewName,
             _ => throw new NotSupportedException($"Unable to get view name for metadata type {metaData.GetType()}")
         };
     }
