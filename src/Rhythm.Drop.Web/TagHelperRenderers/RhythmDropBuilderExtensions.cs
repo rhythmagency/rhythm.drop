@@ -24,6 +24,7 @@ public static class RhythmDropBuilderExtensions
             .SetDefaultDropAttributesTagHelperRenderer()
             .SetDefaultDropComponentsTagHelperRenderer()
             .SetDefaultDropImageTagHelperRenderer()
+            .SetDefaultDropModalsTagHelperRenderer()
             .SetDefaultDropPictureTagHelperRenderer()
             .SetDefaultDropPictureImageTagHelperRenderer()
             .SetDefaultDropLinkTagHelperRenderer();
@@ -67,6 +68,16 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetDefaultDropImageTagHelperRenderer(this IRhythmDropBuilder builder)
     {
         return builder.SetDropImageTagHelperRenderer<DefaultDropImageTagHelperRenderer>();
+    }
+
+    /// <summary>
+    /// Sets the default drop modals tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDefaultDropModalsTagHelperRenderer(this IRhythmDropBuilder builder)
+    {
+        return builder.SetDropModalsTagHelperRenderer<DefaultDropModalsTagHelperRenderer>();
     }
 
     /// <summary>
