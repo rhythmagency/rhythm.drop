@@ -6,22 +6,21 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Modals;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
-using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Modals;
 using System.Threading.Tasks;
 
 /// <summary>
-/// A tag helper for rendering components.
+/// A tag helper for rendering modals.
 /// </summary>
 /// <param name="tagHelperRenderer">The tag helper renderer.</param>
 /// <param name="themeHelper">The theme helper.</param>
 [HtmlTargetElement("drop-modal", TagStructure = TagStructure.WithoutEndTag)]
-public sealed class DropModalTagHelper(IDropComponentsTagHelperRenderer tagHelperRenderer, IThemeHelper themeHelper) : TagHelper
+public sealed class DropModalTagHelper(IDropModalsTagHelperRenderer tagHelperRenderer, IThemeHelper themeHelper) : TagHelper
 {
     /// <summary>
     /// The tag helper renderer.
     /// </summary>
-    private readonly IDropComponentsTagHelperRenderer _tagHelperRenderer = tagHelperRenderer;
+    private readonly IDropModalsTagHelperRenderer _tagHelperRenderer = tagHelperRenderer;
 
     /// <summary>
     /// The theme helper.
@@ -29,21 +28,15 @@ public sealed class DropModalTagHelper(IDropComponentsTagHelperRenderer tagHelpe
     private readonly IThemeHelper _themeHelper = themeHelper;
 
     /// <summary>
-    /// Gets or sets the model for the component.
+    /// Gets or sets the model for the modal.
     /// </summary>
     [HtmlAttributeName("model")]
     public IModal? Model { get; set; } = null!;
 
     /// <summary>
-    /// Gets or sets the level.
+    /// Gets or sets an optional section of where this modal is rendered.
     /// </summary>
-    [HtmlAttributeName("level")]
-    public int Level { get; set; } = ComponentMetaData.RootLevel;
-
-    /// <summary>
-    /// Gets or sets an optional section of where this component is rendered.
-    /// </summary>
-    /// <remarks>This could be used for distinquishing between components in the main content versus a modal.</remarks>
+    /// <remarks>This could be used for distinquishing between modals in the main content versus a modal.</remarks>
     [HtmlAttributeName("section")]
     public string? Section { get; set; }
 
@@ -65,7 +58,7 @@ public sealed class DropModalTagHelper(IDropComponentsTagHelperRenderer tagHelpe
     {
         var theme = _themeHelper.GetValidTheme(Theme);
         var attributes = output.Attributes.ToHtmlAttributeCollection();
-        var rendererContext = new DropComponentTagHelperRendererContext(Model, Level, theme, ComponentMetaData.FirstItemIndex, 1, attributes, ViewContext, Section);
+        var rendererContext = new DropModalTagHelperRendererContext(Model, theme, attributes, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }
