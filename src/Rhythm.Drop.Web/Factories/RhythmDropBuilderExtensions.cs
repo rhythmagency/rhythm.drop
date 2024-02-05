@@ -14,7 +14,7 @@ public static class RhythmDropBuilderExtensions
     /// Registers infrastructure factory dependencies for the Rhythm Drop.
     /// </summary>
     /// <param name="builder">The current <see cref="IRhythmDropBuilder"/>.</param>
-    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    /// <returns>Returns the current <see cref="IRhythmDropBuilder"/>.</returns>
     public static IRhythmDropBuilder AddWebFactories(this IRhythmDropBuilder builder)
     {
         return builder
@@ -25,8 +25,7 @@ public static class RhythmDropBuilderExtensions
     /// <summary>
     /// Sets the default component meta data factory.
     /// </summary>
-    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    /// <returns></returns>
+    /// <returns>Returns the current <see cref="IRhythmDropBuilder"/>.</returns>
     public static IRhythmDropBuilder SetDefaultComponentMetaDataFactory(this IRhythmDropBuilder builder)
     {
         return builder.SetComponentMetaDataFactory<DefaultComponentMetaDataFactory>();
@@ -35,8 +34,7 @@ public static class RhythmDropBuilderExtensions
     /// <summary>
     /// Sets the default modal meta data factory.
     /// </summary>
-    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    /// <returns></returns>
+    /// <returns>Returns the current <see cref="IRhythmDropBuilder"/>.</returns>
     public static IRhythmDropBuilder SetDefaultModalMetaDataFactory(this IRhythmDropBuilder builder)
     {
         return builder.SetModalMetaDataFactory<DefaultModalMetaDataFactory>();
