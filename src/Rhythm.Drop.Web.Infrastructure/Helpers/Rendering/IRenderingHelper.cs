@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -15,5 +15,5 @@ public interface IRenderingHelper : IViewContextAware
     /// </summary>
     /// <param name="metaData">The meta data to render.</param>
     /// <returns>A <see cref="Task"/> containing a <see cref="IHtmlContent"/> object.</returns>
-    Task<IHtmlContent> RenderAsync(ComponentMetaData metaData);
+    Task<IHtmlContent> RenderAsync(MetaData metaData);
 }

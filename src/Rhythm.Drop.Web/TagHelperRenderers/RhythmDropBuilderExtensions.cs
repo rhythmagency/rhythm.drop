@@ -6,6 +6,7 @@ using Rhythm.Drop.Web.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.TagHelperRenderers.Components;
 using Rhythm.Drop.Web.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.TagHelperRenderers.Links;
+using Rhythm.Drop.Web.TagHelperRenderers.Modals;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to links.

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -31,7 +31,7 @@ internal sealed class DefaultRenderingHelper(IHtmlHelper htmlHelper, IViewPathHe
     }
 
     /// <inheritdoc/>
-    public async Task<IHtmlContent> RenderAsync(ComponentMetaData metaData)
+    public async Task<IHtmlContent> RenderAsync(MetaData metaData)
     {
         var viewPath = _viewPathHelper.GetViewPath(metaData);
 
