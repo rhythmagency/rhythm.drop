@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// <summary>
 /// A contract for creating a modal.
 /// </summary>
-public interface IModal : IComponent, IHaveAttributes, IHaveComponents
+public interface IModal : IHaveAttributes, IHaveComponents, IHaveViewName
 {
     /// <summary>
     /// Gets the unique key of modal.
