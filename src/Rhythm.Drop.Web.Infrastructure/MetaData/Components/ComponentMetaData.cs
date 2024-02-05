@@ -1,6 +1,7 @@
 ﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 
 using Rhythm.Drop.Models.Common.Attributes;
+using Rhythm.Drop.Models.Components;
 
 /// <summary>
 /// An abstract non-generic type for Component Meta Data.
@@ -19,7 +20,7 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// It should not be used to create other types.
 /// </para>
 /// </remarks>
-public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section)
+public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme)
 {
     /// <summary>
     /// An abstract non-generic type for Component Meta Data.
@@ -30,6 +31,12 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     }
 
     /// <summary>
+    /// Gets the component of the meta data.
+    /// </summary>
+    /// <returns>A <see cref="IComponent"/>.</returns>
+    public abstract IComponent GetComponent();
+
+    /// <summary>
     /// The absolute lowest level a component can be.
     /// </summary>
     public const int RootLevel = 0;
@@ -38,10 +45,4 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     /// The first item index.
     /// </summary>
     public const int FirstItemIndex = 0;
-
-    /// <summary>
-    /// Gets the view name for the component meta data.
-    /// </summary>
-    /// <returns>A <see cref="string"/>.</returns>
-    public abstract string ViewName { get; }
 }
