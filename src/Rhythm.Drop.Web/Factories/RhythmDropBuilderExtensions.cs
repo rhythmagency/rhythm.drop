@@ -2,6 +2,7 @@
 
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Factories.Components;
+using Rhythm.Drop.Web.Factories.Modals;
 using Rhythm.Drop.Web.Infrastructure.Factories;
 
 /// <summary>
@@ -17,7 +18,8 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder AddWebFactories(this IRhythmDropBuilder builder)
     {
         return builder
-            .SetDefaultComponentMetaDataFactory();
+            .SetDefaultComponentMetaDataFactory()
+            .SetDefaultModalMetaDataFactory();
     }
 
     /// <summary>
@@ -28,5 +30,15 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetDefaultComponentMetaDataFactory(this IRhythmDropBuilder builder)
     {
         return builder.SetComponentMetaDataFactory<DefaultComponentMetaDataFactory>();
+    }
+
+    /// <summary>
+    /// Sets the default modal meta data factory.
+    /// </summary>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    /// <returns></returns>
+    public static IRhythmDropBuilder SetDefaultModalMetaDataFactory(this IRhythmDropBuilder builder)
+    {
+        return builder.SetModalMetaDataFactory<DefaultModalMetaDataFactory>();
     }
 }
