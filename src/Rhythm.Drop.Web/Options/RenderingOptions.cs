@@ -1,14 +1,14 @@
 ﻿namespace Rhythm.Drop.Web.Options;
 
 /// <summary>
-/// Configuration options for Rhythm Drop Components.
+/// Configuration options for Rhythm Drop Rendering.
 /// </summary>
-public sealed class ComponentsOptions
+public sealed class RenderingOptions
 {
     /// <summary>
     /// The name of the section for configuration.
     /// </summary>
-    public const string SectionName = "Rhythm:Drop:Components";
+    public const string SectionName = "Rhythm:Drop:Rendering";
 
     /// <summary>
     /// Gets or sets the default theme.
@@ -19,5 +19,10 @@ public sealed class ComponentsOptions
     /// <summary>
     /// Gets or sets the pattern to find a view.
     /// </summary>
-    public string ViewPathPattern { get; set; } = "~/Views/DropComponents/{Theme}/{ViewName}.cshtml";
+    public string ViewPathPattern { get; set; } = "~/Views/Drop/{Theme}/{ItemType}/{ViewName}.cshtml";
+
+    /// <summary>
+    /// Gets or sets the item types.
+    /// </summary>
+    public RenderingItemTypeOptions ItemTypes { get; set; } = new RenderingItemTypeOptions();
 }

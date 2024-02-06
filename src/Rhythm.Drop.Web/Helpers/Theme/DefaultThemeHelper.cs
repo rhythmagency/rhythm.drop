@@ -8,12 +8,12 @@ using Rhythm.Drop.Web.Options;
 /// The default implementation of <see cref="IThemeHelper"/>.
 /// </summary>
 /// <param name="optionsMonitor">The options monitor.</param>
-internal sealed class DefaultThemeHelper(IOptionsMonitor<ComponentsOptions> optionsMonitor) : IThemeHelper
+internal sealed class DefaultThemeHelper(IOptionsMonitor<RenderingOptions> optionsMonitor) : IThemeHelper
 {
     /// <summary>
     /// The options monitor.
     /// </summary>
-    private readonly IOptionsMonitor<ComponentsOptions> _optionsMonitor = optionsMonitor;
+    private readonly IOptionsMonitor<RenderingOptions> _optionsMonitor = optionsMonitor;
 
     /// <inheritdoc/>
     public string GetValidTheme(string? theme)

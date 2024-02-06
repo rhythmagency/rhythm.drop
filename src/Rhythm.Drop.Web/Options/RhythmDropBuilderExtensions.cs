@@ -19,15 +19,15 @@ internal static class RhythmDropBuilderExtensions
     }
 
     /// <summary>
-    /// Adds the <see cref="ComponentsOptions"/> to the <see cref="IRhythmDropBuilder"/>.
+    /// Adds the <see cref="RenderingOptions"/> to the <see cref="IRhythmDropBuilder"/>.
     /// </summary>
     /// <param name="builder">The current builder.</param>
     /// <returns>The <see cref="IRhythmDropBuilder"/>.</returns>
     public static IRhythmDropBuilder AddComponentsOptions(this IRhythmDropBuilder builder)
     {
         builder.Services
-            .AddOptions<ComponentsOptions>()
-            .BindConfiguration(ComponentsOptions.SectionName);
+            .AddOptions<RenderingOptions>()
+            .BindConfiguration(RenderingOptions.SectionName);
 
         return builder;
     }
