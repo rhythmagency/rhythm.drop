@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Moq;
-using Rhythm.Drop.Web.Factories.Components;
+using Rhythm.Drop.Web.Factories.MetaData;
 using Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Infrastructure.MetaData;

@@ -1,4 +1,4 @@
-﻿namespace Rhythm.Drop.Web.Factories.Components;
+﻿namespace Rhythm.Drop.Web.Factories.MetaData;
 
 using Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 using Rhythm.Drop.Web.Infrastructure.MetaData;
