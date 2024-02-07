@@ -1,5 +1,4 @@
-﻿
-namespace Rhythm.Drop.Web.MetaData.Modals;
+﻿namespace Rhythm.Drop.Web.MetaData;
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Modals;

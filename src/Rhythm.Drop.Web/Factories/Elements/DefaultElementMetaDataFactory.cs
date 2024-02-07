@@ -2,7 +2,7 @@
 
 using Rhythm.Drop.Web.Infrastructure.Factories.Elements;
 using Rhythm.Drop.Web.Infrastructure.MetaData.Elements;
-using Rhythm.Drop.Web.MetaData.Elements;
+using Rhythm.Drop.Web.MetaData;
 using System;
 
 /// <summary>
