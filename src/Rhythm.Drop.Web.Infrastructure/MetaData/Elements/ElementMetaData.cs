@@ -22,14 +22,6 @@ using Rhythm.Drop.Models.Elements;
 public abstract record ElementMetaData(int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : CollectionMetaData(Index, Total, Theme)
 {
     /// <summary>
-    /// An abstract non-generic type for Element Meta Data.
-    /// </summary>
-    /// <remarks>This creates a element meta data without a section for backward compatability.</remarks>
-    public ElementMetaData(int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes) : this(Index, Total, Theme, Attributes, default)
-    {
-    }
-
-    /// <summary>
     /// Gets the element of the meta data.
     /// </summary>
     /// <returns>A <see cref="IElement"/>.</returns>
