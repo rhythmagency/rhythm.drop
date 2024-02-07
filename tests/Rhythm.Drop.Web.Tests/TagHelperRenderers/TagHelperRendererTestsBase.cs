@@ -1,7 +1,11 @@
 ﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
 
 using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Moq;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
+using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,6 +15,8 @@ using System.Threading.Tasks;
 /// </summary>
 public abstract class TagHelperRendererTestsBase
 {
+    protected const string DefaultTheme = "Default";
+
     protected const string DefaultTagName = "div";
 
     /// <summary>
@@ -87,5 +93,27 @@ public abstract class TagHelperRendererTestsBase
     protected static TagHelperOutput CreateTagHelperOutput(string tagName)
     {
         return CreateTagHelperOutput(tagName, [], default);
+    }
+
+    /// <summary>
+    /// Create a <see cref="ViewContext"/>.
+    /// </summary>
+    /// <returns>A <see cref="ViewContext"/>.</returns>
+    protected static ViewContext CreateViewContext()
+    {
+        return Mock.Of<ViewContext>();
+    }
+
+    protected static IRenderingHelper CreateRenderingHelper()
+    {
+        return CreateRenderingHelper(new HtmlString("<div>Test</div>"));
+    }
+
+    protected static IRenderingHelper CreateRenderingHelper(IHtmlContent htmlContent)
+    {
+        var mock = new Mock<IRenderingHelper>();
+        mock.Setup(x => x.RenderAsync(It.IsAny<MetaData>())).Returns(Task.FromResult(htmlContent));
+
+        return mock.Object;
     }
 }
