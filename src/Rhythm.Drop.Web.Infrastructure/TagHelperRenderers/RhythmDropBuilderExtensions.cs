@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Elements;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Modals;
@@ -35,6 +36,20 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetDropComponentsTagHelperRenderer<TDropComponentsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropComponentsTagHelperRenderer : class, IDropComponentsTagHelperRenderer
     {
         builder.Services.Replace<IDropComponentsTagHelperRenderer, TDropComponentsTagHelperRenderer>(ServiceLifetime.Scoped);
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Sets the drop elements tag helper renderer.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <typeparam name="TDropElementsTagHelperRenderer">The type of the new drop elements tag helper renderer.</typeparam>
+    /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
+    public static IRhythmDropBuilder SetDropElementsTagHelperRenderer<TDropElementsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropElementsTagHelperRenderer : class, IDropElementsTagHelperRenderer
+    {
+        builder.Services.Replace<IDropElementsTagHelperRenderer, TDropElementsTagHelperRenderer>(ServiceLifetime.Scoped);
+
         return builder;
     }
 
@@ -73,6 +88,7 @@ public static class RhythmDropBuilderExtensions
     public static IRhythmDropBuilder SetDropModalsTagHelperRenderer<TDropModalsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropModalsTagHelperRenderer : class, IDropModalsTagHelperRenderer
     {
         builder.Services.Replace<IDropModalsTagHelperRenderer, TDropModalsTagHelperRenderer>(ServiceLifetime.Scoped);
+
         return builder;
     }
 
