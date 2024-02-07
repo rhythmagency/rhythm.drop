@@ -1,9 +1,7 @@
 ﻿namespace Rhythm.Drop.Web.Factories;
 
 using Rhythm.Drop.Infrastructure;
-using Rhythm.Drop.Web.Factories.Components;
-using Rhythm.Drop.Web.Factories.Elements;
-using Rhythm.Drop.Web.Factories.Modals;
+using Rhythm.Drop.Web.Factories.MetaData;
 using Rhythm.Drop.Web.Infrastructure.Factories;
 
 /// <summary>
