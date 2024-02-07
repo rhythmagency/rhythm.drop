@@ -60,14 +60,12 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     }
 
     /// <summary>
-    /// Gets the level above the current <see cref="ComponentMetaData.Level"/>.
+    /// Gets the level above the current <see cref="Level"/>.
     /// </summary>
     /// <returns>A <see cref="int"/>.</returns>
-    /// <remarks>This will never be lower than <see cref=".RootLevel"/>.</remarks>
+    /// <remarks>This will never be lower than <see cref="RootLevel"/>.</remarks>
     public int PreviousLevel()
     {
         return IsRootLevel() ? RootLevel : Level - 1;
     }
-
-
 }
