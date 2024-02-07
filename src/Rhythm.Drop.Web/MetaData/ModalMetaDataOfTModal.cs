@@ -2,7 +2,7 @@
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Modals;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Modals;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 
 /// <summary>
 /// A generic type for Modal Meta Data.

@@ -2,9 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Rhythm.Drop.Infrastructure;
-using Rhythm.Drop.Web.Infrastructure.Factories.Components;
-using Rhythm.Drop.Web.Infrastructure.Factories.Elements;
-using Rhythm.Drop.Web.Infrastructure.Factories.Modals;
+using Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 
 /// <summary>
 /// A collection of extension methods for <see cref="IRhythmDropBuilder"/> related to factories.

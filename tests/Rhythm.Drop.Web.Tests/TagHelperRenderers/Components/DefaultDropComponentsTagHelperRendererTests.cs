@@ -1,6 +1,6 @@
 ﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Components;
 using Rhythm.Drop.Models.Components;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using System.Threading.Tasks;
 

@@ -1,6 +1,6 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.Factories.Modals;
+﻿namespace Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 
-using Rhythm.Drop.Web.Infrastructure.MetaData.Modals;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 
 /// <summary>
 /// A factory for creating Modal Meta Data.

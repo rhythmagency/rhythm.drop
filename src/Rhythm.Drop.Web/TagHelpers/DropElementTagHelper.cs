@@ -7,7 +7,6 @@ using Rhythm.Drop.Models.Elements;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
 using Rhythm.Drop.Web.Infrastructure.MetaData;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Elements;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Elements;
 using System.Threading.Tasks;
 

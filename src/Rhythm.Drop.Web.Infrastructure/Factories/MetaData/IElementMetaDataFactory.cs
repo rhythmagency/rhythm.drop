@@ -1,6 +1,6 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.Factories.Elements;
+﻿namespace Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 
-using Rhythm.Drop.Web.Infrastructure.MetaData.Elements;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 
 /// <summary>
 /// A factory for creating Element Meta Data.

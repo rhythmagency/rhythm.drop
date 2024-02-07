@@ -2,7 +2,7 @@
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Elements;
-using Rhythm.Drop.Web.Infrastructure.MetaData.Elements;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 
 /// <summary>
 /// A generic type for Element Meta Data.

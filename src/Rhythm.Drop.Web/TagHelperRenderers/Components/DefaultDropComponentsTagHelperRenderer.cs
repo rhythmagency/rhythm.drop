@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Web.Infrastructure;
-using Rhythm.Drop.Web.Infrastructure.Factories.Components;
+using Rhythm.Drop.Web.Infrastructure.Factories.MetaData;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Rendering;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using System.Threading.Tasks;
