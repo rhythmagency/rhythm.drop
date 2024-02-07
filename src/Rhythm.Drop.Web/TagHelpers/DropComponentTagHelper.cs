@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Components;
 using Rhythm.Drop.Web.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using Rhythm.Drop.Web.Infrastructure.MetaData.Components;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ public sealed class DropComponentTagHelper(IDropComponentsTagHelperRenderer tagH
     /// </summary>
     /// <remarks>This is useful if you want to manually render a collection of widgets.</remarks>
     [HtmlAttributeName("index")]
-    public int Index { get; set; } = ComponentMetaData.FirstItemIndex;
+    public int Index { get; set; } = CollectionMetaData.FirstItemIndex;
 
     /// <summary>
     /// Gets or sets an optional section of where this component is rendered.
