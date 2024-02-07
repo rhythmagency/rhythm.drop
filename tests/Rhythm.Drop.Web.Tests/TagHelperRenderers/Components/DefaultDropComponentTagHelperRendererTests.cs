@@ -9,7 +9,7 @@ using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
 public class DefaultDropComponentTagHelperRendererTests : DefaultDropComponentTagHelperRendererTestsBase
 {
     [Test]
-    public async Task RenderAsync_With_Returns_No_Output_Tag()
+    public async Task RenderAsync_With_No_TagName_Returns_No_Output_Tag()
     {
         // arrange
         var tagHelperRenderer = CreateDefaultDropComponentsTagHelperRenderer();
