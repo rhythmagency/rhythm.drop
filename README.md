@@ -44,3 +44,15 @@ Rhythm.Drop (via Rhythm.Drop.Web) comes with a collection of Tag Helpers. Regist
 ```razor
 @addTagHelper *, Rhythm.Drop.Web
 ```
+
+It may also be useful to include the following namespace when using MetaData objects like `ComponentMetaData<TComponent>`, `ElementMetaData<TElement>`,  `ModalMetaData<TModal>`
+
+```razor
+@using Rhythm.Drop.Web.MetaData
+```
+
+This will allow you to reference these objects in your views like so:
+
+```razor
+@model ComponentMetaData<Namespace.To.MyComponent>
+```
