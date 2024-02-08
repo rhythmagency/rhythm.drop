@@ -7,7 +7,8 @@ The following guide is intended to maintainers of this repo. If you're not a mai
 The following assumes you have tested [a local build](BUILD.md) and merged all changes into the main branch ready for the next release of Rhythm.Drop.
 
 > [!Warning]
-> Do not proceed if you have no run unit test or ensured what you are able to commit will cause a build failure.
+> Do not proceed if you have not run a local build.
+> You must test what you are about to commit will not cause a build failure. Such actions are irreversable!
 
 Great. Now we have that over and done with it. Let's create a new release!
 
