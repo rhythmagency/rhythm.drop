@@ -56,3 +56,7 @@ This will allow you to reference these objects in your views like so:
 ```razor
 @model ComponentMetaData<Namespace.To.MyComponent>
 ```
+
+# Contributing
+
+If you would like to contibute please check our [contributing guide](CONTRIBUTING.md)!
