@@ -35,7 +35,7 @@ internal sealed class DefaultViewPathHelper(IOptionsMonitor<RenderingOptions> op
         return metaData switch
         {
             ComponentMetaData componentMetaData => componentMetaData.GetComponent().ViewName,
-            ElementMetaData elementMetaData => elementMetaData.GetElement().ViewName,
+            SubcomponentMetaData subcomponentMetaData => subcomponentMetaData.GetSubcomponent().ViewName,
             ModalMetaData modalMetaData => modalMetaData.GetModal().ViewName,
             _ => throw new NotSupportedException($"Unable to get view name for metadata type {metaData.GetType()}")
         };
@@ -46,7 +46,7 @@ internal sealed class DefaultViewPathHelper(IOptionsMonitor<RenderingOptions> op
         return metaData switch
         {
             ComponentMetaData => options.Components,
-            ElementMetaData => options.Elements,
+            SubcomponentMetaData => options.Subcomponents,
             ModalMetaData => options.Modals,
             _ => throw new NotSupportedException($"Unable to get view name for metadata type {metaData.GetType()}")
         };

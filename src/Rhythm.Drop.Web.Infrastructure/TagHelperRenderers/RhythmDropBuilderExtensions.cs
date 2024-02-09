@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Components;
-using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Elements;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Subcomponents;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Links;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Modals;
@@ -41,14 +41,14 @@ public static class RhythmDropBuilderExtensions
     }
 
     /// <summary>
-    /// Sets the drop elements tag helper renderer.
+    /// Sets the drop subcomponents tag helper renderer.
     /// </summary>
     /// <param name="builder">The current builder.</param>
-    /// <typeparam name="TDropElementsTagHelperRenderer">The type of the new drop elements tag helper renderer.</typeparam>
+    /// <typeparam name="TDropSubcomponentsTagHelperRenderer">The type of the new drop subcomponents tag helper renderer.</typeparam>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    public static IRhythmDropBuilder SetDropElementsTagHelperRenderer<TDropElementsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropElementsTagHelperRenderer : class, IDropElementsTagHelperRenderer
+    public static IRhythmDropBuilder SetDropSubcomponentsTagHelperRenderer<TDropSubcomponentsTagHelperRenderer>(this IRhythmDropBuilder builder) where TDropSubcomponentsTagHelperRenderer : class, IDropSubcomponentsTagHelperRenderer
     {
-        builder.Services.Replace<IDropElementsTagHelperRenderer, TDropElementsTagHelperRenderer>(ServiceLifetime.Scoped);
+        builder.Services.Replace<IDropSubcomponentsTagHelperRenderer, TDropSubcomponentsTagHelperRenderer>(ServiceLifetime.Scoped);
 
         return builder;
     }

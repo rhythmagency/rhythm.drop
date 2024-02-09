@@ -18,7 +18,7 @@ public static class RhythmDropBuilderExtensions
     {
         return builder
             .SetDefaultComponentMetaDataFactory()
-            .SetDefaultElementMetaDataFactory()
+            .SetDefaultSubcomponentMetaDataFactory()
             .SetDefaultModalMetaDataFactory();
     }
 
@@ -32,12 +32,12 @@ public static class RhythmDropBuilderExtensions
     }
 
     /// <summary>
-    /// Sets the default element meta data factory.
+    /// Sets the default subcomponent meta data factory.
     /// </summary>
     /// <returns>Returns the current <see cref="IRhythmDropBuilder"/>.</returns>
-    public static IRhythmDropBuilder SetDefaultElementMetaDataFactory(this IRhythmDropBuilder builder)
+    public static IRhythmDropBuilder SetDefaultSubcomponentMetaDataFactory(this IRhythmDropBuilder builder)
     {
-        return builder.SetElementMetaDataFactory<DefaultElementMetaDataFactory>();
+        return builder.SetSubcomponentMetaDataFactory<DefaultSubcomponentMetaDataFactory>();
     }
 
     /// <summary>

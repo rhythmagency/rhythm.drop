@@ -1,17 +1,17 @@
-﻿namespace Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Elements;
+﻿namespace Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Subcomponents;
 
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Rhythm.Drop.Models.Elements;
+using Rhythm.Drop.Models.Subcomponents;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 /// <summary>
-/// A base class for rendering a collection of <see cref="IElement"/> when used in a <see cref="TagHelper"/>.
+/// A base class for rendering a collection of <see cref="ISubcomponent"/> when used in a <see cref="TagHelper"/>.
 /// </summary>
-public abstract class DropElementsTagHelperRendererBase : IDropElementsTagHelperRenderer
+public abstract class DropSubcomponentsTagHelperRendererBase : IDropSubcomponentsTagHelperRenderer
 {
     /// <inheritdoc/>
-    public async Task RenderAsync(DropElementsTagHelperRendererContext? model, TagHelperContext context, TagHelperOutput output)
+    public async Task RenderAsync(DropSubcomponentsTagHelperRendererContext? model, TagHelperContext context, TagHelperOutput output)
     {
         if (IsNullOrEmpty(model))
         {
@@ -23,7 +23,7 @@ public abstract class DropElementsTagHelperRendererBase : IDropElementsTagHelper
     }
 
     /// <inheritdoc/>
-    public async Task RenderAsync(DropElementTagHelperRendererContext? model, TagHelperContext context, TagHelperOutput output)
+    public async Task RenderAsync(DropSubcomponentTagHelperRendererContext? model, TagHelperContext context, TagHelperOutput output)
     {
         if (IsNull(model))
         {
@@ -35,31 +35,31 @@ public abstract class DropElementsTagHelperRendererBase : IDropElementsTagHelper
     }
 
     /// <summary>
-    /// Renders multiple elements using a <see cref="DropElementsTagHelperRendererContext"/>.
+    /// Renders multiple subcomponents using a <see cref="DropSubcomponentsTagHelperRendererContext"/>.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="Task"/>.</returns>
-    protected abstract Task RenderMultipleAsync(DropElementsTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output);
+    protected abstract Task RenderMultipleAsync(DropSubcomponentsTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output);
 
     /// <summary>
-    /// Renders a single element using a <see cref="DropElementTagHelperRendererContext"/>.
+    /// Renders a single subcomponent using a <see cref="DropSubcomponentTagHelperRendererContext"/>.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <param name="context">The context.</param>
     /// <param name="output">The output.</param>
     /// <returns>A <see cref="Task"/>.</returns>
-    protected abstract Task RenderSingleAsync(DropElementTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output);
+    protected abstract Task RenderSingleAsync(DropSubcomponentTagHelperRendererContext model, TagHelperContext context, TagHelperOutput output);
 
     /// <summary>
     /// Checks if the model is null.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A <see cref="bool"/>.</returns>
-    protected virtual bool IsNullOrEmpty([NotNullWhen(false)] DropElementsTagHelperRendererContext? model)
+    protected virtual bool IsNullOrEmpty([NotNullWhen(false)] DropSubcomponentsTagHelperRendererContext? model)
     {
-        return model is null || model.Elements.Count == 0;
+        return model is null || model.Subcomponents.Count == 0;
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public abstract class DropElementsTagHelperRendererBase : IDropElementsTagHelper
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A <see cref="bool"/>.</returns>
-    protected virtual bool IsNull([NotNullWhen(false)] DropElementTagHelperRendererContext? model)
+    protected virtual bool IsNull([NotNullWhen(false)] DropSubcomponentTagHelperRendererContext? model)
     {
         return model is null;
     }

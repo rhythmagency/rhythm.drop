@@ -11,9 +11,9 @@ public sealed class RenderingItemTypeOptions
     public string Components { get; set; } = "Components";
 
     /// <summary>
-    /// Gets or sets the item type name for Elements.
+    /// Gets or sets the item type name for Subcomponents.
     /// </summary>
-    public string Elements { get; set; } = "Elements";
+    public string Subcomponents { get; set; } = "Subcomponents";
 
     /// <summary>
     /// Gets or sets the item type name for Modals.

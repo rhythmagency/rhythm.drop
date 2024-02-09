@@ -22,14 +22,14 @@ public static class RhythmDropBuilderExtensions
     }
 
     /// <summary>
-    /// Sets the <see cref="IElementMetaDataFactory"/>.
+    /// Sets the <see cref="ISubcomponentMetaDataFactory"/>.
     /// </summary>
     /// <typeparam name="TFactory">The type of the new factory.</typeparam>
     /// <param name="builder">The current <see cref="IRhythmDropBuilder"/>.</param>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    public static IRhythmDropBuilder SetElementMetaDataFactory<TFactory>(this IRhythmDropBuilder builder) where TFactory : class, IElementMetaDataFactory
+    public static IRhythmDropBuilder SetSubcomponentMetaDataFactory<TFactory>(this IRhythmDropBuilder builder) where TFactory : class, ISubcomponentMetaDataFactory
     {
-        builder.Services.Replace<IElementMetaDataFactory, TFactory>(ServiceLifetime.Singleton);
+        builder.Services.Replace<ISubcomponentMetaDataFactory, TFactory>(ServiceLifetime.Singleton);
         return builder;
     }
 

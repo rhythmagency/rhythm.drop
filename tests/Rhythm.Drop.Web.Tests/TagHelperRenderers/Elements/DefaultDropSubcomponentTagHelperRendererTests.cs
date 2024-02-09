@@ -1,18 +1,18 @@
-﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Elements;
+﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers.Subcomponents;
 
 using Rhythm.Drop.Models.Common.Attributes;
-using Rhythm.Drop.Models.Elements;
-using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Elements;
+using Rhythm.Drop.Models.Subcomponents;
+using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Subcomponents;
 
 [TestFixture]
-public class DefaultDropElementTagHelperRendererTests : DefaultDropElementTagHelperRendererTestsBase
+public class DefaultDropSubcomponentTagHelperRendererTests : DefaultDropSubcomponentTagHelperRendererTestsBase
 {
     [Test]
     public async Task RenderAsync_With_No_TagName_Returns_No_Output_Tag()
     {
         // arrange
-        var tagHelperRenderer = CreateDefaultDropElementsTagHelperRenderer();
-        var model = CreateRendererContext(new FakeElement());
+        var tagHelperRenderer = CreateDefaultDropSubcomponentsTagHelperRenderer();
+        var model = CreateRendererContext(new FakeSubcomponent());
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
 
@@ -29,10 +29,10 @@ public class DefaultDropElementTagHelperRendererTests : DefaultDropElementTagHel
     }
 
     [Test]
-    public async Task RenderAsync_With_No_Element_Returns_No_Output()
+    public async Task RenderAsync_With_No_Subcomponent_Returns_No_Output()
     {
         // arrange
-        var tagHelperRenderer = CreateDefaultDropElementsTagHelperRenderer();
+        var tagHelperRenderer = CreateDefaultDropSubcomponentsTagHelperRenderer();
         var model = CreateRendererContext(default);
         var context = CreateTagHelperContext(DefaultTagName);
         var output = CreateTagHelperOutput(DefaultTagName);
@@ -49,10 +49,10 @@ public class DefaultDropElementTagHelperRendererTests : DefaultDropElementTagHel
     }
 
 
-    private static DropElementTagHelperRendererContext CreateRendererContext(IElement? element)
+    private static DropSubcomponentTagHelperRendererContext CreateRendererContext(ISubcomponent? subcomponent)
     {
         var viewContext = CreateViewContext();
 
-        return new DropElementTagHelperRendererContext(element, DefaultTheme, 0, 1, ReadOnlyHtmlAttributeCollection.Empty(), viewContext, default);
+        return new DropSubcomponentTagHelperRendererContext(subcomponent, DefaultTheme, 0, 1, ReadOnlyHtmlAttributeCollection.Empty(), viewContext, default);
     }
 }

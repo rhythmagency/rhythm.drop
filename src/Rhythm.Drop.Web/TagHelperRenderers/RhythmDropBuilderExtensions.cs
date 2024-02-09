@@ -4,7 +4,7 @@ using Rhythm.Drop.Infrastructure;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers;
 using Rhythm.Drop.Web.TagHelperRenderers.Attributes;
 using Rhythm.Drop.Web.TagHelperRenderers.Components;
-using Rhythm.Drop.Web.TagHelperRenderers.Elements;
+using Rhythm.Drop.Web.TagHelperRenderers.Subcomponents;
 using Rhythm.Drop.Web.TagHelperRenderers.Images;
 using Rhythm.Drop.Web.TagHelperRenderers.Links;
 using Rhythm.Drop.Web.TagHelperRenderers.Modals;
@@ -24,7 +24,7 @@ public static class RhythmDropBuilderExtensions
         return builder
             .SetDefaultDropAttributesTagHelperRenderer()
             .SetDefaultDropComponentsTagHelperRenderer()
-            .SetDefaultDropElementsTagHelperRenderer()
+            .SetDefaultDropSubcomponentsTagHelperRenderer()
             .SetDefaultDropImageTagHelperRenderer()
             .SetDefaultDropLinkTagHelperRenderer()
             .SetDefaultDropModalsTagHelperRenderer()
@@ -53,13 +53,13 @@ public static class RhythmDropBuilderExtensions
     }
 
     /// <summary>
-    /// Sets the default drop elements tag helper renderer.
+    /// Sets the default drop subcomponents tag helper renderer.
     /// </summary>
     /// <param name="builder">The current builder.</param>
     /// <remarks>Returns the current <see cref="IRhythmDropBuilder"/>.</remarks>
-    public static IRhythmDropBuilder SetDefaultDropElementsTagHelperRenderer(this IRhythmDropBuilder builder)
+    public static IRhythmDropBuilder SetDefaultDropSubcomponentsTagHelperRenderer(this IRhythmDropBuilder builder)
     {
-        return builder.SetDropElementsTagHelperRenderer<DefaultDropElementsTagHelperRenderer>();
+        return builder.SetDropSubcomponentsTagHelperRenderer<DefaultDropSubcomponentsTagHelperRenderer>();
     }
 
     /// <summary>

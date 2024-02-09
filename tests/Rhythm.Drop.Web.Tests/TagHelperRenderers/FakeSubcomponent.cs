@@ -1,8 +1,8 @@
 ﻿namespace Rhythm.Drop.Web.Tests.TagHelperRenderers;
 
-using Rhythm.Drop.Models.Elements;
+using Rhythm.Drop.Models.Subcomponents;
 
-internal class FakeElement : IElement
+internal class FakeSubcomponent : ISubcomponent
 {
     public string ViewName => "Fake";
 }
