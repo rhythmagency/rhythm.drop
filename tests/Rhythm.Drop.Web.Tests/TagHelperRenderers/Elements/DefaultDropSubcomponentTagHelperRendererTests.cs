@@ -2,6 +2,7 @@
 
 using Rhythm.Drop.Models.Common.Attributes;
 using Rhythm.Drop.Models.Subcomponents;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Subcomponents;
 
 [TestFixture]
@@ -53,6 +54,6 @@ public class DefaultDropSubcomponentTagHelperRendererTests : DefaultDropSubcompo
     {
         var viewContext = CreateViewContext();
 
-        return new DropSubcomponentTagHelperRendererContext(subcomponent, DefaultTheme, 0, 1, ReadOnlyHtmlAttributeCollection.Empty(), viewContext, default);
+        return new DropSubcomponentTagHelperRendererContext(subcomponent, ComponentMetaDataBase.RootLevel, DefaultTheme, 0, 1, ReadOnlyHtmlAttributeCollection.Empty(), viewContext, default);
     }
 }

@@ -65,6 +65,6 @@ public class DefaultDropSubcomponentsTagHelperRendererTests : DefaultDropSubcomp
     {
         var viewContext = CreateViewContext();
 
-        return new DropSubcomponentsTagHelperRendererContext(subcomponents, DefaultTheme, tagName, viewContext, default);
+        return new DropSubcomponentsTagHelperRendererContext(subcomponents, ComponentMetaDataBase.RootLevel, DefaultTheme, tagName, viewContext, default);
     }
 }

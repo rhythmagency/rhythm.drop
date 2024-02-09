@@ -20,7 +20,7 @@ using Rhythm.Drop.Models.Components;
 /// It should not be used to create other types.
 /// </para>
 /// </remarks>
-public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : CollectionMetaData(Index, Total, Theme)
+public abstract record ComponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : ComponentMetaDataBase(Level, Index, Total, Theme, Attributes, Section)
 {
     /// <summary>
     /// An abstract non-generic type for Component Meta Data.
@@ -35,37 +35,4 @@ public abstract record ComponentMetaData(int Level, int Index, int Total, string
     /// </summary>
     /// <returns>A <see cref="IComponent"/>.</returns>
     public abstract IComponent GetComponent();
-
-    /// <summary>
-    /// The absolute lowest level a component can be.
-    /// </summary>
-    public const int RootLevel = 0;
-
-    /// <summary>
-    /// Checks if this meta data is at root level or not.
-    /// </summary>
-    /// <returns>A <see cref="bool"/> which represents if this component meta is at root level.</returns>
-    public bool IsRootLevel()
-    {
-        return Level is RootLevel;
-    }
-
-    /// <summary>
-    /// Gets the level above the current <see cref="Level"/>.
-    /// </summary>
-    /// <returns>A <see cref="int"/>.</returns>
-    public int NextLevel()
-    {
-        return Level + 1;
-    }
-
-    /// <summary>
-    /// Gets the level above the current <see cref="Level"/>.
-    /// </summary>
-    /// <returns>A <see cref="int"/>.</returns>
-    /// <remarks>This will never be lower than <see cref="RootLevel"/>.</remarks>
-    public int PreviousLevel()
-    {
-        return IsRootLevel() ? RootLevel : Level - 1;
-    }
 }

@@ -1,14 +1,24 @@
 ﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData;
 
+using Rhythm.Drop.Models.Common.Attributes;
+
 /// <summary>
-/// An abstract object for creating meta data which exists within a collection of other meta data.
+/// An abstract object for creating meta data for components and subcomponents.
 /// </summary>
+/// <param name="Level">The level of the component.</param>
 /// <param name="Index">The zero-based index of the element within the current collection.</param>
 /// <param name="Total">The total number of elements within the current collection.</param>
 /// <param name="Theme">The theme of the meta data.</param>
-public abstract record CollectionMetaData(int Index, int Total, string Theme) : MetaData(Theme)
+/// <param name="Attributes">The additional HTML attributes.</param>
+/// <param name="Section">The optional section of where this component is rendered.</param>
+public abstract record ComponentMetaDataBase(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme)
 {
     private readonly int _humanReadableIndex = Index + 1;
+
+    /// <summary>
+    /// The absolute lowest level a component can be.
+    /// </summary>
+    public const int RootLevel = 0;
 
     /// <summary>
     /// The first item index.
@@ -27,7 +37,7 @@ public abstract record CollectionMetaData(int Index, int Total, string Theme) : 
     public int HumanReadableIndex => _humanReadableIndex;
 
     /// <summary>
-    /// Checks if the current <see cref="CollectionMetaData"/> is first or not.
+    /// Checks if the current <see cref="ComponentMetaDataBase"/> is first or not.
     /// </summary>
     /// <returns>A <see cref="bool"/> which represents if this meta data is first.</returns>
     public bool IsFirst()
@@ -36,7 +46,7 @@ public abstract record CollectionMetaData(int Index, int Total, string Theme) : 
     }
 
     /// <summary>
-    /// Checks if the current <see cref="CollectionMetaData"/> is last or not.
+    /// Checks if the current <see cref="ComponentMetaDataBase"/> is last or not.
     /// </summary>
 
     /// <returns>A <see cref="bool"/> which represents if this meta data is last.</returns>
@@ -67,12 +77,40 @@ public abstract record CollectionMetaData(int Index, int Total, string Theme) : 
     }
 
     /// <summary>
+    /// Checks if this meta data is at root level or not.
+    /// </summary>
+    /// <returns>A <see cref="bool"/> which represents if this component meta is at root level.</returns>
+    public virtual bool IsRootLevel()
+    {
+        return Level is RootLevel;
+    }
+
+    /// <summary>
     /// Checks if this meta data is the only one in the collection.
     /// </summary>
     /// <returns>A <see cref="bool"/> which represents if this meta data is the only one in the collection.</returns>
     public bool IsTheOnlyOne()
     {
         return Total is 1;
+    }
+
+    /// <summary>
+    /// Gets the level above the current <see cref="Level"/>.
+    /// </summary>
+    /// <returns>A <see cref="int"/>.</returns>
+    public int NextLevel()
+    {
+        return Level + 1;
+    }
+
+    /// <summary>
+    /// Gets the level above the current <see cref="Level"/>.
+    /// </summary>
+    /// <returns>A <see cref="int"/>.</returns>
+    /// <remarks>This will never be lower than <see cref="RootLevel"/>.</remarks>
+    public int PreviousLevel()
+    {
+        return IsRootLevel() ? RootLevel : Level - 1;
     }
 
     /// <summary>

@@ -35,11 +35,17 @@ public sealed class DropSubcomponentTagHelper(IDropSubcomponentsTagHelperRendere
     public ISubcomponent? Model { get; set; } = null!;
 
     /// <summary>
+    /// Gets or sets the level.
+    /// </summary>
+    [HtmlAttributeName("level")]
+    public int Level { get; set; } = ComponentMetaDataBase.RootLevel;
+
+    /// <summary>
     /// Gets or sets the index.
     /// </summary>
     /// <remarks>This is useful if you want to manually render a collection of widgets.</remarks>
     [HtmlAttributeName("index")]
-    public int Index { get; set; } = CollectionMetaData.FirstItemIndex;
+    public int Index { get; set; } = ComponentMetaDataBase.RootLevel;
 
     /// <summary>
     /// Gets or sets an optional section of where this subcomponent is rendered.
@@ -73,7 +79,7 @@ public sealed class DropSubcomponentTagHelper(IDropSubcomponentsTagHelperRendere
     {
         var theme = _themeHelper.GetValidTheme(Theme);
         var attributes = output.Attributes.ToHtmlAttributeCollection();
-        var rendererContext = new DropSubcomponentTagHelperRendererContext(Model, theme, Index, Total, attributes, ViewContext, Section);
+        var rendererContext = new DropSubcomponentTagHelperRendererContext(Model, Level, theme, Index, Total, attributes, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }

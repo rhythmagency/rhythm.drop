@@ -41,7 +41,7 @@ internal sealed class DefaultDropSubcomponentsTagHelperRenderer(ISubcomponentMet
         var attributes = ReadOnlyHtmlAttributeCollection.Empty();
         foreach (var subcomponent in subcomponents)
         {
-            var input = new SubcomponentMetaDataFactoryInput(subcomponent, index, total, model.Theme, attributes, model.Section);
+            var input = new SubcomponentMetaDataFactoryInput(subcomponent, model.Level, index, total, model.Theme, attributes, model.Section);
             var viewModel = _subcomponentMetaDataFactory.Create(input);
             var content = await _renderingHelper.RenderAsync(viewModel);
 
@@ -61,7 +61,7 @@ internal sealed class DefaultDropSubcomponentsTagHelperRenderer(ISubcomponentMet
         }
         output.SurpressTag();
 
-        var input = new SubcomponentMetaDataFactoryInput(subcomponent, model.Index, model.Total, model.Theme, model.Attributes, model.Section);
+        var input = new SubcomponentMetaDataFactoryInput(subcomponent, model.Level, model.Index, model.Total, model.Theme, model.Attributes, model.Section);
         var viewModel = _subcomponentMetaDataFactory.Create(input);
 
         _renderingHelper.Contextualize(model.ViewContext);

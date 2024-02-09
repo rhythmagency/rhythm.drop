@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Rhythm.Drop.Models.Subcomponents;
 using Rhythm.Drop.Web.Infrastructure.Helpers.Theme;
+using Rhythm.Drop.Web.Infrastructure.MetaData;
 using Rhythm.Drop.Web.Infrastructure.TagHelperRenderers.Subcomponents;
 using System.Threading.Tasks;
 
@@ -31,6 +32,12 @@ public sealed class DropSubcomponentsTagHelper(IDropSubcomponentsTagHelperRender
     /// </summary>
     [HtmlAttributeName("model")]
     public IReadOnlyCollection<ISubcomponent> Model { get; set; } = Array.Empty<ISubcomponent>();
+    
+    /// <summary>
+    /// Gets or sets the level.
+    /// </summary>
+    [HtmlAttributeName("level")]
+    public int Level { get; set; } = ComponentMetaDataBase.RootLevel;
 
     /// <summary>
     /// Gets or sets an optional section of where this subcomponent is rendered.
@@ -62,7 +69,7 @@ public sealed class DropSubcomponentsTagHelper(IDropSubcomponentsTagHelperRender
     public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
     {
         var theme = _themeHelper.GetValidTheme(Theme);
-        var rendererContext = new DropSubcomponentsTagHelperRendererContext(Model, theme, TagName, ViewContext, Section);
+        var rendererContext = new DropSubcomponentsTagHelperRendererContext(Model, Level, theme, TagName, ViewContext, Section);
 
         await _tagHelperRenderer.RenderAsync(rendererContext, context, output);
     }

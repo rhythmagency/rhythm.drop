@@ -37,7 +37,7 @@ public sealed class DropComponentsTagHelper(IDropComponentsTagHelperRenderer tag
     /// Gets or sets the level.
     /// </summary>
     [HtmlAttributeName("level")]
-    public int Level { get; set; } = ComponentMetaData.RootLevel;
+    public int Level { get; set; } = ComponentMetaDataBase.RootLevel;
 
     /// <summary>
     /// Gets or sets an optional section of where this component is rendered.

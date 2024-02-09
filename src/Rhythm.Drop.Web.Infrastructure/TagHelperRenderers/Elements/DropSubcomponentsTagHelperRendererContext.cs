@@ -7,10 +7,11 @@ using Rhythm.Drop.Models.Subcomponents;
 /// The context required to render a <see cref="IDropSubcomponentsTagHelperRenderer"/>
 /// </summary>
 /// <param name="Subcomponents">The subcomponents.</param>
+/// <param name="Level">The level.</param>
 /// <param name="Theme">The theme.</param>
 /// <param name="TagName">The optional tag name.</param>
 /// <param name="ViewContext">The view context</param>
 /// <param name="Section">The optional section of where this subcomponent is rendered.</param>
-public sealed record DropSubcomponentsTagHelperRendererContext(IReadOnlyCollection<ISubcomponent> Subcomponents, string Theme, string? TagName, ViewContext ViewContext, string? Section)
+public sealed record DropSubcomponentsTagHelperRendererContext(IReadOnlyCollection<ISubcomponent> Subcomponents, int Level, string Theme, string? TagName, ViewContext ViewContext, string? Section)
 {
 }

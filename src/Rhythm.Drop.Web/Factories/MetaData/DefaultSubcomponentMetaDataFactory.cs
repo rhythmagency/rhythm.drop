@@ -14,6 +14,7 @@ internal sealed class DefaultSubcomponentMetaDataFactory : DefaultMetaDataFactor
     {
         return [
             input.Subcomponent,
+            input.Level,
             input.Index,
             input.Total,
             input.Theme,

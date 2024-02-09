@@ -38,14 +38,14 @@ public sealed class DropComponentTagHelper(IDropComponentsTagHelperRenderer tagH
     /// Gets or sets the level.
     /// </summary>
     [HtmlAttributeName("level")]
-    public int Level { get; set; } = ComponentMetaData.RootLevel;
+    public int Level { get; set; } = ComponentMetaDataBase.RootLevel;
 
     /// <summary>
     /// Gets or sets the index.
     /// </summary>
     /// <remarks>This is useful if you want to manually render a collection of widgets.</remarks>
     [HtmlAttributeName("index")]
-    public int Index { get; set; } = CollectionMetaData.FirstItemIndex;
+    public int Index { get; set; } = ComponentMetaDataBase.FirstItemIndex;
 
     /// <summary>
     /// Gets or sets an optional section of where this component is rendered.

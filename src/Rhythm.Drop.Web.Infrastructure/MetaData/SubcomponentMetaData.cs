@@ -6,6 +6,7 @@ using Rhythm.Drop.Models.Subcomponents;
 /// <summary>
 /// An abstract non-generic type for Subcomponent Meta Data.
 /// </summary>
+/// <param name="Level">The level of the subcomponent.</param>
 /// <param name="Index">The index of the subcomponent within the current collection of subcomponents.</param>
 /// <param name="Total">The total number of subcomponents within the current collection of subcomponents.</param>
 /// <param name="Theme">The theme of the subcomponent.</param>
@@ -19,7 +20,7 @@ using Rhythm.Drop.Models.Subcomponents;
 /// It should not be used to create other types.
 /// </para>
 /// </remarks>
-public abstract record SubcomponentMetaData(int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : CollectionMetaData(Index, Total, Theme)
+public abstract record SubcomponentMetaData(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : ComponentMetaDataBase(Level, Index, Total, Theme, Attributes, Section)
 {
     /// <summary>
     /// Gets the subcomponent of the meta data.
