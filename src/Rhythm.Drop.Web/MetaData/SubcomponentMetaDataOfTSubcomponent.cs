@@ -15,7 +15,7 @@ using Rhythm.Drop.Web.Infrastructure.MetaData;
 /// <param name="Theme">The theme of the subcomponent.</param>
 /// <param name="Attributes">The attributes to be passed to the subcomponent.</param>
 /// <param name="Section">The optional section of where this subcomponent is rendered.</param>
-public sealed record SubcomponentMetaData<TSubcomponent>(TSubcomponent Subcomponent, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : SubcomponentMetaData(Index, Level, Total, Theme, Attributes, Section) where TSubcomponent : ISubcomponent
+public sealed record SubcomponentMetaData<TSubcomponent>(TSubcomponent Subcomponent, int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : SubcomponentMetaData(Level, Index, Total, Theme, Attributes, Section) where TSubcomponent : ISubcomponent
 {
     /// <inheritdoc/>
     public override ISubcomponent GetSubcomponent()
