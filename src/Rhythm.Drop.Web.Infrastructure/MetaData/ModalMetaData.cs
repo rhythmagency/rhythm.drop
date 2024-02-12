@@ -17,7 +17,7 @@ using Rhythm.Drop.Models.Modals;
 /// It should not be used to create other types.
 /// </para>
 /// </remarks>
-public abstract record ModalMetaData(string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme)
+public abstract record ModalMetaData(string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme, Section)
 {
     /// <summary>
     /// An abstract non-generic type for Modal Meta Data.

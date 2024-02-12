@@ -3,6 +3,6 @@
 /// <summary>
 /// An abstract object for creating meta data.
 /// </summary>
-public abstract record MetaData(string Theme)
+public abstract record MetaData(string Theme, string? Section)
 {
 }
