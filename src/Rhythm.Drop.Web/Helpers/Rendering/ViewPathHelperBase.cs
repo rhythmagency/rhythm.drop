@@ -22,11 +22,11 @@ public abstract class ViewPathHelperBase(IOptionsMonitor<RenderingOptions> optio
     {
         var options = _optionsMonitor.CurrentValue;
         var viewName = GetViewName(metaData);
-        var itemType = GetItemType(metaData);
+        var ViewType = GetViewType(metaData);
 
         return options.ViewPathPattern
             .Replace("{Theme}", metaData.Theme)
-            .Replace("{ItemType}", itemType)
+            .Replace("{ViewType}", ViewType)
             .Replace("{ViewName}", viewName);
     }
 
@@ -48,19 +48,19 @@ public abstract class ViewPathHelperBase(IOptionsMonitor<RenderingOptions> optio
     }
 
     /// <summary>
-    /// Gets the item type for the a given <see cref="MetaData"/>.
+    /// Gets the view type for the a given <see cref="MetaData"/>.
     /// </summary>
     /// <param name="metaData">The meta data.</param>
     /// <returns>A <see cref="string"/>.</returns>
     /// <exception cref="NotSupportedException">When an unsupported meta data is provided as the <paramref name="metaData"/>.</exception>
-    protected virtual string GetItemType(MetaData metaData)
+    protected virtual string GetViewType(MetaData metaData)
     {
         return metaData switch
         {
-            ComponentMetaData componentMetaData => GetComponentItemType(componentMetaData),
-            SubcomponentMetaData subcomponentMetaData => GetSubcomponentItemType(subcomponentMetaData),
-            ModalMetaData modalMetaData => GetModalItemType(modalMetaData),
-            _ => throw new NotSupportedException($"Unable to get item type for metadata type {metaData.GetType()}")
+            ComponentMetaData componentMetaData => GetComponentViewType(componentMetaData),
+            SubcomponentMetaData subcomponentMetaData => GetSubcomponentViewType(subcomponentMetaData),
+            ModalMetaData modalMetaData => GetModalViewType(modalMetaData),
+            _ => throw new NotSupportedException($"Unable to get view type for metadata type {metaData.GetType()}")
         };
     }
 
@@ -95,33 +95,33 @@ public abstract class ViewPathHelperBase(IOptionsMonitor<RenderingOptions> optio
     }
 
     /// <summary>
-    /// Gets the item type for a given <see cref="ComponentMetaData"/>.
+    /// Gets the view type for a given <see cref="ComponentMetaData"/>.
     /// </summary>
     /// <param name="metaData">The meta data</param>
     /// <returns>A <see cref="string"/>.</returns>
-    protected virtual string GetComponentItemType(ComponentMetaData metaData)
+    protected virtual string GetComponentViewType(ComponentMetaData metaData)
     {
-        return _optionsMonitor.CurrentValue.ItemTypes.Components;
+        return _optionsMonitor.CurrentValue.ViewTypes.Components;
     }
 
     /// <summary>
-    /// Gets the item type for a given <see cref="ModalMetaData"/>.
+    /// Gets the view type for a given <see cref="ModalMetaData"/>.
     /// </summary>
     /// <param name="metaData">The meta data</param>
     /// <returns>A <see cref="string"/>.</returns>
-    protected virtual string GetModalItemType(ModalMetaData metaData)
+    protected virtual string GetModalViewType(ModalMetaData metaData)
     {
-        return _optionsMonitor.CurrentValue.ItemTypes.Modals;
+        return _optionsMonitor.CurrentValue.ViewTypes.Modals;
     }
 
     /// <summary>
-    /// Gets the item type for a given <see cref="SubcomponentMetaData"/>.
+    /// Gets the view type for a given <see cref="SubcomponentMetaData"/>.
     /// </summary>
     /// <param name="metaData">The meta data</param>
     /// <returns>A <see cref="string"/>.</returns>
-    protected virtual string GetSubcomponentItemType(SubcomponentMetaData metaData)
+    protected virtual string GetSubcomponentViewType(SubcomponentMetaData metaData)
     {
-        return _optionsMonitor.CurrentValue.ItemTypes.Subcomponents;
+        return _optionsMonitor.CurrentValue.ViewTypes.Subcomponents;
     }
 }
 

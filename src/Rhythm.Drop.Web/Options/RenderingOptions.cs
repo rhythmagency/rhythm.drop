@@ -19,10 +19,10 @@ public sealed class RenderingOptions
     /// <summary>
     /// Gets or sets the pattern to find a view.
     /// </summary>
-    public string ViewPathPattern { get; set; } = "~/Views/Drop/{Theme}/{ItemType}/{ViewName}.cshtml";
+    public string ViewPathPattern { get; set; } = "~/Views/Drop/{Theme}/{ViewType}/{ViewName}.cshtml";
 
     /// <summary>
-    /// Gets or sets the item types.
+    /// Gets or sets the view types.
     /// </summary>
-    public RenderingItemTypeOptions ItemTypes { get; set; } = new RenderingItemTypeOptions();
+    public RenderingViewTypeOptions ViewTypes { get; set; } = new RenderingViewTypeOptions();
 }
