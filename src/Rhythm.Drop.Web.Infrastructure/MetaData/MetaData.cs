@@ -1,11 +1,12 @@
 ﻿namespace Rhythm.Drop.Web.Infrastructure.MetaData;
 
+using Rhythm.Drop.Models.Common.Attributes;
 using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
 /// An abstract object for creating meta data.
 /// </summary>
-public abstract record MetaData(string Theme, string? Section)
+public abstract record MetaData(string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section)
 {
     /// <summary>
     /// Checks if the meta data has a value for <see cref="Section"/>.

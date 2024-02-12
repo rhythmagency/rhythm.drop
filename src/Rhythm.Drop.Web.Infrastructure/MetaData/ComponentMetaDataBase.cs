@@ -11,7 +11,7 @@ using Rhythm.Drop.Models.Common.Attributes;
 /// <param name="Theme">The theme of the meta data.</param>
 /// <param name="Attributes">The additional HTML attributes.</param>
 /// <param name="Section">The optional section of where this component is rendered.</param>
-public abstract record ComponentMetaDataBase(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme, Section)
+public abstract record ComponentMetaDataBase(int Level, int Index, int Total, string Theme, IReadOnlyHtmlAttributeCollection Attributes, string? Section) : MetaData(Theme, Attributes, Section)
 {
     private readonly int _humanReadableIndex = Index + 1;
 
